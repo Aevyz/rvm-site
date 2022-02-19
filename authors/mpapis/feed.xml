@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <id>https://aevyz.github.io/rvm-site//</id>
+  <id>https://aevyz.github.io/rvm-site/</id>
   <title>RVM blog author mpapis</title>
   <updated>2017-02-19T19:39:00Z</updated>
-  <link rel="alternate" href="https://aevyz.github.io/rvm-site//"/>
-  <link rel="self" href="https://aevyz.github.io/rvm-site//authors/mpapis/feed.xml"/>
+  <link rel="alternate" href="https://aevyz.github.io/rvm-site/"/>
+  <link rel="self" href="https://aevyz.github.io/rvm-site/authors/mpapis/feed.xml"/>
   <author>
     <name>Michal Papis</name>
     <uri>https://rvm.io</uri>
   </author>
   <entry>
-    <id>tag:aevyz.github.io,2017-02-19:/rvm-site//blog/2017/02/rvm-1-29-1/</id>
+    <id>tag:aevyz.github.io,2017-02-19:/rvm-site/blog/2017/02/rvm-1-29-1/</id>
     <title type="html">RVM 1.29.1 released</title>
     <published>2017-02-19T19:39:00Z</published>
     <updated>2017-02-19T19:39:00Z</updated>
-    <link rel="alternate" href="https://aevyz.github.io/rvm-site//blog/2017/02/rvm-1-29-1/"/>
+    <link rel="alternate" href="https://aevyz.github.io/rvm-site/blog/2017/02/rvm-1-29-1/"/>
     <content type="html">&lt;p&gt;RVM 1.29.1 released with few bug fixes.&lt;/p&gt;
 
 &lt;!-- more --&gt;
@@ -37,11 +37,11 @@
 </content>
   </entry>
   <entry>
-    <id>tag:aevyz.github.io,2017-02-12:/rvm-site//blog/2017/02/rvm-1-29-0/</id>
+    <id>tag:aevyz.github.io,2017-02-12:/rvm-site/blog/2017/02/rvm-1-29-0/</id>
     <title type="html">RVM 1.29.0 released</title>
     <published>2017-02-12T22:32:00Z</published>
     <updated>2017-02-12T22:32:00Z</updated>
-    <link rel="alternate" href="https://aevyz.github.io/rvm-site//blog/2017/02/rvm-1-29-0/"/>
+    <link rel="alternate" href="https://aevyz.github.io/rvm-site/blog/2017/02/rvm-1-29-0/"/>
     <content type="html">&lt;p&gt;RVM 1.29.0 released with multiple security fixes! New rubies and binaries, few new features and a lot of bug fixes.&lt;/p&gt;
 
 &lt;p&gt;Justin Steven uncovered few security issues, they all are fixed now.
@@ -131,11 +131,11 @@ and let us know what it is.&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <id>tag:aevyz.github.io,2015-02-15:/rvm-site//blog/2015/02/maintainers-needed-for-rvm1/</id>
+    <id>tag:aevyz.github.io,2015-02-15:/rvm-site/blog/2015/02/maintainers-needed-for-rvm1/</id>
     <title type="html">Maintainers needed for RVM 1</title>
     <published>2015-02-15T19:00:00Z</published>
     <updated>2015-02-15T19:00:00Z</updated>
-    <link rel="alternate" href="https://aevyz.github.io/rvm-site//blog/2015/02/maintainers-needed-for-rvm1/"/>
+    <link rel="alternate" href="https://aevyz.github.io/rvm-site/blog/2015/02/maintainers-needed-for-rvm1/"/>
     <content type="html">&lt;h1&gt;Maintainers needed for RVM 1&lt;/h1&gt;
 
 &lt;p&gt;I have started changes in my life, you can read more here:
@@ -170,11 +170,11 @@ with a little time to spare just let them know about &lt;a href="https://github.
 </content>
   </entry>
   <entry>
-    <id>tag:aevyz.github.io,2015-02-02:/rvm-site//blog/2015/02/rvm-1-26-10/</id>
+    <id>tag:aevyz.github.io,2015-02-02:/rvm-site/blog/2015/02/rvm-1-26-10/</id>
     <title type="html">RVM 1.26.10 released</title>
     <published>2015-02-02T15:07:00Z</published>
     <updated>2015-02-02T15:07:00Z</updated>
-    <link rel="alternate" href="https://aevyz.github.io/rvm-site//blog/2015/02/rvm-1-26-10/"/>
+    <link rel="alternate" href="https://aevyz.github.io/rvm-site/blog/2015/02/rvm-1-26-10/"/>
     <content type="html">&lt;p&gt;RVM 1.26.10 released, new ruby versions.&lt;/p&gt;
 
 &lt;!-- more --&gt;
@@ -201,11 +201,11 @@ with a little time to spare just let them know about &lt;a href="https://github.
 </content>
   </entry>
   <entry>
-    <id>tag:aevyz.github.io,2015-01-07:/rvm-site//blog/2015/01/rvm-1-26-9/</id>
+    <id>tag:aevyz.github.io,2015-01-07:/rvm-site/blog/2015/01/rvm-1-26-9/</id>
     <title type="html">RVM 1.26.8 and 1.26.9 released</title>
     <published>2015-01-07T10:58:00Z</published>
     <updated>2015-01-07T10:58:00Z</updated>
-    <link rel="alternate" href="https://aevyz.github.io/rvm-site//blog/2015/01/rvm-1-26-9/"/>
+    <link rel="alternate" href="https://aevyz.github.io/rvm-site/blog/2015/01/rvm-1-26-9/"/>
     <content type="html">&lt;p&gt;RVM 1.26.8 and 1.26.9 released, fixes for ruby 2.2, improved loading project files and more fixes.&lt;/p&gt;
 
 &lt;!-- more --&gt;

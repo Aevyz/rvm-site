@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <id>https://aevyz.github.io/rvm-site//</id>
+  <id>https://aevyz.github.io/rvm-site/</id>
   <title>RVM blog tag sponsorship</title>
   <updated>2017-05-20T19:39:00Z</updated>
-  <link rel="alternate" href="https://aevyz.github.io/rvm-site//"/>
-  <link rel="self" href="https://aevyz.github.io/rvm-site//tags/sponsorship/feed.xml"/>
+  <link rel="alternate" href="https://aevyz.github.io/rvm-site/"/>
+  <link rel="self" href="https://aevyz.github.io/rvm-site/tags/sponsorship/feed.xml"/>
   <author>
     <name>Michal Papis</name>
     <uri>https://rvm.io</uri>
   </author>
   <entry>
-    <id>tag:aevyz.github.io,2017-05-20:/rvm-site//blog/2017/04/timely/</id>
+    <id>tag:aevyz.github.io,2017-05-20:/rvm-site/blog/2017/04/timely/</id>
     <title type="html">Timely</title>
     <published>2017-05-20T19:39:00Z</published>
     <updated>2017-05-20T19:39:00Z</updated>
-    <link rel="alternate" href="https://aevyz.github.io/rvm-site//blog/2017/04/timely/"/>
+    <link rel="alternate" href="https://aevyz.github.io/rvm-site/blog/2017/04/timely/"/>
     <content type="html">&lt;p&gt;RVM receives sponsored account at Timely&lt;/p&gt;
 
 &lt;p&gt;After receiving &lt;a href="/blog/2017/03/toptal-grant"&gt;financial grant from Toptal&lt;/a&gt;, we are obliged to record our time spent on RVM. When seeking for the best time tracking software, we stumbled upon &lt;a href="https://timelyapp.com"&gt;Timely&lt;/a&gt;. It felt like the most convenient and good looking application, which perfectly suited our needs. Unfortunately, their free plan did not cover teams.&lt;/p&gt;
@@ -30,11 +30,11 @@
 </content>
   </entry>
   <entry>
-    <id>tag:aevyz.github.io,2017-03-20:/rvm-site//blog/2017/03/toptal-grant/</id>
+    <id>tag:aevyz.github.io,2017-03-20:/rvm-site/blog/2017/03/toptal-grant/</id>
     <title type="html">Toptal Grant</title>
     <published>2017-03-20T19:39:00Z</published>
     <updated>2017-03-20T19:39:00Z</updated>
-    <link rel="alternate" href="https://aevyz.github.io/rvm-site//blog/2017/03/toptal-grant/"/>
+    <link rel="alternate" href="https://aevyz.github.io/rvm-site/blog/2017/03/toptal-grant/"/>
     <content type="html">&lt;p&gt;RVM received a grant from Toptal!&lt;/p&gt;
 
 &lt;p&gt;We are happy to announce that we received a financial grant from &lt;a href="https://www.toptal.com/#get-effective-engineers-today"&gt;Toptal&lt;/a&gt;, which would sponsor our work on RVM for the next 6 months.&lt;/p&gt;
