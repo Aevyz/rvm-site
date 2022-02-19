@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      RVM: Ruby Version Manager -
+      Textmate Integration with RVM
+    </title>
+    <link href='/css/screen.css' media='screen' rel='stylesheet' type='text/css'>
+    <link href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' rel='stylesheet' type='text/css'>
+    <link href='/css/algolia-docsearch.css' rel='stylesheet' type='text/css'>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <meta content='w2V78a6cwiHD5Gm8yvlTP21xZ1YgVguDdC0JGDEA2d0' name='google-site-verification'>
+    
+  </head>
+  <body>
+    <div id='heaven'></div>
+    <div id='container'>
+      <div id='logo'>
+        <a href='/'>
+          <img alt='RVM Logo' src='/images/logo.png'>
+        </a>
+      </div>
+      <div id='support'>
+        <div class='title'>Support</div>
+        <div class='text'>
+          RVM is maintained by community of volunteers, report issues to
+          <a href='https://github.com/rvm/rvm/issues'>
+            RVM issues tracker.
+          </a>
+          <div class='more'>
+            If you can help or wish to become one of the maintainers - just start helping.
+            You can find more RVM related projects at
+            <a href='https://github.com/rvm'>
+              RVM GitHub organization.
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id='donate'>
+        <div class='title'>Donation</div>
+        <div class='text'>
+          Love RVM? Help us maintain RVM, a donation can help with it.
+          Want to help in other way, want to be a sponsor?
+          <div class='more'>
+            contact:
+            <a href='mailto:mpapis@gmail.com'>
+              Michal Papis
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id='sponsors'>
+        <div class='title'>Sponsors</div>
+        <div class='logo long'>
+          <a href='https://www.fastly.com/'>
+            <img alt='Fastly' height='50' src='/images/fastly_logo-01.png'>
+          </a>
+        </div>
+      </div>
+      <div id='carbon_ads_box'>
+        <div class='title'>Carbon Ads</div>
+        <script async='async' id='_carbonads_js' src='https://cdn.carbonads.com/carbon.js?zoneid=1673&amp;serve=C6AILKT&amp;placement=rvmio' type='text/javascript'></script>
+      </div>
+      <div class='clear'></div>
+      <div id='content'>
+        <a id='top'></a>
+        <div class='breadcrumbs'><a href="/">Documentation</a>&nbsp;&gt;&nbsp;<a href="/integration/">Integration</a>&nbsp;&gt;&nbsp;<a href="/integration/textmate/">TextMate</a><hr /></div>
+        <h2>TextMate</h2>
+        <p>
+          It is possible to support RVM gemsets in TextMate using the TM_RUBY environment variable.
+          Currently, RVM has two possible configurations out of the box - One, rvm-auto-ruby, that supports
+          automatically detecting the ruby based on the .rvmrc (where possible) and another using
+          RVM's built in wrapper functionality to generate  a binary for a fixed ruby version.
+        </p>
+        <p>
+          For both of them, it's important to be up to date first - in recent versions, you can do this
+          using the following command:
+          <pre class='code code-shell-cmd' title='triple click to select command'>rvm get head</pre>
+        </p>
+        <p>
+          You should also choose a default Ruby, for example to set 1.9.2 as your default
+          <pre class='code code-shell-cmd' title='triple click to select command'>rvm --default use 1.9.2</pre>
+        </p>
+        <h3>The rvm-auto-ruby approach</h3>
+        <p>
+          Out of the box, rvm ships with a ruby binary, typically in ~/.rvm/bin (or, in system wide installs,
+          inside of /usr/local/bin), that will perform the following steps before executing ruby:
+        </p>
+        <ol>
+          <li>Load up RVM</li>
+          <li>Look for any RVMRC files and load them</li>
+          <li>Execute as a normal ruby</li>
+        </ol>
+        <p>
+          This approach makes it possible to have the ruby switched on a per-project basis without any extra work.
+          With rvm installed, this is a matter of taking the full path to rvm-auto-ruby, found via:
+        </p>
+        <pre class='code code-shell-cmd' title='triple click to select command'>which rvm-auto-ruby</pre>
+        <p>
+          And in the advanced section of the textmate preferences, either adding or changing the TM_RUBY
+          variable to point to the given path, like shown in
+          <a href='http://cl.ly/23Yl'>this screenshot</a>
+          with an example installation.
+        </p>
+        <h3>The RVM wrapper approach</h3>
+        <p>
+          If you want your TextMate install to always use a single ruby and gemset combination, you'll
+          instead need to use the rvm wrapper approach. This generates a ruby binary that can used
+          by TextMate. To use this approach, first decide the ruby and gemset combination which you wish
+          to use. In our example, we'll go with <pre class='code'>rbx@rails3</pre> (Anything that can
+          be parsed by rvm use, e.g. ree, 1.8.7, 1.9.2@ninja-attack, will work with the wrapper command).
+        </p>
+        <p>
+          Next, you'll need to generate a command. The general structure of the rvm wrapper command is
+          <pre class='code code-shell-cmd' title='triple click to select command'>rvm wrapper [ruby_string] [wrapper_prefix]</pre>
+        </p>
+        <p>
+          In our case, we thus run:
+          <pre class='code code-shell-cmd' title='triple click to select command'>rvm wrapper rbx@rails3 textmate</pre>
+        </p>
+        <p>
+          This command will create a file in your rvm bin path (as mentioned earlier), called <pre class='code'>textmate_ruby</pre>
+          which we can for the value of TM_RUBY. So, opening up TextMate and going to the advanced panel of the textmate
+          preferences, add or change the TM_RUBY variable to the output of running <pre class='code'>which textmate_ruby</pre>
+          on the command line (e.g. /Users/wayne/.rvm/textmate_ruby).
+        </p>
+        <p>
+          Now quit textmate and re-open it for bundles and TM_RUBY settings to take effect.
+        </p>
+        <h3>Testing out your wrapper</h3>
+        <p>
+          You can now test if it is working by following these steps
+          <ol>
+            <li>Open a new document</li>
+            <li>
+              Put this code in the new document
+              <pre class='code'>puts RUBY_DESCRIPTION&#x000A;</pre>
+            </li>
+            <li>Save the file as 'ruby_test.rb'</li>
+            <li>Press Command + R to run the ruby</li>
+          </ol>
+          If you see something like this "ruby 1.9.1p378 (2010-01-10 revision 26273) [i386-darwin10.2.0]"
+          most importantly the 'ruby 1.9.1' part then it is working as expected.
+        </p>
+        <p>
+          When you wish to switch out the ruby version that textmate uses by default,
+          you can change your default RVM ruby version as follows
+          <pre class='code'>$ rvm use rbx@rails3 --default&#x000A;</pre>
+          RVM will also switch out the ruby version and gemset based on each project's .rvmrc file
+        </p>
+        <h3>Automating the wrapper command</h3>
+        <p>
+          If you wish for TextMate's Ruby to switch each time rvm changes the current Ruby, then you can
+          enable the "after_use_textmate" hook in rvm's hooks directory by making the script file executable:
+          <pre class='code'>$ cd ~/.rvm/hooks&#x000A;$ chmod +x after_use_textmate&#x000A;</pre>
+        </p>
+        <p>
+          Now, when you switch into a project directory and rvm auto-switches Ruby, TextMate will be ready to Run
+          with the now current binaries.  Just be mindful of the side-effects of switching to directories of projects
+          other than the principal project you're working on as TextMate's Ruby environment will change accordingly!
+        </p>
+        <h3>Making sure TextMate is up to date</h3>
+        <p>
+          Next, make your textmate is latest version and run the following script to update all your the bundles
+          <pre class='code'>#!/usr/bin/env bash&#x000A;&#x000A;mkdir -p /Library/Application\ Support/TextMate/&#x000A;&#x000A;sudo chown -R $(whoami) /Library/Application\ Support/TextMate&#x000A;&#x000A;cd /Library/Application\ Support/TextMate/&#x000A;&#x000A;if [[ -d Bundles/.svn ]] ; then&#x000A;  cd Bundles && svn up&#x000A;else&#x000A;  if [[ -d Bundles ]] ; then&#x000A;    mv Bundles Bundles.old&#x000A;  fi&#x000A;  svn co http://svn.textmate.org/trunk/Bundles&#x000A;fi&#x000A;&#x000A;exit 0&#x000A;</pre>
+        </p>
+        <h2>Notes</h2>
+        <p>
+          To change the TM_RUBY shell variable, In TextMate use the menu to navigate to:
+          <pre class='code'>Textmate | Preferences | Advanced | Shell Variables&#x000A;&#x000A;</pre>
+        </p>
+        <p>
+          If you have issues, you may need to change the bundler Builder.rb in TextMate. Since TextMate will use it's own builder,
+          by removing it, we can use TM_RUBY as specified above (Thanks Seivan Heidari!):
+        </p>
+        <pre class='code'>cd /Applications/TextMate.app/Contents/SharedSupport/Support/lib/ ; mv Builder.rb Builder.rb.backup&#x000A;</pre>
+        <p>
+          If you need to update osx-plist for Ruby 1.9.X compatibility, this might be of some use:
+        </p>
+        <pre class='code'>git clone git://github.com/kballard/osx-plist.git&#x000A;cd osx-plist/ext/plist&#x000A;ruby extconf.rb && make&#x000A;cp plist.bundle /Applications/TextMate.app/Contents/SharedSupport/Support/lib/osx/&#x000A;</pre>
+        <p>
+          If you have issues with Ruby 1.9+, namely:
+        </p>
+        <pre class='code'>  ruby:0:in `require': /Users/someuserhere/Library/Application Support/TextMate/Bundles/Ruby.tmbundle/Support/RubyMate/catch_exception.rb:13: invalid multibyte char (US-ASCII) (SyntaxError)&#x000A;</pre>
+        <p>
+          You either need to check for updated versions of your bundles or manually edit the file in question, adding the following at the top of the file:
+        </p>
+        <pre class='code'># encoding: utf-8&#x000A;</pre>
+        <p>
+          Which forces Ruby to read the file with the correct text encoding, allowing multibyte characters.
+          The alternative solution is to for ruby 1.9.X to always be run in UTF-8 mode when called via textmate_ruby.
+          To do this, edit the textmate_ruby file and replace the line containing:
+        </p>
+        <pre class='code'>exec ruby "$@"&#x000A;</pre>
+        <p>
+          With a new line containing:
+        </p>
+        <pre class='code'>exec ruby -wKU "$@"&#x000A;</pre>
+        <h2>
+          Miscellaneous
+        </h2>
+        <p>
+          You can create a shell function to open a project directory with files excluded.
+          Here is a simple example of this idea:
+        </p>
+        <script src='https://gist.github.com/762023.js?file=gistfile1.sh'></script>
+        <p>
+          The above function code (minus the first line) is placed in your dotfiles or
+          ~/.bash_profile if you do not maintain dotifiles.
+        </p>
+        <a id='bottom'></a>
+      </div>
+      <div id='docindex'>
+        <div class='headline'>
+          <a style="color: red;" href="/">RVM Documentation Index</a>
+          |
+          <a href="/blog/">RVM Blog</a>
+        </div>
+        <div class='headline'>
+          <label for="docsearch-input">Search:</label>
+          <input id="docsearch-input" type="text" />
+        </div>
+        <div class='column'>
+          <a href="/rvm/">RVM</a>
+          <ul><li><a href="/rvm/about/">About</a></li>
+          <li><a href="/rvm/autolibs/">Autolibs</a></li>
+          <li><a href="/rvm/basics/">Basics</a></li>
+          <li><a href="/rvm/best-practices/">Best Practices</a></li>
+          <li><a href="/rvm/cli/">Cli</a></li>
+          <li><a href="/rvm/configuration/">Configuration</a></li>
+          <li><a href="/rvm/info/">Info</a></li>
+          <li><a href="/rvm/install/">Install</a></li>
+          <li><a href="/rvm/myths/">Myths</a></li>
+          <li><a href="/rvm/offline/">Offline</a></li>
+          <li><a href="/rvm/prerequisites/">Prerequisites</a></li>
+          <li><a href="/rvm/security/">Security</a></li>
+          <li><a href="/rvm/upgrading/">Upgrading</a></li></ul>
+          <a href='/interpreters/'>Interpreters</a>
+          <ul>
+            <li>
+              <a href='/interpreters/ruby/'>MRI/YARV (ruby)</a>
+            </li>
+            <li>
+              <a href='/interpreters/jruby/'>JRuby (jruby)</a>
+            </li>
+            <li>
+              <a href='/interpreters/rbx/'>Rubinius (rbx)</a>
+            </li>
+          </ul>
+          <a href="/rubies/">Rubies</a>
+          <ul><li><a href="/rubies/alias/">Alias</a></li>
+          <li><a href="/rubies/default/">Default</a></li>
+          <li><a href="/rubies/docs/">Docs</a></li>
+          <li><a href="/rubies/info/">Info</a></li>
+          <li><a href="/rubies/installing/">Installing</a></li>
+          <li><a href="/rubies/list/">List</a></li>
+          <li><a href="/rubies/named/">Named</a></li>
+          <li><a href="/rubies/patching/">Patching</a></li>
+          <li><a href="/rubies/removing/">Removing</a></li>
+          <li><a href="/rubies/rubygems/">Rubygems</a></li>
+          <li><a href="/rubies/strings/">Strings</a></li>
+          <li><a href="/rubies/uninstalling/">Uninstalling</a></li>
+          <li><a href="/rubies/upgrading/">Upgrading</a></li></ul>
+        </div>
+        <div class='column'>
+          <a href="/gemsets/">Gemsets</a>
+          <ul><li><a href="/gemsets/basics/">Basics</a></li>
+          <li><a href="/gemsets/clear/">Clear</a></li>
+          <li><a href="/gemsets/copying/">Copying</a></li>
+          <li><a href="/gemsets/creating/">Creating</a></li>
+          <li><a href="/gemsets/deleting/">Deleting</a></li>
+          <li><a href="/gemsets/emptying/">Emptying</a></li>
+          <li><a href="/gemsets/exporting/">Exporting</a></li>
+          <li><a href="/gemsets/global/">Global</a></li>
+          <li><a href="/gemsets/ignoring/">Ignoring</a></li>
+          <li><a href="/gemsets/importing/">Importing</a></li>
+          <li><a href="/gemsets/initial/">Initial</a></li>
+          <li><a href="/gemsets/listing/">Listing</a></li>
+          <li><a href="/gemsets/using/">Using</a></li></ul>
+          <a href='/set/'>Set Actions</a>
+          <ul>
+            <li>
+              <a href='/set/do/'>do</a>
+            </li>
+            <li>
+              <a href='/set/tests/'>tests</a>
+            </li>
+            <li>
+              <a href='/set/benchmark/'>benchmark</a>
+            </li>
+          </ul>
+          <a href="/workflow/">Workflow</a>
+          <ul><li><a href="/workflow/chruby/">Chruby</a></li>
+          <li><a href="/workflow/completion/">Completion</a></li>
+          <li><a href="/workflow/examples/">Examples</a></li>
+          <li><a href="/workflow/hooks/">Hooks</a></li>
+          <li><a href="/workflow/irbrc/">Irbrc</a></li>
+          <li><a href="/workflow/projects/">Projects</a></li>
+          <li><a href="/workflow/prompt/">Prompt</a></li>
+          <li><a href="/workflow/proxy/">Proxy</a></li>
+          <li><a href="/workflow/rvmrc/">Rvmrc</a></li>
+          <li><a href="/workflow/screen/">Screen</a></li>
+          <li><a href="/workflow/scripting/">Scripting</a></li>
+          <li><a href="/workflow/subshells/">Subshells</a></li></ul>
+          <a href="/deployment/">Deployment</a>
+          <ul><li><a href="/deployment/best-practices/">Best Practices</a></li>
+          <li><a href="/deployment/capistrano/">Capistrano</a></li>
+          <li><a href="/deployment/chef/">Chef</a></li>
+          <li><a href="/deployment/cron/">Cron</a></li>
+          <li><a href="/deployment/god/">God</a></li>
+          <li><a href="/deployment/init-d/">Init D</a></li>
+          <li><a href="/deployment/passenger/">Passenger</a></li></ul>
+        </div>
+        <div class='column'>
+          <a href="/integration/">Integration</a>
+          <ul><li><a href="/integration/bundler/">Bundler</a></li>
+          <li><a href="/integration/capistrano/">Capistrano</a></li>
+          <li><a href="/integration/chef/">Chef</a></li>
+          <li><a href="/integration/cron/">Cron</a></li>
+          <li><a href="/integration/culerity/">Culerity</a></li>
+          <li><a href="/integration/databases/">Databases</a></li>
+          <li><a href="/integration/emacs/">Emacs</a></li>
+          <li><a href="/integration/engineyard/">Engineyard</a></li>
+          <li><a href="/integration/fish/">Fish</a></li>
+          <li><a href="/integration/gnome-terminal/">Gnome Terminal</a></li>
+          <li><a href="/integration/god/">God</a></li>
+          <li><a href="/integration/heroku/">Heroku</a></li>
+          <li><a href="/integration/init-d/">Init D</a></li>
+          <li><a href="/integration/jenkins/">Jenkins</a></li>
+          <li><a href="/integration/konsole/">Konsole</a></li>
+          <li><a href="/integration/lxterminal/">Lxterminal</a></li>
+          <li><a href="/integration/macports-before-autolibs/">Macports Before Autolibs</a></li>
+          <li><a href="/integration/macports/">Macports</a></li>
+          <li><a href="/integration/memprof/">Memprof</a></li>
+          <li><a href="/integration/passenger/">Passenger</a></li>
+          <li><a href="/integration/pow/">Pow</a></li>
+          <li><a href="/integration/qtruby/">Qtruby</a></li>
+          <li><a href="/integration/scripting/">Scripting</a></li>
+          <li><a href="/integration/simple-terminal/">Simple Terminal</a></li>
+          <li><a href="/integration/sketchup/">Sketchup</a></li>
+          <li><a href="/integration/sudo/">Sudo</a></li>
+          <li><a href="/integration/teamcity/">Teamcity</a></li>
+          <li><a href="/integration/textmate/">Textmate</a></li>
+          <li><a href="/integration/tk/">Tk</a></li>
+          <li><a href="/integration/ubuntu-on-windows/">Ubuntu On Windows</a></li>
+          <li><a href="/integration/vagrant/">Vagrant</a></li>
+          <li><a href="/integration/vim/">Vim</a></li>
+          <li><a href="/integration/xterm/">Xterm</a></li>
+          <li><a href="/integration/zsh/">Zsh</a></li></ul>
+        </div>
+        <div class='column'>
+          <a href='/packages/'>Packages</a>
+          <a href='/presentations/'>Presentations</a>
+          <ul>
+            <li>
+              <a href='http://www.confreaks.com/videos/3-mwrc2010-managing-ruby-projects-with-rvm'>MWRC 2010</a>
+            </li>
+            <li>
+              <a href='http://confreaks.tv/videos/railsconf2012-rvm-essential-rails-development-tools'>RailsConf 2012</a>
+            </li>
+            <li>
+              <a href='http://confreaks.tv/videos/railsconf2013-developing-rails-apps-in-technical-isolation'>RailsConf 2013</a>
+            </li>
+            <li>
+              <a href='http://thechangelog.com/66/'>Changelog 66 with Wayne</a>
+            </li>
+            <li>
+              <a href='http://www.youtube.com/watch?v=wN-iIC3S1ZM'>RVM 2: Lessons and future</a>
+            </li>
+            <li>
+              <a href='http://www.youtube.com/watch?v=gYNht8H24ZQ'>RVM 2: Python Version Manager</a>
+            </li>
+            <li>
+              <a href='http://thechangelog.com/102/'>Changelog 102 with Michal</a>
+            </li>
+          </ul>
+          <a href='/support/'>Help &amp; Support</a>
+          <ul>
+            <li>
+              <a href='/support/irc/'>Issues tracker</a>
+            </li>
+            <li>
+              <a href='/support/faq/'>FAQ &amp; Notes</a>
+            </li>
+            <li>
+              <a href='/support/troubleshooting/'>Troubleshooting</a>
+            </li>
+            <li>
+              <a href='/support/fixing-broken-ssl-certificates/'>Fixing Broken SSL Certificates</a>
+            </li>
+          </ul>
+          <a href="/qa/">Quality Assurance</a>
+          <ul><li><a href="/qa/software_testing/">Software_testing</a></li></ul>
+          <a href="/development/">Development</a>
+          <ul><li><a href="/development/contributing/">Contributing</a></li>
+          <li><a href="/development/debugging/">Debugging</a></li>
+          <li><a href="/development/github/">Github</a></li>
+          <li><a href="/development/list/">List</a></li></ul>
+          <a href='/credits/'>Credits</a>
+          <ul>
+            <li>
+              <a href='/credits/thanks/'>Contributions</a>
+            </li>
+            <li>
+              <a href='/credits/donations/'>Donations</a>
+            </li>
+            <li>
+              <a href='/credits/funding/'>Funding</a>
+            </li>
+          </ul>
+        </div>
+        <div class='clear'></div>
+      </div>
+    </div>
+    <div id='footer'>
+      <div id='footer-container'>
+        &infin;
+        Copyright
+        &copy; 2009-2011
+        <a href='https://github.com/wayneeseguin'>Wayne E. Seguin</a>
+        &copy; 2011-2017
+        <a href='https://github.com/mpapis'>Michal Papis</a>
+        &copy; 2016-2017
+        <a href='https://github.com/pkuczynski'>Piotr Kuczynski</a>
+        &infin;
+        Built with
+        <a href='http://nanoc.ws'>Nanoc</a>
+        &infin;
+        Cached by
+        <a href='https://www.fastly.com/'>Fastly</a>
+        &infin;
+        Tested by
+        <a href='http://www.travis-ci.org/'>Travis CI</a>
+      </div>
+      <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+      <script>
+        google.load('search', '1', {language : 'en', style : google.loader.themes.SHINY});
+        google.setOnLoadCallback(function() {
+          var customSearchControl = new google.search.CustomSearchControl('012125088244772422662:eplzzxbbjte');
+          customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+          customSearchControl.draw('cse');
+        }, true);
+      </script>
+      <script src="https://www.google.com/jsapi?key=ABQIAAAAlfGITCLCzrcO4cy2viT78RSZcRLSY2B0NYnmYEy-3gaXzTHyQxRduJj7nQ6rEtYNpUjIQpEEosF5XA" type="text/javascript"></script>&#x000A;<script src="/javascripts/site.js" type="text/javascript"></script>
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-24992786-1', 'rvm.io'); // owner unknown :(
+        ga('send', 'pageview');
+        ga('create', 'UA-45354940-1', 'rvm.io', {'name': 'ga_mpapis'}); // owner mpapis@gmail.com
+        ga('ga_mpapis.send', 'pageview');
+      </script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+      <script>
+        docsearch({
+        apiKey: '511953e6f628103639db56a6f0f96977',
+        indexName: 'rvm',
+        inputSelector: '#docsearch-input',
+        debug: false // Set debug to true if you want to inspect the dropdown
+        });
+      </script>
+    </div>
+  </body>
+</html>

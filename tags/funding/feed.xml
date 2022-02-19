@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://rvm.io/</id>
+  <title>RVM blog tag funding</title>
+  <updated>2017-03-20T19:39:00Z</updated>
+  <link rel="alternate" href="https://rvm.io/"/>
+  <link rel="self" href="https://rvm.io/tags/funding/feed.xml"/>
+  <author>
+    <name>Michal Papis</name>
+    <uri>https://rvm.io</uri>
+  </author>
+  <entry>
+    <id>tag:rvm.io,2017-03-20:/blog/2017/03/toptal-grant/</id>
+    <title type="html">Toptal Grant</title>
+    <published>2017-03-20T19:39:00Z</published>
+    <updated>2017-03-20T19:39:00Z</updated>
+    <link rel="alternate" href="https://rvm.io/blog/2017/03/toptal-grant/"/>
+    <content type="html">&lt;p&gt;RVM received a grant from Toptal!&lt;/p&gt;
+
+&lt;p&gt;We are happy to announce that we received a financial grant from &lt;a href="https://www.toptal.com/#get-effective-engineers-today"&gt;Toptal&lt;/a&gt;, which would sponsor our work on RVM for the next 6 months.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;p&gt;&lt;a href="https://www.toptal.com/#get-effective-engineers-today"&gt;Toptal&lt;/a&gt; is an exclusive network of the top software developers, designers, and finance experts in the world.
+Top companies rely on Toptal agile talent for their most important projects.&lt;/p&gt;
+
+&lt;p&gt;Toptal will be contributing up to $100,000 in grants over the next year to help offset the cost of living for Toptalers contributing to open source.&lt;/p&gt;
+
+&lt;p&gt;Toptalers from all over the world and various levels of open source experience have applied for the program with very compelling projects and ideas. The applications were scored based on the impact that the project would have on the open source and remote communities, social good, and general public interest in the project.&lt;/p&gt;
+
+&lt;p&gt;The committee has reached a final verdict on the first round of recipients and happily, RVM was part of the first round of financing amongst 3 other projects.&lt;/p&gt;
+</content>
+  </entry>
+</feed>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://rvm.io/</id>
+  <title>RVM blog tag news</title>
+  <updated>2016-03-30T03:00:00Z</updated>
+  <link rel="alternate" href="https://rvm.io/"/>
+  <link rel="self" href="https://rvm.io/tags/news/feed.xml"/>
+  <author>
+    <name>Michal Papis</name>
+    <uri>https://rvm.io</uri>
+  </author>
+  <entry>
+    <id>tag:rvm.io,2016-03-30:/blog/2016/03/rvm1-ansible-needs-a-new-maintainer/</id>
+    <title type="html">rvm1-ansible needs a new maintainer</title>
+    <published>2016-03-30T03:00:00Z</published>
+    <updated>2016-03-30T03:00:00Z</updated>
+    <link rel="alternate" href="https://rvm.io/blog/2016/03/rvm1-ansible-needs-a-new-maintainer/"/>
+    <content type="html">&lt;p&gt;&lt;a href="https://github.com/rvm/rvm1-ansible"&gt;rvm1-ansible&lt;/a&gt; could use a little love, is
+anyone up for maintaining it?&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;p&gt;I've been maintaining this library for a few years but lately it's been neglected.&lt;/p&gt;
+
+&lt;p&gt;This has been due to a combination of me having not used Ansible in well over a
+year and simply not having time to go through each issue and isolate all of the
+problems.&lt;/p&gt;
+
+&lt;p&gt;It's sad to see that there's 21 open issues and 12 pull requests. RVM is a great
+project and mpapis has been nothing but amazing when it came to supporting it
+over the years.&lt;/p&gt;
+
+&lt;p&gt;I don't want to see &lt;a href="https://github.com/rvm/rvm1-ansible"&gt;rvm1-ansible&lt;/a&gt; creep
+into an unmaintained state and tarnish the RVM brand.&lt;/p&gt;
+
+&lt;p&gt;If you know someone who is interested in contributing to open source projects
+and has a good understanding of Ansible and RVM then please contact me at
+&lt;a href="mailto:nick.janetakis@gmail.com"&gt;nick.janetakis@gmail.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To everyone who is currently using the package. Thanks a lot for your feedback
+and bug reports over the years and I hope you can continue using the library
+with great success in the future.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <id>tag:rvm.io,2015-02-15:/blog/2015/02/maintainers-needed-for-rvm1/</id>
+    <title type="html">Maintainers needed for RVM 1</title>
+    <published>2015-02-15T19:00:00Z</published>
+    <updated>2015-02-15T19:00:00Z</updated>
+    <link rel="alternate" href="https://rvm.io/blog/2015/02/maintainers-needed-for-rvm1/"/>
+    <content type="html">&lt;h1&gt;Maintainers needed for RVM 1&lt;/h1&gt;
+
+&lt;p&gt;I have started changes in my life, you can read more here:
+&lt;a href="http://niczsoft.com/2015/02/changes-in-my-open-source-life/"&gt;Changes in my open source life (and RVM 2)&lt;/a&gt;.
+This leads to multiple open source projects that will need help,
+I'm still doing minimal work on them, but it will not be enough to keep
+them running for longer time. So I need help in maintaining this projects.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;p&gt;&lt;strong&gt;I'm looking for people willing to help with handling tickets, building
+binaries, supporting the community, if you are interested please mail me
+at &lt;a href="mailto:mpapis@gmail.com"&gt;mpapis@gmail.com&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2&gt;RVM 1 projects&lt;/h2&gt;
+
+&lt;p&gt;Here are all projects related to RVM 1:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm"&gt;RVM 1&lt;/a&gt; - the core a shell project that requires attention in fixing compatibility for new ruby releases, new operating systems, fixing bugs.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm-capistrano"&gt;rvm-capistrano&lt;/a&gt; - RVM 1 + Capistrano 2 integration, mostly bug fixing&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm1-capistrano3"&gt;rvm1-capistrano3&lt;/a&gt; - RVM 1 + Capistrano 3 integration, mostly bug fixing&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm-site"&gt;rvm-site&lt;/a&gt; - https://rvm.io - updating docs, getting into the layout discussions, writing blog posts for version releases&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm-binary"&gt;rvm-binary&lt;/a&gt; - building of CRuby binaries - this uses &lt;a href="https://github.com/jedi4ever/veewee"&gt;veewee&lt;/a&gt; - which also requires maintainer / contributors&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm-binary-osx"&gt;rvm-binary-osx&lt;/a&gt; - building of binaries for OSX - this usually just works but might require tweaking for new Ruby / OSX versions&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Please spread the word, if you know someone interested in open source
+with a little time to spare just let them know about &lt;a href="https://github.com/rvm/rvm"&gt;RVM 1&lt;/a&gt;.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <id>tag:rvm.io,2014-09-29:/blog/2014/09/rvm-blog/</id>
+    <title type="html">Welcome to RVM Blog</title>
+    <published>2014-09-29T09:00:00Z</published>
+    <updated>2014-09-29T09:00:00Z</updated>
+    <link rel="alternate" href="https://rvm.io/blog/2014/09/rvm-blog/"/>
+    <content type="html">&lt;h3&gt;Welcome&lt;/h3&gt;
+
+&lt;p&gt;I have been planning to build the blog for quite some time and here it
+is, I will be writing here about progress on RVM 2.0, releases for all
+RVM related software and hosting guest blog posts about anything rvm
+related.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;h3&gt;Help RVM&lt;/h3&gt;
+
+&lt;p&gt;For anyone interested in writing for RVM blog please contact
+&lt;a href="&amp;#x6d;&amp;#x61;&amp;#x69;&amp;#108;&amp;#x74;&amp;#x6f;&amp;#58;&amp;#x6d;&amp;#x70;&amp;#x61;&amp;#112;&amp;#105;&amp;#115;&amp;#x40;&amp;#x67;&amp;#x6d;&amp;#x61;&amp;#x69;&amp;#108;&amp;#x2e;&amp;#x63;&amp;#x6f;&amp;#109;"&gt;&amp;#109;&amp;#112;&amp;#x61;&amp;#112;&amp;#105;&amp;#x73;&amp;#x40;&amp;#x67;&amp;#109;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#x2e;&amp;#99;&amp;#x6f;&amp;#109;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you find the layout ugly or just want to help me make it better,
+please see
+&lt;a href="https://github.com/rvm/rvm-site"&gt;the rvm-site project on github&lt;/a&gt;.&lt;/p&gt;
+</content>
+  </entry>
+</feed>

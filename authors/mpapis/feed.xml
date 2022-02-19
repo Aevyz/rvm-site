@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://rvm.io/</id>
+  <title>RVM blog author mpapis</title>
+  <updated>2017-02-19T19:39:00Z</updated>
+  <link rel="alternate" href="https://rvm.io/"/>
+  <link rel="self" href="https://rvm.io/authors/mpapis/feed.xml"/>
+  <author>
+    <name>Michal Papis</name>
+    <uri>https://rvm.io</uri>
+  </author>
+  <entry>
+    <id>tag:rvm.io,2017-02-19:/blog/2017/02/rvm-1-29-1/</id>
+    <title type="html">RVM 1.29.1 released</title>
+    <published>2017-02-19T19:39:00Z</published>
+    <updated>2017-02-19T19:39:00Z</updated>
+    <link rel="alternate" href="https://rvm.io/blog/2017/02/rvm-1-29-1/"/>
+    <content type="html">&lt;p&gt;RVM 1.29.1 released with few bug fixes.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;h2&gt;&lt;a href="https://github.com/rvm/rvm/releases/tag/1.29.1"&gt;1.29.1&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;19 February 2017 - &lt;a href="https://github.com/rvm/rvm/compare/1.29.0...1.29.1"&gt;Full Changelog&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;Bug fixes:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fix using ruby from current dir when no params &lt;a href="https://github.com/rvm/rvm/issues/3880"&gt;#3880&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix Ruby/Openssl installation on OSX &lt;a href="https://github.com/rvm/rvm/issues/3923"&gt;#3923&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix rvm info to be yaml compatible &lt;a href="https://github.com/rvm/rvm/issues/3924"&gt;#3924&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add explicit architecture check for debian/ubuntu &lt;a href="https://github.com/rvm/rvm/issues/3927"&gt;#3927&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix detecting openssl path for ruby24 &lt;a href="https://github.com/rvm/rvm/issues/3928"&gt;#3928&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
+  <entry>
+    <id>tag:rvm.io,2017-02-12:/blog/2017/02/rvm-1-29-0/</id>
+    <title type="html">RVM 1.29.0 released</title>
+    <published>2017-02-12T22:32:00Z</published>
+    <updated>2017-02-12T22:32:00Z</updated>
+    <link rel="alternate" href="https://rvm.io/blog/2017/02/rvm-1-29-0/"/>
+    <content type="html">&lt;p&gt;RVM 1.29.0 released with multiple security fixes! New rubies and binaries, few new features and a lot of bug fixes.&lt;/p&gt;
+
+&lt;p&gt;Justin Steven uncovered few security issues, they all are fixed now.
+The fixes involves important change: environment variables will not be
+evaluated anymore, if there is a use case for that please open a ticket
+and let us know what it is.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;h2&gt;&lt;a href="https://github.com/rvm/rvm/releases/tag/1.29.0"&gt;1.29.0&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;12 February 2017 - &lt;a href="https://github.com/rvm/rvm/compare/1.28.0...1.29.0"&gt;Full Changelog&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;Security fixes:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;add trusting working directory hooks&lt;/li&gt;
+&lt;li&gt;add trusting project files with environment variables&lt;/li&gt;
+&lt;li&gt;prevent executing code when loading variables from project files&lt;/li&gt;
+&lt;li&gt;remove posibility to install gems from .versions.conf&lt;/li&gt;
+&lt;li&gt;do not 'bundle install' if no rvm_autoinstall_bundler_flag=1&lt;/li&gt;
+&lt;li&gt;install bundler only from remote server&lt;/li&gt;
+&lt;li&gt;handle spaces in working directory hook names&lt;/li&gt;
+&lt;li&gt;avoid double escaping of envirtonment variables&lt;/li&gt;
+&lt;li&gt;avoid extra quotation if it was used in the project file&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;New features:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Added railsexpress patches for Ruby 2.3.3 &lt;a href="https://github.com/rvm/rvm/pull/3852"&gt;#3852&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add support for KDE neon &lt;a href="https://github.com/rvm/rvm/pull/3828"&gt;#3828&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Allow to remove undesired libraries breaking the ruby build &lt;a href="https://github.com/rvm/rvm/issues/3851"&gt;#3851&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Mention in PATH warnings about ability to silence them &lt;a href="https://github.com/rvm/rvm/issues/3336"&gt;#3336&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Expose &lt;code&gt;autolibs&lt;/code&gt; setting in &lt;code&gt;rvm info&lt;/code&gt; output &lt;a href="https://github.com/rvm/rvm/pull/3892"&gt;#3892&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Detect &lt;code&gt;noexec&lt;/code&gt; mount mode for partition hosting RVM home &lt;a href="https://github.com/rvm/rvm/pull/3832"&gt;#3832&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Bug fixes:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Changed &lt;code&gt;eval&lt;/code&gt; to &lt;code&gt;source&lt;/code&gt; for fish 2.5.0 compatibility &lt;a href="https://github.com/fish-shell/fish-shell/issues/3809"&gt;fish-shell#3809&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;$PATH become empty after __rvm_unload executed &lt;a href="https://github.com/rvm/rvm/pull/3847"&gt;#3847&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;RVM incorrectly tries to install llvm 3.5 when trying to install Rubinius 3 &lt;a href="https://github.com/rvm/rvm/pull/3848"&gt;#3848&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Missing libyaml-devel on PCLinuxOS 64-bit &lt;a href="https://github.com/rvm/rvm/issues/3703"&gt;#3703&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Failing openssl.patch for Ruby 1.9.3 &lt;a href="https://github.com/rvm/rvm/issues/3831"&gt;#3831&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;RVM hardcodes number of compile threads &lt;a href="https://github.com/rvm/rvm/pull/3856"&gt;#3856&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Cannot build rbx-2.5.2 on ArchLinux &lt;a href="https://github.com/rvm/rvm/issues/3497"&gt;#3497&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Remove incompatible version of openssl098 &lt;a href="https://github.com/rvm/rvm/issues/3844"&gt;#3844&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Failed to fetch the gpg key from keys.gnupg.net &lt;a href="https://github.com/rvm/rvm/issues/3544"&gt;#3544&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Filtering Travis binaries for OSX for non Travis env (they are statically linked and not movable) &lt;a href="https://github.com/rvm/rvm/issues/3690"&gt;#3690&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Remove kernel-libc-devel dependency on Solus &lt;a href="https://github.com/rvm/rvm/pull/3881"&gt;#3881&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Speed up loading rubies - gem version compatibility check&lt;/li&gt;
+&lt;li&gt;Missing cygwin32-readline package on Windows &lt;a href="https://github.com/rvm/rvm/pull/3812"&gt;#3812&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Installation of rbx-3.69 on macOS fails because llvm35 formula can't be found &lt;a href="https://github.com/rvm/rvm/issues/3884"&gt;#3884&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.3.x and older are not compatible with OpenSSL 1.1.x on Debian &lt;a href="https://github.com/rvm/rvm/issues/3862"&gt;#3862&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;OpenSSL vs libressl conflict installing ruby-2.4.0 on openSUSE Tumbleweed &lt;a href="https://github.com/rvm/rvm/issues/3906"&gt;#3906&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Missing &lt;code&gt;libgmp3-dev&lt;/code&gt; for Ruby 2.2 on Debian 6 &lt;a href="https://github.com/rvm/rvm/issues/3675"&gt;#3675&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;JRuby on Arch is missing Java requirements &lt;a href="https://github.com/rvm/rvm/issues/3539"&gt;#3539&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rvm install 2.4&lt;/code&gt; installs 2.4.0-rc1 instead of 2.4.0 &lt;a href="https://github.com/rvm/rvm/issues/3866"&gt;#3866&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;libreadline-dev&lt;/code&gt; instead of &lt;code&gt;libreadline6-dev&lt;/code&gt; on Debian (≥stretch) &lt;a href="https://github.com/rvm/rvm/issues/3824"&gt;#3824&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Warning: openssl is a keg-only and another version is linked to opt &lt;a href="https://github.com/rvm/rvm/issues/3724"&gt;#3724&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix trusting paths with duplicated //&lt;/li&gt;
+&lt;li&gt;Fix rvm do in relative paths&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Upgraded Ruby interpreters:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add support for Ruby 2.4.0 &lt;a href="https://github.com/rvm/rvm/pull/3849"&gt;#3849&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add support for JRuby 9.1.7.0 &lt;a href="https://github.com/rvm/rvm/pull/3878"&gt;#3878&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add support for Rubinius 3.70 &lt;a href="https://github.com/rvm/rvm/pull/3889"&gt;#3889&lt;/a&gt; and 3.71&lt;/li&gt;
+&lt;li&gt;Upgrade RubyGems to 2.6.10&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Binaries:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ubuntu x64 binary for Ruby 2.4.0 &lt;a href="https://github.com/rvm/rvm/issues/3867"&gt;#3867&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
+  <entry>
+    <id>tag:rvm.io,2015-02-15:/blog/2015/02/maintainers-needed-for-rvm1/</id>
+    <title type="html">Maintainers needed for RVM 1</title>
+    <published>2015-02-15T19:00:00Z</published>
+    <updated>2015-02-15T19:00:00Z</updated>
+    <link rel="alternate" href="https://rvm.io/blog/2015/02/maintainers-needed-for-rvm1/"/>
+    <content type="html">&lt;h1&gt;Maintainers needed for RVM 1&lt;/h1&gt;
+
+&lt;p&gt;I have started changes in my life, you can read more here:
+&lt;a href="http://niczsoft.com/2015/02/changes-in-my-open-source-life/"&gt;Changes in my open source life (and RVM 2)&lt;/a&gt;.
+This leads to multiple open source projects that will need help,
+I'm still doing minimal work on them, but it will not be enough to keep
+them running for longer time. So I need help in maintaining this projects.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;p&gt;&lt;strong&gt;I'm looking for people willing to help with handling tickets, building
+binaries, supporting the community, if you are interested please mail me
+at &lt;a href="mailto:mpapis@gmail.com"&gt;mpapis@gmail.com&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2&gt;RVM 1 projects&lt;/h2&gt;
+
+&lt;p&gt;Here are all projects related to RVM 1:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm"&gt;RVM 1&lt;/a&gt; - the core a shell project that requires attention in fixing compatibility for new ruby releases, new operating systems, fixing bugs.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm-capistrano"&gt;rvm-capistrano&lt;/a&gt; - RVM 1 + Capistrano 2 integration, mostly bug fixing&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm1-capistrano3"&gt;rvm1-capistrano3&lt;/a&gt; - RVM 1 + Capistrano 3 integration, mostly bug fixing&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm-site"&gt;rvm-site&lt;/a&gt; - https://rvm.io - updating docs, getting into the layout discussions, writing blog posts for version releases&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm-binary"&gt;rvm-binary&lt;/a&gt; - building of CRuby binaries - this uses &lt;a href="https://github.com/jedi4ever/veewee"&gt;veewee&lt;/a&gt; - which also requires maintainer / contributors&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm-binary-osx"&gt;rvm-binary-osx&lt;/a&gt; - building of binaries for OSX - this usually just works but might require tweaking for new Ruby / OSX versions&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Please spread the word, if you know someone interested in open source
+with a little time to spare just let them know about &lt;a href="https://github.com/rvm/rvm"&gt;RVM 1&lt;/a&gt;.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <id>tag:rvm.io,2015-02-02:/blog/2015/02/rvm-1-26-10/</id>
+    <title type="html">RVM 1.26.10 released</title>
+    <published>2015-02-02T15:07:00Z</published>
+    <updated>2015-02-02T15:07:00Z</updated>
+    <link rel="alternate" href="https://rvm.io/blog/2015/02/rvm-1-26-10/"/>
+    <content type="html">&lt;p&gt;RVM 1.26.10 released, new ruby versions.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;h2&gt;1.26.10&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3257"&gt;RVM#3257 use only bash to run installer&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3258"&gt;RVM#3258 fix detecting ram size in OpenBSD&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3259"&gt;RVM#3259 improved patch for ruby 2.2 installation&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3260"&gt;RVM#3260 Add llvm-dev to rbx requirements&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3272"&gt;RVM#3272 sudo path hint&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3275"&gt;RVM#3275 updated rubygems documentation&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;improved tracing of installer&lt;/li&gt;
+&lt;li&gt;switch to using &lt;em&gt;_rvm_db&lt;/em&gt; function instead of scripts/db&lt;/li&gt;
+&lt;li&gt;introduce known_aliases and add jruby-9k to it&lt;/li&gt;
+&lt;li&gt;new rubies: jruby-1.7.19, jruby-9.0.0.0.pre1, rbx-1.4.2, rbx-2.5.2&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;here are full changes:
+&lt;a href="https://github.com/rvm/rvm/compare/1.26.9...1.26.10"&gt;https://github.com/rvm/rvm/compare/1.26.9...1.26.10&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <id>tag:rvm.io,2015-01-07:/blog/2015/01/rvm-1-26-9/</id>
+    <title type="html">RVM 1.26.8 and 1.26.9 released</title>
+    <published>2015-01-07T10:58:00Z</published>
+    <updated>2015-01-07T10:58:00Z</updated>
+    <link rel="alternate" href="https://rvm.io/blog/2015/01/rvm-1-26-9/"/>
+    <content type="html">&lt;p&gt;RVM 1.26.8 and 1.26.9 released, fixes for ruby 2.2, improved loading project files and more fixes.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;h2&gt;1.26.8&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3240"&gt;RVM#3240 added railsexpress patches for ruby 2.2&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3241"&gt;RVM#3241 Add sqlite[-devel] to centos/opensuse/arch requirements&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3242"&gt;RVM#3242 select branch after tag or revision&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3244"&gt;RVM#3244 improved rules to autocomplete ruby versions and to avoid wrong warning&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3222"&gt;RVM#3222 force path to stat on osx&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3236"&gt;RVM#3236 improved environment from .ruby-env&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3248"&gt;RVM#3248 improve documentation of default and global gems files&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3239"&gt;RVM#3239 detect system early enough to setup statf properly&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3249"&gt;RVM#3249 escape all typeset&lt;/li&gt;&lt;/a&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;1.26.9&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3251"&gt;RVM#3251 dropped railsexpress backport-401c8bb as it has been merged to ruby_2_2&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3253"&gt;RVM#3253 make sourcing rvmrc work again&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3252"&gt;RVM#3252 fix reloading rvm during ruby installation&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3213"&gt;RVM#3213 protect GnuPG detection form windows executables&lt;/li&gt;&lt;/a&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;here are full changes:
+&lt;a href="https://github.com/rvm/rvm/compare/1.26.7...1.26.9"&gt;https://github.com/rvm/rvm/compare/1.26.7...1.26.9&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+</feed>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      RVM: Ruby Version Manager -
+      
+    </title>
+    <link href='/css/screen.css' media='screen' rel='stylesheet' type='text/css'>
+    <link href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' rel='stylesheet' type='text/css'>
+    <link href='/css/algolia-docsearch.css' rel='stylesheet' type='text/css'>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <meta content='w2V78a6cwiHD5Gm8yvlTP21xZ1YgVguDdC0JGDEA2d0' name='google-site-verification'>
+    
+  </head>
+  <body>
+    <div id='heaven'></div>
+    <div id='container'>
+      <div id='logo'>
+        <a href='/'>
+          <img alt='RVM Logo' src='/images/logo.png'>
+        </a>
+      </div>
+      <div id='support'>
+        <div class='title'>Support</div>
+        <div class='text'>
+          RVM is maintained by community of volunteers, report issues to
+          <a href='https://github.com/rvm/rvm/issues'>
+            RVM issues tracker.
+          </a>
+          <div class='more'>
+            If you can help or wish to become one of the maintainers - just start helping.
+            You can find more RVM related projects at
+            <a href='https://github.com/rvm'>
+              RVM GitHub organization.
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id='donate'>
+        <div class='title'>Donation</div>
+        <div class='text'>
+          Love RVM? Help us maintain RVM, a donation can help with it.
+          Want to help in other way, want to be a sponsor?
+          <div class='more'>
+            contact:
+            <a href='mailto:mpapis@gmail.com'>
+              Michal Papis
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id='sponsors'>
+        <div class='title'>Sponsors</div>
+        <div class='logo long'>
+          <a href='https://www.fastly.com/'>
+            <img alt='Fastly' height='50' src='/images/fastly_logo-01.png'>
+          </a>
+        </div>
+      </div>
+      <div id='carbon_ads_box'>
+        <div class='title'>Carbon Ads</div>
+        <script async='async' id='_carbonads_js' src='https://cdn.carbonads.com/carbon.js?zoneid=1673&amp;serve=C6AILKT&amp;placement=rvmio' type='text/javascript'></script>
+      </div>
+      <div class='clear'></div>
+      <div id='content'>
+        <a id='top'></a>
+        <h1><a class="anchor" href="#rvm-faq-amp-notes" name="rvm-faq-amp-notes">&infin;</a>RVM FAQ &amp; Notes</h1>
+        
+        <h2><a class="anchor" href="#i-have-found-a-bug-in-rvm-how-do-i-submit-an-issue-or-a-patch-to-get-this-fixed" name="i-have-found-a-bug-in-rvm-how-do-i-submit-an-issue-or-a-patch-to-get-this-fixed">&infin;</a>I have found a bug in RVM. How do I submit an issue or a patch to get this fixed?</h2>
+        
+        <p>To report bugs against RVM, please go to https://github.com/rvm/rvm/issues/ and open an Issue there. <strong>READ ALL EXISTING REPORTS!</strong> Sometimes the problem is already under investigation or has already been solved. Opening a new one for the same issue is a waste of time and resources and may cause your report to be summarily closed. Please use https://gist.github.com to store and file supplementary evidence related to the bug report. Include the returned https (not git) URL in your report. Please provide</p>
+        
+        <ol type="a">
+        <li>The output from <code>rvm info</code></li>
+        <li>If you are using gemsets, the output from <code>gem list -dl</code></li>
+        <li>All commands run, any errors / output, and contents of logfiles RVM tells you to look in.</li>
+        <li>The complete output of the following trace / debugging command. <code>set -x ; rvm --trace your_commands_here ; set +x</code> to give us maximum information to work with. These must accompany your Issue / Bug report in order for us to be able to assist you.</li>
+        </ol>
+        
+        
+        <h2><a class="anchor" href="#what-shell-login-means-bash-l" name="what-shell-login-means-bash-l">&infin;</a>What shell login means ('bash -l')</h2>
+        
+        <p>There are sites that describe this how it was 10 years ago like <a href="http://askubuntu.com/questions/40287/etc-profile-not-being-sourced">here</a> or <a href="http://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980">here</a> so read to see how it works in current world:</p>
+        
+        <ol>
+        <li>When you login graphically to your system it will read <code>~/.profile</code> so you put there settings like <code>LANG</code> which are important for graphical applications.</li>
+        <li>When you open a terminal (except Gnome-terminal &amp; Screen) you open a <code>login</code> shell which sources <code>~/.bash_profile</code></li>
+        <li><p>When you execute commands in non login shell like <code>ssh server command</code> or <code>scp file server:~</code> or <code>sudo</code>(without -i) or <code>su</code> (without -l) it will execute <code>~/.bashrc</code></p></li>
+        <li><p><code>~/.bashrc</code> is meant for non login invocations, you should not print there any output - it makes tools like <code>scp</code> fail.</p></li>
+        <li>If the shell of the user is set to <code>/bin/sh</code>, you will need to edit <code>/etc/passwd</code> and set it to <code>/bin/bash</code></li>
+        </ol>
+        
+        
+        <p>It is good idea to put environment variables in <code>~/.bashrc</code>, things that you depend upon in your scripts (for <code>ssh server script</code>)</p>
+        
+        <p>then if your system does not source  <code>~/.bashrc</code> by default via <code>/etc/profile</code> you should source it in <code>~/.bash_profile</code> file so any login shell will have access also to the same environment like non login sessions.</p>
+        
+        <p>RVM by default adds itself currently to <code>~/.bash_profile</code> file, and the recommended way is to enable login shell in gnome-terminal (and screen).</p>
+        
+        <p>To fix the configuration files automatically run:</p>
+        
+        <pre class="code" title="triple click to select command">rvm get [head|stable] --auto-dotfiles</pre>
+        
+        <h2><a class="anchor" href="#i-noticed-some-incorrect-information-on-the-rvm-website-how-do-i-submit-a-patch-or-issue" name="i-noticed-some-incorrect-information-on-the-rvm-website-how-do-i-submit-a-patch-or-issue">&infin;</a>I noticed some incorrect information on the RVM website. How do I submit a patch or Issue?</h2>
+        
+        <p>Please feel free to fork <a href="https://github.com/rvm/rvm-site/">rvm-site</a> and to fix anything you find amiss. Then submit a Pull Request. Regardless, whether you feel comfortable doing the above or not, please file an Issue at <a href="https://github.com/rvm/rvm-site/issues/">Issue Tracker</a> complete with the current error and the change as you see it. If you created a pull request, please  reference the URL in your Issue.</p>
+        
+        <h2><a class="anchor" href="#do-i-need-to-use-sudo-with-gems" name="do-i-need-to-use-sudo-with-gems">&infin;</a>Do I need to use sudo with gems?</h2>
+        
+        <p><strong>NO. DO NOT USE sudo</strong> for RVM managed rubygems. If you require more explanation see the <a href="/rubies/rubygems/">rubygems</a> page.</p>
+        
+        <h2><a class="anchor" href="#install-gems-as-root" name="install-gems-as-root">&infin;</a>Install gems as root?</h2>
+        
+        <p><strong>NO.</strong> If you require more explanation see the <a href="/rubies/rubygems/">rubygems</a> page.</p>
+        
+        <h2><a class="anchor" href="#rvm-is-not-found-or-the-rvm-selected-default-ruby-is-not-set-for-new-shells" name="rvm-is-not-found-or-the-rvm-selected-default-ruby-is-not-set-for-new-shells">&infin;</a>RVM is not found or the RVM selected default ruby is not set for new shells...</h2>
+        
+        <p>RVM must be included at the bottom of the profile files. Otherwise your settings will clobber it's (example: PATH). Refer to the <a href="/rvm/install/">install directions</a> to include this in your PATH.</p>
+        
+        <h2><a class="anchor" href="#does-rvm-work-on-windows-will-it-in-the-future" name="does-rvm-work-on-windows-will-it-in-the-future">&infin;</a>Does RVM work on windows? Will it in the future?</h2>
+        
+        <p>NO. If you would like to manage multiple versions of ruby on windows please use pik which is an
+        excellent tool by Gordon Thiesfeld. You can find it on <a href="http://github.com/vertiginous/pik/">GitHub</a>.
+        There are plans to include windows support in RVM 2.0 =>
+        <a href="https://www.bountysource.com/fundraisers/489-rvm-2-0">https://www.bountysource.com/fundraisers/489-rvm-2-0</a>.</p>
+        
+        <h2><a class="anchor" href="#can-i-use-a-path-with-spaces" name="can-i-use-a-path-with-spaces">&infin;</a>Can I use a path with spaces?</h2>
+        
+        <p>Currently spaces in paths are not supported. Patches welcome :)</p>
+        
+        <h2><a class="anchor" href="#how-do-i-set-a-ruby-to-be-default" name="how-do-i-set-a-ruby-to-be-default">&infin;</a>How do I set a ruby to be default?</h2>
+        
+        <p>Setting the default ruby is <a href="/rubies/default/">explained here</a>.</p>
+        
+        <h2><a class="anchor" href="#what-are-the-defaults" name="what-are-the-defaults">&infin;</a>What are the defaults.</h2>
+        
+        <p>The default interpreter is 'ruby'. The default versions for each ruby interpreter are set in ~/.rvm/config/db and can be overridden by the user in ~/.rvm/config/user.</p>
+        
+        <h2><a class="anchor" href="#where-are-ruby-gems-kept" name="where-are-ruby-gems-kept">&infin;</a>Where are Ruby Gems kept?</h2>
+        
+        <ul>
+        <li>Ruby Gems for all installed ruby interpreters and versions are stored completely separate.</li>
+        <li>Gems are located in ~/.rvm/gems/$ruby_string.</li>
+        <li>Gems can be additionally separated using <a href="/gemsets/">Gem Sets</a>.</li>
+        <li>A gem directory using gemsets is of the form:  ~/.rvm/gems/$ruby_string@gemset_name</li>
+        </ul>
+        
+        
+        <h2><a class="anchor" href="#where-is-everything-installed-to-" name="where-is-everything-installed-to-">&infin;</a>Where is everything installed to ?</h2>
+        
+        <p>RVM installs everything into ~/.rvm. To remove RVM from your system run <code>rm -rf ~/.rvm</code>. You may have one additional config file in ~/.rvmrc and of course the RVM hook in your bash/zsh startup files.</p>
+        
+        <h2><a class="anchor" href="#do-i-need-the-gem-after-i-install-rvm" name="do-i-need-the-gem-after-i-install-rvm">&infin;</a>Do I need the gem after I install RVM?</h2>
+        
+        <p>No, the gem is only used for distribution, you can just as easily clone the github repo and run ./install. After installation the Gem is no longer necessary and can be safely removed. Unless, that is, you are using the RVM Ruby API. Then using the gem can be helpful but not necessary, as it can also be loaded from ~/.rvm/lib/.</p>
+        
+        <h2><a class="anchor" href="#my-ruby-is-compiling-as-32-bit-but-i-am-on-mac-os-x-snow-leopard-which-has-heavy-advertisement-that-it-is-64-bit" name="my-ruby-is-compiling-as-32-bit-but-i-am-on-mac-os-x-snow-leopard-which-has-heavy-advertisement-that-it-is-64-bit">&infin;</a>My ruby is compiling as 32 bit but I am on Mac OS X Snow Leopard which has heavy advertisement that it is 64 bit!!!</h2>
+        
+        <p>RVM compiles to your current running kernel's architecture. This means that if your kernel is running as a 32 bit kernel (uname -m) it will compile 32 bit. You can override this behavior by placing the following in your ~/.rvmrc before installing the ruby interpreter:</p>
+        
+        <pre class="code" title="triple click to select command">rvm_archflags="-arch x86_64"</pre>
+        
+        <h2><a class="anchor" href="#im-using-the-ruby-method-in-my-gemfile-to-select-the-ruby-version-in-production-how-do-i-use-another-ruby-version-for-development" name="im-using-the-ruby-method-in-my-gemfile-to-select-the-ruby-version-in-production-how-do-i-use-another-ruby-version-for-development">&infin;</a>I'm using the <code>ruby</code> method in my Gemfile to select the ruby version in production - how do I use another ruby version for development?</h2>
+        
+        <p>Place a .ruby-version (or .rvmrc if you need scripting) file in the project directory with the version of Ruby to use for development.</p>
+        
+        <p>The .ruby-version file has a higher precedence then the Gemfile but not the .rvmrc file and if you are on Heroku it will be ignored.</p>
+        
+        <p>The .ruby-version file can contain a specific ruby version, or  be left empty in order to just use the currently selected ruby version.</p>
+        
+        <h2><a class="anchor" href="#i-want-to-install-for-root-only" name="i-want-to-install-for-root-only">&infin;</a>I want to install for root only!</h2>
+        
+        <p>Please note that if you want to install for root only, using a per-user install, then you <strong>must</strong> prepopulate root's $HOME/.rvmrc with the following BEFORE you attempt to install:</p>
+        
+        <pre class="code" title="triple click to select command">echo 'export rvm_prefix="$HOME"' &gt; /root/.rvmrc&#x000A;echo 'export rvm_path="$HOME/.rvm"' &gt;&gt; /root/.rvmrc</pre>
+        
+        <p>to override the checking done that assumes that if root is executing the install it must be a Multi-User installation type, and that RVM must go into /usr/local/rvm. This also negates the need to use sudo, as the combination of all these factors effectively turns it into a Per-User installation type specifically for the root user only.</p>
+        
+        <p><strong>Please note that this is <em>not</em> a typical, or generally supported installation type.</strong></p>
+        <a id='bottom'></a>
+      </div>
+      <div id='docindex'>
+        <div class='headline'>
+          <a style="color: red;" href="/">RVM Documentation Index</a>
+          |
+          <a href="/blog/">RVM Blog</a>
+        </div>
+        <div class='headline'>
+          <label for="docsearch-input">Search:</label>
+          <input id="docsearch-input" type="text" />
+        </div>
+        <div class='column'>
+          <a href="/rvm/">RVM</a>
+          <ul><li><a href="/rvm/about/">About</a></li>
+          <li><a href="/rvm/autolibs/">Autolibs</a></li>
+          <li><a href="/rvm/basics/">Basics</a></li>
+          <li><a href="/rvm/best-practices/">Best Practices</a></li>
+          <li><a href="/rvm/cli/">Cli</a></li>
+          <li><a href="/rvm/configuration/">Configuration</a></li>
+          <li><a href="/rvm/info/">Info</a></li>
+          <li><a href="/rvm/install/">Install</a></li>
+          <li><a href="/rvm/myths/">Myths</a></li>
+          <li><a href="/rvm/offline/">Offline</a></li>
+          <li><a href="/rvm/prerequisites/">Prerequisites</a></li>
+          <li><a href="/rvm/security/">Security</a></li>
+          <li><a href="/rvm/upgrading/">Upgrading</a></li></ul>
+          <a href='/interpreters/'>Interpreters</a>
+          <ul>
+            <li>
+              <a href='/interpreters/ruby/'>MRI/YARV (ruby)</a>
+            </li>
+            <li>
+              <a href='/interpreters/jruby/'>JRuby (jruby)</a>
+            </li>
+            <li>
+              <a href='/interpreters/rbx/'>Rubinius (rbx)</a>
+            </li>
+          </ul>
+          <a href="/rubies/">Rubies</a>
+          <ul><li><a href="/rubies/alias/">Alias</a></li>
+          <li><a href="/rubies/default/">Default</a></li>
+          <li><a href="/rubies/docs/">Docs</a></li>
+          <li><a href="/rubies/info/">Info</a></li>
+          <li><a href="/rubies/installing/">Installing</a></li>
+          <li><a href="/rubies/list/">List</a></li>
+          <li><a href="/rubies/named/">Named</a></li>
+          <li><a href="/rubies/patching/">Patching</a></li>
+          <li><a href="/rubies/removing/">Removing</a></li>
+          <li><a href="/rubies/rubygems/">Rubygems</a></li>
+          <li><a href="/rubies/strings/">Strings</a></li>
+          <li><a href="/rubies/uninstalling/">Uninstalling</a></li>
+          <li><a href="/rubies/upgrading/">Upgrading</a></li></ul>
+        </div>
+        <div class='column'>
+          <a href="/gemsets/">Gemsets</a>
+          <ul><li><a href="/gemsets/basics/">Basics</a></li>
+          <li><a href="/gemsets/clear/">Clear</a></li>
+          <li><a href="/gemsets/copying/">Copying</a></li>
+          <li><a href="/gemsets/creating/">Creating</a></li>
+          <li><a href="/gemsets/deleting/">Deleting</a></li>
+          <li><a href="/gemsets/emptying/">Emptying</a></li>
+          <li><a href="/gemsets/exporting/">Exporting</a></li>
+          <li><a href="/gemsets/global/">Global</a></li>
+          <li><a href="/gemsets/ignoring/">Ignoring</a></li>
+          <li><a href="/gemsets/importing/">Importing</a></li>
+          <li><a href="/gemsets/initial/">Initial</a></li>
+          <li><a href="/gemsets/listing/">Listing</a></li>
+          <li><a href="/gemsets/using/">Using</a></li></ul>
+          <a href='/set/'>Set Actions</a>
+          <ul>
+            <li>
+              <a href='/set/do/'>do</a>
+            </li>
+            <li>
+              <a href='/set/tests/'>tests</a>
+            </li>
+            <li>
+              <a href='/set/benchmark/'>benchmark</a>
+            </li>
+          </ul>
+          <a href="/workflow/">Workflow</a>
+          <ul><li><a href="/workflow/chruby/">Chruby</a></li>
+          <li><a href="/workflow/completion/">Completion</a></li>
+          <li><a href="/workflow/examples/">Examples</a></li>
+          <li><a href="/workflow/hooks/">Hooks</a></li>
+          <li><a href="/workflow/irbrc/">Irbrc</a></li>
+          <li><a href="/workflow/projects/">Projects</a></li>
+          <li><a href="/workflow/prompt/">Prompt</a></li>
+          <li><a href="/workflow/proxy/">Proxy</a></li>
+          <li><a href="/workflow/rvmrc/">Rvmrc</a></li>
+          <li><a href="/workflow/screen/">Screen</a></li>
+          <li><a href="/workflow/scripting/">Scripting</a></li>
+          <li><a href="/workflow/subshells/">Subshells</a></li></ul>
+          <a href="/deployment/">Deployment</a>
+          <ul><li><a href="/deployment/best-practices/">Best Practices</a></li>
+          <li><a href="/deployment/capistrano/">Capistrano</a></li>
+          <li><a href="/deployment/chef/">Chef</a></li>
+          <li><a href="/deployment/cron/">Cron</a></li>
+          <li><a href="/deployment/god/">God</a></li>
+          <li><a href="/deployment/init-d/">Init D</a></li>
+          <li><a href="/deployment/passenger/">Passenger</a></li></ul>
+        </div>
+        <div class='column'>
+          <a href="/integration/">Integration</a>
+          <ul><li><a href="/integration/bundler/">Bundler</a></li>
+          <li><a href="/integration/capistrano/">Capistrano</a></li>
+          <li><a href="/integration/chef/">Chef</a></li>
+          <li><a href="/integration/cron/">Cron</a></li>
+          <li><a href="/integration/culerity/">Culerity</a></li>
+          <li><a href="/integration/databases/">Databases</a></li>
+          <li><a href="/integration/emacs/">Emacs</a></li>
+          <li><a href="/integration/engineyard/">Engineyard</a></li>
+          <li><a href="/integration/fish/">Fish</a></li>
+          <li><a href="/integration/gnome-terminal/">Gnome Terminal</a></li>
+          <li><a href="/integration/god/">God</a></li>
+          <li><a href="/integration/heroku/">Heroku</a></li>
+          <li><a href="/integration/init-d/">Init D</a></li>
+          <li><a href="/integration/jenkins/">Jenkins</a></li>
+          <li><a href="/integration/konsole/">Konsole</a></li>
+          <li><a href="/integration/lxterminal/">Lxterminal</a></li>
+          <li><a href="/integration/macports-before-autolibs/">Macports Before Autolibs</a></li>
+          <li><a href="/integration/macports/">Macports</a></li>
+          <li><a href="/integration/memprof/">Memprof</a></li>
+          <li><a href="/integration/passenger/">Passenger</a></li>
+          <li><a href="/integration/pow/">Pow</a></li>
+          <li><a href="/integration/qtruby/">Qtruby</a></li>
+          <li><a href="/integration/scripting/">Scripting</a></li>
+          <li><a href="/integration/simple-terminal/">Simple Terminal</a></li>
+          <li><a href="/integration/sketchup/">Sketchup</a></li>
+          <li><a href="/integration/sudo/">Sudo</a></li>
+          <li><a href="/integration/teamcity/">Teamcity</a></li>
+          <li><a href="/integration/textmate/">Textmate</a></li>
+          <li><a href="/integration/tk/">Tk</a></li>
+          <li><a href="/integration/ubuntu-on-windows/">Ubuntu On Windows</a></li>
+          <li><a href="/integration/vagrant/">Vagrant</a></li>
+          <li><a href="/integration/vim/">Vim</a></li>
+          <li><a href="/integration/xterm/">Xterm</a></li>
+          <li><a href="/integration/zsh/">Zsh</a></li></ul>
+        </div>
+        <div class='column'>
+          <a href='/packages/'>Packages</a>
+          <a href='/presentations/'>Presentations</a>
+          <ul>
+            <li>
+              <a href='http://www.confreaks.com/videos/3-mwrc2010-managing-ruby-projects-with-rvm'>MWRC 2010</a>
+            </li>
+            <li>
+              <a href='http://confreaks.tv/videos/railsconf2012-rvm-essential-rails-development-tools'>RailsConf 2012</a>
+            </li>
+            <li>
+              <a href='http://confreaks.tv/videos/railsconf2013-developing-rails-apps-in-technical-isolation'>RailsConf 2013</a>
+            </li>
+            <li>
+              <a href='http://thechangelog.com/66/'>Changelog 66 with Wayne</a>
+            </li>
+            <li>
+              <a href='http://www.youtube.com/watch?v=wN-iIC3S1ZM'>RVM 2: Lessons and future</a>
+            </li>
+            <li>
+              <a href='http://www.youtube.com/watch?v=gYNht8H24ZQ'>RVM 2: Python Version Manager</a>
+            </li>
+            <li>
+              <a href='http://thechangelog.com/102/'>Changelog 102 with Michal</a>
+            </li>
+          </ul>
+          <a href='/support/'>Help &amp; Support</a>
+          <ul>
+            <li>
+              <a href='/support/irc/'>Issues tracker</a>
+            </li>
+            <li>
+              <a href='/support/faq/'>FAQ &amp; Notes</a>
+            </li>
+            <li>
+              <a href='/support/troubleshooting/'>Troubleshooting</a>
+            </li>
+            <li>
+              <a href='/support/fixing-broken-ssl-certificates/'>Fixing Broken SSL Certificates</a>
+            </li>
+          </ul>
+          <a href="/qa/">Quality Assurance</a>
+          <ul><li><a href="/qa/software_testing/">Software_testing</a></li></ul>
+          <a href="/development/">Development</a>
+          <ul><li><a href="/development/contributing/">Contributing</a></li>
+          <li><a href="/development/debugging/">Debugging</a></li>
+          <li><a href="/development/github/">Github</a></li>
+          <li><a href="/development/list/">List</a></li></ul>
+          <a href='/credits/'>Credits</a>
+          <ul>
+            <li>
+              <a href='/credits/thanks/'>Contributions</a>
+            </li>
+            <li>
+              <a href='/credits/donations/'>Donations</a>
+            </li>
+            <li>
+              <a href='/credits/funding/'>Funding</a>
+            </li>
+          </ul>
+        </div>
+        <div class='clear'></div>
+      </div>
+    </div>
+    <div id='footer'>
+      <div id='footer-container'>
+        &infin;
+        Copyright
+        &copy; 2009-2011
+        <a href='https://github.com/wayneeseguin'>Wayne E. Seguin</a>
+        &copy; 2011-2017
+        <a href='https://github.com/mpapis'>Michal Papis</a>
+        &copy; 2016-2017
+        <a href='https://github.com/pkuczynski'>Piotr Kuczynski</a>
+        &infin;
+        Built with
+        <a href='http://nanoc.ws'>Nanoc</a>
+        &infin;
+        Cached by
+        <a href='https://www.fastly.com/'>Fastly</a>
+        &infin;
+        Tested by
+        <a href='http://www.travis-ci.org/'>Travis CI</a>
+      </div>
+      <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+      <script>
+        google.load('search', '1', {language : 'en', style : google.loader.themes.SHINY});
+        google.setOnLoadCallback(function() {
+          var customSearchControl = new google.search.CustomSearchControl('012125088244772422662:eplzzxbbjte');
+          customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+          customSearchControl.draw('cse');
+        }, true);
+      </script>
+      <script src="https://www.google.com/jsapi?key=ABQIAAAAlfGITCLCzrcO4cy2viT78RSZcRLSY2B0NYnmYEy-3gaXzTHyQxRduJj7nQ6rEtYNpUjIQpEEosF5XA" type="text/javascript"></script>&#x000A;<script src="/javascripts/site.js" type="text/javascript"></script>
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-24992786-1', 'rvm.io'); // owner unknown :(
+        ga('send', 'pageview');
+        ga('create', 'UA-45354940-1', 'rvm.io', {'name': 'ga_mpapis'}); // owner mpapis@gmail.com
+        ga('ga_mpapis.send', 'pageview');
+      </script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+      <script>
+        docsearch({
+        apiKey: '511953e6f628103639db56a6f0f96977',
+        indexName: 'rvm',
+        inputSelector: '#docsearch-input',
+        debug: false // Set debug to true if you want to inspect the dropdown
+        });
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      RVM: Ruby Version Manager -
+      RVM 1.28.0 released
+    </title>
+    <link href='/css/screen.css' media='screen' rel='stylesheet' type='text/css'>
+    <link href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' rel='stylesheet' type='text/css'>
+    <link href='/css/algolia-docsearch.css' rel='stylesheet' type='text/css'>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <meta content='w2V78a6cwiHD5Gm8yvlTP21xZ1YgVguDdC0JGDEA2d0' name='google-site-verification'>
+    
+  </head>
+  <body>
+    <div id='heaven'></div>
+    <div id='container'>
+      <div id='logo'>
+        <a href='/'>
+          <img alt='RVM Logo' src='/images/logo.png'>
+        </a>
+      </div>
+      <div id='support'>
+        <div class='title'>Support</div>
+        <div class='text'>
+          RVM is maintained by community of volunteers, report issues to
+          <a href='https://github.com/rvm/rvm/issues'>
+            RVM issues tracker.
+          </a>
+          <div class='more'>
+            If you can help or wish to become one of the maintainers - just start helping.
+            You can find more RVM related projects at
+            <a href='https://github.com/rvm'>
+              RVM GitHub organization.
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id='donate'>
+        <div class='title'>Donation</div>
+        <div class='text'>
+          Love RVM? Help us maintain RVM, a donation can help with it.
+          Want to help in other way, want to be a sponsor?
+          <div class='more'>
+            contact:
+            <a href='mailto:mpapis@gmail.com'>
+              Michal Papis
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id='sponsors'>
+        <div class='title'>Sponsors</div>
+        <div class='logo long'>
+          <a href='https://www.fastly.com/'>
+            <img alt='Fastly' height='50' src='/images/fastly_logo-01.png'>
+          </a>
+        </div>
+      </div>
+      <div id='carbon_ads_box'>
+        <div class='title'>Carbon Ads</div>
+        <script async='async' id='_carbonads_js' src='https://cdn.carbonads.com/carbon.js?zoneid=1673&amp;serve=C6AILKT&amp;placement=rvmio' type='text/javascript'></script>
+      </div>
+      <div class='clear'></div>
+      <div id='content'>
+        <a name='top'></a>
+        <h1><a class="anchor" href="#rvm-1280-released" name="rvm-1280-released">&infin;</a>RVM 1.28.0 released</h1>
+        <hr class='medium'>
+        <aside>
+          Posted at December 19, 2016 by <a href="/authors/pkuczynski">Piotr Kuczynski</a> tags: <a href="/tags/releases">releases</a>, <a href="/tags/rvm1">rvm1</a>
+        </aside>
+        <article>
+          <p>RVM 1.28.0 released with new rubies and binaries, few new features and a lot of bug fixes.</p>
+          
+          <!-- more -->
+          
+          
+          <h2><a href="https://github.com/rvm/rvm/releases/tag/1.28.0">&infin;1.28.0</a></h2>
+          
+          <p>19 December 2016 - <a href="https://github.com/rvm/rvm/compare/1.27.0...1.28.0">Full Changelog</a></p>
+          
+          <h4>New features:</h4>
+          
+          <ul>
+          <li>Feedback when switching gemset with/without use <a href="https://github.com/rvm/rvm/issues/3780">#3780</a></li>
+          <li>Require OpenJDK 1.8.0 (with fallback to 1.7.0) for JRuby on CentOS/Fedora <a href="https://github.com/rvm/rvm/pull/3741">#3741</a> and Ubuntu <a href="https://github.com/rvm/rvm/pull/3719">#3719</a></li>
+          <li>Updated README including information about dedicated Ubuntu package</li>
+          <li>Add support for Solus linux <a href="https://github.com/rvm/rvm/pull/3728">#3728</a></li>
+          </ul>
+          
+          
+          <h4>Bug fixes:</h4>
+          
+          <ul>
+          <li>Can't download rvm; curl returned status '23' <a href="https://github.com/rvm/rvm/issues/3785">#3785</a></li>
+          <li>Installation fails when cygwin was installed with <code>--no-admin</code> flag <a href="https://github.com/rvm/rvm/issues/3762">#3762</a></li>
+          <li>Installation fails with <code>SSLv3_method undeclared</code> <a href="https://github.com/rvm/rvm/issues/3752">#3752</a></li>
+          <li>Updated source urls for Ruby Enterprise Edition <a href="https://github.com/rvm/rvm/issues/3740">#3740</a></li>
+          <li>RVM install rbx fails on 10.11.6 with <code>llvm</code> version mismatch <a href="https://github.com/rvm/rvm/issues/3722">#3722</a></li>
+          <li>Can't install jruby on Ubuntu 16.04: no <code>openjdk-7-jre-headless</code> package <a href="https://github.com/rvm/rvm/issues/3719">#3719</a></li>
+          <li>Fail to install ruby 2.3.1 on Windows 10 with Cygwin (missing <code>libcrypt-devel</code> and <code>libcrypt0</code>) <a href="https://github.com/rvm/rvm/issues/3706">#3706</a></li>
+          <li>Incorrect requirement <code>cygwin32-readline</code> for Cygwin x86_64 <a href="https://github.com/rvm/rvm/issues/2736">#2736</a></li>
+          <li>Fish shell error after stable update <a href="https://github.com/rvm/rvm/issues/3655">#3655</a></li>
+          <li>Enforce usage of gpg coming from Cygwin on Windows <a href="https://github.com/rvm/rvm/issues/3623">#3623</a></li>
+          <li>Change Rubinius dependency llvm to version 3.5 for OpenSuse, macOS and Ubuntu <a href="https://github.com/rvm/rvm/issues/3287">#3287</a></li>
+          <li>Print info message when auto switching ruby by entering the folder <a href="https://github.com/rvm/rvm/issues/3602">#3602</a></li>
+          <li>Change Rubinius Ubuntu dependency clang to version 3.5 <a href="https://github.com/rvm/rvm/issues/3541">#3541</a></li>
+          <li>Patch Ruby to explicitly refer to kernel32.dll on Cygwin <a href="https://github.com/rvm/rvm/issues/3519">#3519</a></li>
+          <li>Add libgmp-dev as an Ubuntu requirement <a href="https://github.com/rvm/rvm/issues/3509">#3509</a></li>
+          <li>Errors when installing rubies caused by old ruby gems 2.4.x shipped with RVM <a href="https://github.com/rvm/rvm/issues/3742">#3742</a></li>
+          <li>Cannot load such file -- zlib <a href="https://github.com/rvm/rvm/issues/3389">#3389</a></li>
+          <li>Improved warning message for when PATH= is set without $PATH <a href="https://github.com/rvm/rvm/pull/3776">#3776</a></li>
+          <li>Fix error message about ignoring all Gemfiles <a href="https://github.com/rvm/rvm/pull/3771">#3771</a></li>
+          <li>Added rails express patches for 2.2.5 and 2.3.1 <a href="https://github.com/rvm/rvm/pull/3676">#3676</a></li>
+          <li>Change OpenBSD mirror protocol from ftp to http <a href="https://github.com/rvm/rvm/pull/3673">#3673</a></li>
+          <li>Enable building of Ruby 1.9.3 and 2.0.0 on 64bit little-endian PowerPC <a href="https://github.com/rvm/rvm/pull/3666">#3666</a></li>
+          <li>Avoid infinite loop on a new tmux session <a href="https://github.com/rvm/rvm/pull/3653">#3653</a></li>
+          </ul>
+          
+          
+          <h4>Upgraded Ruby interpreters:</h4>
+          
+          <ul>
+          <li>Add support for JRuby 9.1.6.0 <a href="https://github.com/rvm/rvm/issues/3805">#3805</a></li>
+          <li>Add support for Ruby 2.2.6, 2.3.2 <a href="https://github.com/rvm/rvm/issues/3808">#3808</a>, 2.3.3 <a href="https://github.com/rvm/rvm/issues/3819">#3819</a>, 2.4.0-preview3 and 2.4.0-rc1</li>
+          <li>Add support for Rubinius 3.69</li>
+          <li>Drop support for GoRuby <a href="https://github.com/rvm/rvm/issues/3786">#3786</a></li>
+          <li>Upgrade RubyGems to 2.6.8</li>
+          </ul>
+          
+          
+          <h4>Binaries:</h4>
+          
+          <ul>
+          <li>Ruby 2.3.0, 2.3.1 <a href="https://github.com/rvm/rvm/issues/3774">#3774</a>, 2.3.3 <a href="https://github.com/rvm/rvm/issues/3822">#3822</a> binaries for Debian 8 x86_64</li>
+          <li>Ruby 2.0.0-p648, 2.1.5, 2.1.9, 2.2.5, 2.3.0 <a href="https://github.com/rvm/rvm/issues/3693">#3693</a>, 2.2.6 and 2.3.2 <a href="https://github.com/rvm/rvm/issues/3809">#3809</a>, 2.3.3 <a href="https://github.com/rvm/rvm/issues/3820">#3820</a> binaries for Ubuntu 16.04</li>
+          <li>Ruby 2.3.1 for Centos 6.6 <a href="https://github.com/rvm/rvm/issues/3712">#3712</a></li>
+          <li>Install CentOS binaries on both RedHat and CentOS machines <a href="https://github.com/rvm/rvm/issues/3735">#3735</a></li>
+          </ul>
+        </article>
+        <a name='bottom'></a>
+      </div>
+      <div id='docindex'>
+        <a name='docindex'></a>
+        <div class='headline'>
+          <a href="/">RVM Documentation Index</a>
+          |
+          <a style="color: red;" href="/blog/">RVM Blog</a>
+        </div>
+        <ul>
+          <li><a href="/blog/2021/01/rvm-1-29-12/">January 15, 2021 - RVM 1.29.12 released</a></li>
+          <li><a href="/blog/2020/12/rvm-1-29-11/">December 29, 2020 - RVM 1.29.11 released</a></li>
+          <li><a href="/blog/2020/03/rvm-1-29-10/">March 25, 2020 - RVM 1.29.10 released</a></li>
+          <li><a href="/blog/2019/07/rvm-1-29-9/">July 10, 2019 - RVM 1.29.9 released</a></li>
+          <li><a href="/blog/2019/05/rvm-1-29-8/">May 8, 2019 - RVM 1.29.8 released</a></li>
+          <li><a href="/blog/2019/01/rvm-1-29-7/">January 3, 2019 - RVM 1.29.7 released</a></li>
+          <li><a href="/blog/2018/12/rvm-1-29-6/">December 13, 2018 - RVM 1.29.6 released</a></li>
+          <li><a href="/blog/2018/12/rvm-1-29-5/">December 12, 2018 - RVM 1.29.5 released</a></li>
+          <li><a href="/blog/2017/04/timely/">May 20, 2017 - Timely</a></li>
+          <li><a href="/blog/2017/03/toptal-grant/">March 20, 2017 - Toptal Grant</a></li>
+          <li><a href="/blog/2017/02/rvm-1-29-1/">February 19, 2017 - RVM 1.29.1 released</a></li>
+          <li><a href="/blog/2017/02/rvm-1-29-0/">February 12, 2017 - RVM 1.29.0 released</a></li>
+          <li><a href="/blog/2016/12/rvm-1-28-0/">December 19, 2016 - RVM 1.28.0 released</a></li>
+          <li><a href="/blog/2016/03/rvm1-ansible-needs-a-new-maintainer/">March 30, 2016 - rvm1-ansible needs a new maintainer</a></li>
+          <li><a href="/blog/2016/03/rvm-1-27-0/">March 27, 2016 - RVM 1.27.0 released</a></li>
+          <li><a href="/blog/2015/03/rvm-1-26-11/">March 31, 2015 - RVM 1.26.11 released</a></li>
+          <li><a href="/blog/2015/02/maintainers-needed-for-rvm1/">February 15, 2015 - Maintainers needed for RVM 1</a></li>
+          <li><a href="/blog/2015/02/rvm-1-26-10/">February 2, 2015 - RVM 1.26.10 released</a></li>
+          <li><a href="/blog/2015/01/rvm-1-26-9/">January 7, 2015 - RVM 1.26.8 and 1.26.9 released</a></li>
+          <li><a href="/blog/2014/12/rvm-1-26-7/">December 28, 2014 - RVM 1.26.7 released</a></li>
+          <li><a href="/blog/2014/12/rvm-1-26-6/">December 25, 2014 - RVM 1.26.6 released</a></li>
+          <li><a href="/blog/2014/12/rvm-1-26-5/">December 21, 2014 - RVM 1.26.5 released</a></li>
+          <li><a href="/blog/2014/12/rvm-1-26-4/">December 10, 2014 - RVM 1.26.4 released</a></li>
+          <li><a href="/blog/2014/12/rvm-ansible-1-3-4/">December 8, 2014 - rvm1-ansible 1.3.4 released</a></li>
+          <li><a href="/blog/2014/11/rvm-1-26-3/">November 18, 2014 - RVM 1.26.3 released</a></li>
+          <li><a href="/blog/2014/11/rvm-ansible-1-3-3/">November 17, 2014 - rvm1-ansible 1.3.3 released</a></li>
+          <li><a href="/blog/2014/11/rvm-1-26-2/">November 15, 2014 - RVM 1.26.2 released</a></li>
+          <li><a href="/blog/2014/11/rvm-1-26-1/">November 11, 2014 - RVM 1.26.1 released</a></li>
+          <li><a href="/blog/2014/11/rvm-ansible-1-3-2/">November 7, 2014 - rvm1-ansible 1.3.2 released</a></li>
+          <li><a href="/blog/2014/10/rvm-1-25-34/">October 23, 2014 - RVM 1.25.34 released</a></li>
+          <li><a href="/blog/2014/10/rvm-ansible-1-3-0/">October 16, 2014 - rvm1-ansible 1.3.0 released</a></li>
+          <li><a href="/blog/2014/10/rvm-ansible-1-3-1/">October 16, 2014 - rvm1-ansible 1.3.1 released</a></li>
+          <li><a href="/blog/2014/10/rvm-1-25-33/">October 6, 2014 - RVM 1.25.33 released</a></li>
+          <li><a href="/blog/2014/09/rvm-ansible-1-2-0/">September 30, 2014 - rvm1-ansible 1.2.0 released</a></li>
+          <li><a href="/blog/2014/09/rvm-1-25-32/">September 30, 2014 - RVM 1.25.32 released</a></li>
+          <li><a href="/blog/2014/09/rvm-blog/">September 29, 2014 - Welcome to RVM Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id='footer'>
+      <div id='footer-container'>
+        &infin;
+        Copyright
+        &copy; 2009-2011
+        <a href='https://github.com/wayneeseguin'>Wayne E. Seguin</a>
+        &copy; 2011-2017
+        <a href='https://github.com/mpapis'>Michal Papis</a>
+        &copy; 2016-2017
+        <a href='https://github.com/pkuczynski'>Piotr Kuczynski</a>
+        &infin;
+        Built with
+        <a href='http://nanoc.ws'>Nanoc</a>
+        &infin;
+        Cached by
+        <a href='https://www.fastly.com/'>Fastly</a>
+        &infin;
+        Tested by
+        <a href='http://www.travis-ci.org/'>Travis CI</a>
+      </div>
+      <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+      <script>
+        google.load('search', '1', {language : 'en', style : google.loader.themes.SHINY});
+        google.setOnLoadCallback(function() {
+          var customSearchControl = new google.search.CustomSearchControl('012125088244772422662:eplzzxbbjte');
+          customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+          customSearchControl.draw('cse');
+        }, true);
+      </script>
+      <script src="https://www.google.com/jsapi?key=ABQIAAAAlfGITCLCzrcO4cy2viT78RSZcRLSY2B0NYnmYEy-3gaXzTHyQxRduJj7nQ6rEtYNpUjIQpEEosF5XA" type="text/javascript"></script>&#x000A;<script src="/javascripts/site.js" type="text/javascript"></script>
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-24992786-1', 'rvm.io'); // owner unknown :(
+        ga('send', 'pageview');
+        ga('create', 'UA-45354940-1', 'rvm.io', {'name': 'ga_mpapis'}); // owner mpapis@gmail.com
+        ga('ga_mpapis.send', 'pageview');
+      </script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+      <script>
+        docsearch({
+        apiKey: '511953e6f628103639db56a6f0f96977',
+        indexName: 'rvm',
+        inputSelector: '#docsearch-input',
+        debug: false // Set debug to true if you want to inspect the dropdown
+        });
+      </script>
+    </div>
+  </body>
+</html>

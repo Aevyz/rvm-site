@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      RVM: Ruby Version Manager -
+      Deployment best practices
+    </title>
+    <link href='/css/screen.css' media='screen' rel='stylesheet' type='text/css'>
+    <link href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' rel='stylesheet' type='text/css'>
+    <link href='/css/algolia-docsearch.css' rel='stylesheet' type='text/css'>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <meta content='w2V78a6cwiHD5Gm8yvlTP21xZ1YgVguDdC0JGDEA2d0' name='google-site-verification'>
+    
+  </head>
+  <body>
+    <div id='heaven'></div>
+    <div id='container'>
+      <div id='logo'>
+        <a href='/'>
+          <img alt='RVM Logo' src='/images/logo.png'>
+        </a>
+      </div>
+      <div id='support'>
+        <div class='title'>Support</div>
+        <div class='text'>
+          RVM is maintained by community of volunteers, report issues to
+          <a href='https://github.com/rvm/rvm/issues'>
+            RVM issues tracker.
+          </a>
+          <div class='more'>
+            If you can help or wish to become one of the maintainers - just start helping.
+            You can find more RVM related projects at
+            <a href='https://github.com/rvm'>
+              RVM GitHub organization.
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id='donate'>
+        <div class='title'>Donation</div>
+        <div class='text'>
+          Love RVM? Help us maintain RVM, a donation can help with it.
+          Want to help in other way, want to be a sponsor?
+          <div class='more'>
+            contact:
+            <a href='mailto:mpapis@gmail.com'>
+              Michal Papis
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id='sponsors'>
+        <div class='title'>Sponsors</div>
+        <div class='logo long'>
+          <a href='https://www.fastly.com/'>
+            <img alt='Fastly' height='50' src='/images/fastly_logo-01.png'>
+          </a>
+        </div>
+      </div>
+      <div id='carbon_ads_box'>
+        <div class='title'>Carbon Ads</div>
+        <script async='async' id='_carbonads_js' src='https://cdn.carbonads.com/carbon.js?zoneid=1673&amp;serve=C6AILKT&amp;placement=rvmio' type='text/javascript'></script>
+      </div>
+      <div class='clear'></div>
+      <div id='content'>
+        <a id='top'></a>
+        <div class='breadcrumbs'><a href="/">Documentation</a>&nbsp;&gt;&nbsp;<a href="/deployment/">Deployment</a>&nbsp;&gt;&nbsp;<a href="/deployment/best-practices/">Best Practices</a><hr /></div>
+        <a name='best-practices'></a>
+        <h1>Deployment Best Practices</h1>
+        <h2>Warning</h2>
+        <p>
+          This article is outdated and we will be posting an update,
+          below is list of known bugs, please help if you can:
+          <ol>
+            <li>
+              <a href='https://github.com/sm/sm/issues/50'>
+                https://github.com/sm/sm/issues/50
+              </a>
+            </li>
+          </ol>
+        </p>
+        <h2>
+          Use the
+          <a href='https://github.com/sm/sm'>
+            SM Framework Project
+          </a>
+        </h2>
+        <p>
+          <a href='https://github.com/sm'>
+            SM Framework
+          </a>
+          extensions can be used for flexible server-side code deployments.
+          The following walkthrough will explain the steps involved for one example.
+          This example will be deploying a Ruby on Rails application from GitHub.
+          Please note that the deployment extension is not 'ruby specific' and can be
+          used for deploying any codebase desired.
+        </p>
+        <h4>
+          Walkthrough
+        </h4>
+        <p>
+          When deploying rvm applications, there are a few things to keep in mind.
+          Please note that all of these are our recommended practices, and are typically
+          best set up on a new machine:
+        </p>
+        <p>
+          The best way to deploy any application is to create a a new user on the target
+          system for each application (project / code base) to be deployed. We then
+          deploy each application to it's own *isolated* environment (eg. as the user,
+          in the user's home path); Preferably the username is the same as the
+          'shortname' of the application.
+        </p>
+        <p>
+          Use an RVM gemset for each application (project)
+        </p>
+        <p>
+          Also be sure to use a
+          <a href='/workflow/rvmrc/#project'>
+            project .rvmrc
+          </a>
+          for each project, for both development and deployment.
+        </p>
+        <p>
+          Set the rvm_path to be user-facing:
+        </p>
+        <pre class='code'>appuser$ echo 'rvm_path="$HOME/.rvm"' >> ~/.rvmrc</pre>
+        <p>
+          Now install RVM,
+        </p>
+        <pre class='code'>appuser$ \curl -sSL get.rvm.io | bash -s stable</pre>
+        <p>
+          Please note that there is a backslash before <b>curl</b>, this prevents misbehaving if
+          you have aliased it with other options or use a .curlrc file for this. Once
+          you have RVM installed for the target application user, you are ready to setup
+          the deployment!
+        </p>
+        <p>
+          Start by generating a default ~/.smrc:
+        </p>
+        <pre class='code'>appuser$ sm smrc&#x000A;</pre>
+        <p>
+          Next, update any settings you may need to change in the ~/.smrc file, such as the
+          environment, repository_url and perhaps the branch to deploy from:
+        </p>
+        <pre class='code'>appuser$ vim ~/.smrc</pre>
+        <p>
+          For example, when we deploy a redmine instance, we set the following two
+          variables in the ~/.smrc file:
+        </p>
+        <pre class='code'>appuser$ grep -E '^repository_url=|^branch=' ~/.smrc&#x000A;repository_url="git://github.com/edavis10/redmine.git"&#x000A;branch="1.2-stable"</pre>
+        <p>
+          For a Ruby application we will want to install and use the 'ruby' extension
+          set which includes extensions such as rvm, unicorn, and rails:
+        </p>
+        <pre class='code'>root# sm set install ruby</pre>
+        <p>
+          Next, run the Rails application setup extension action; this creates and sets
+          up the directories and configuration files within the application user's
+          ~/shared path. It will also install RVM with the default ruby:
+        </p>
+        <pre class='code'>appuser$ sm rails setup</pre>
+        <p>
+          Generate the unicorn configuration file in ~/shared/config/. Edit this file
+          if you wish to run more than 2 unicorn worker processes by default,
+          and to tweak any unicorn settings:
+        </p>
+        <pre class='code'>appuser$ sm unicorn setup</pre>
+        <p>
+          Edit the default generated database.yml file, and set up your database
+          connection information:
+        </p>
+        <pre class='code'>appuser$ vim ~/shared/config/database.yml</pre>
+        <p>
+          Now install the deploy extension:
+        </p>
+        <pre class='code'>root# sm ext install deploy</pre>
+        <p>
+          Now we can use the deployment extension which will update ~/current with a
+          fresh release, using the latest code from the repository and branch
+          information defined in ~/.smrc:
+        </p>
+        <pre class='code'>appuser$ sm deploy&#x000A;</pre>
+        <p>
+          If you use rvm gemset files, do the following:
+        </p>
+        <pre class='code'>appuser$ source ~/.rvm/scripts/rvm # load RVM into your current shell&#x000A;appuser$ rvm gemset import ~/current/production.gems&#x000A;</pre>
+        <p>
+          If you use bundler, bootstrap your gems as follows
+          ( Note: ensure that 'gem "unicorn"' is in the Gemfile first,
+          *with no version specified* ):
+        </p>
+        <pre class='code'>appuser$ cd ~/current&#x000A;appuser$ gem install bundler && bundle install&#x000A;</pre>
+        <p>
+          Once your Ruby app environment is bootstrapped, start
+          your application running under unicorn:
+        </p>
+        <pre class='code'>appuser$ sm unicorn start&#x000A;</pre>
+        <p>
+          Things are not always unicorns and rainbows, especially when changing and
+          updating an application's codebase. There have been many times where I have
+          worn keyboard imprints on my forehead for several days after being unable
+          to start my application's unicorn herd only to finally figure out it was
+          because my new codebase was using a new rubygem and I had forgotten to add
+          it to my application's Gemfile! When the codebase update was successful but
+          the unicorns will not restart, then you can check the status of this by
+          examining the unicorn log; For example to check the last 200 lines of the
+          unicorn log you issue the following command:
+        </p>
+        <pre class='code'>appuser$ tail -n 200 ~/shared/log/unicorn.log</pre>
+        <p>
+          Then you figure out what the errors are telling you, fix the issue and deploy
+          again!!! Aye, a vicious cycle 'tis ;)
+        </p>
+        <p>
+          We use the Nginx webserver to serve http/https traffic and to proxy to the
+          application servers.
+          The Nginx extension is found in the 'servers' extension set:
+        </p>
+        <pre class='code'>root# sm set install servers</pre>
+        <p>
+          We run Nginx, so for us we proceed as follows. Please note the switch to
+          running as root (with sudo):
+        </p>
+        <pre class='code'>root# sm nginx install&#x000A;</pre>
+        <p>
+          Now, 'configure the system' - which means copying the Nginx configuration
+          directory into /etc/nginx:
+        </p>
+        <pre class='code'>root# sm nginx configure system&#x000A;</pre>
+        <p>
+          Next, for each application user, you'll generate an application server
+          configuration file (in /etc/nginx/servers/):
+        </p>
+        <pre class='code'>root# sm nginx server add {{appuser}}&#x000A;</pre>
+        <p>
+          Note: this creates a /etc/nginx/servers/{{appuser}}.conf file;
+          configured by default to proxy to a unicorn running on a
+          Unix Domain Socket (UDS).
+        </p>
+        <p>
+          Now, ensure the appuser's directory is readable by Nginx:
+        </p>
+        <pre class='code'>root# chmod go+rx /home/{{appuser}}&#x000A;</pre>
+        <p>
+          Finally, start the Nginx service:
+        </p>
+        <pre class='code'>root# sm nginx service start&#x000A;</pre>
+        <p>
+          <em>Do not forget to make backups!!!</em>
+          For most this is an afterthought only brought about by an event that they are
+          ill prepared for. Avoid this pain for yourself.
+          The Rails extension provides a backup_database action.
+          This will backup the database based on the database.yml file into the
+          ~/shared/backups/ directory.
+          (If you want them in a different location, use filesystem symlinks.):
+        </p>
+        <pre class='code'>user$ sm rails backup_database&#x000A;</pre>
+        <p>
+          Add the command to cron such that it is run nightly at 02:00:
+        </p>
+        <pre class='code'>user$ crontab -e&#x000A;&#x000A;0 2 * * * sm rails backup_database</pre>
+        <p>
+          Note: this will soon change to 'sm rails backup database' (note the space)
+        </p>
+        <p>
+          Use wrapper scripts for managing things like god and the like:
+          <pre class='code'>user$ rvm help wrapper&#x000A;</pre>
+        </p>
+        <h4>
+          Deploying a specific branch and revision
+        </h4>
+        <p>
+          The BDSM deployment extension also allows you to specifiy the branch and/or
+          revision to use from the application's repository.
+          For example, if you use git, you can set one or both of these in the
+          ~/.smrc file as follows:
+        </p>
+        <pre class='code'>branch="production"&#x000A;revision="asdf4269"&#x000A;</pre>
+        <h4>
+          Deployment Hooks
+        </h4>
+        <p>
+          In the above walkthrough I showed you how to use a few BDSM framework
+          extensions to accomplish a Ruby on Rails deployment. We now have a single
+          server running with the application code served on port 80. We are running a
+          Unicorn and Nginx web server stack.
+        </p>
+        <p>
+          A note for those new to deployments: 'Unicorn' is called an "application server"
+          which means that it is what runs the actual Ruby code. Nginx, the "web server",
+          is used to serve static files (css, images, javascripts, etc...) and proxy all
+          other requests to the Unicorn herd (application servers).
+        </p>
+        <p>
+          Several of the above steps you must do each time you want to update your
+          code to the latest on your server. We will now show you how to automate these
+          steps even further so that you need only type 'sm deploy'!
+          Once installed it is not required to reinstall or update the extensions and
+          extension sets unless you are updating them to a newer version.
+          There is also no need to reconfigure the project, database and unicorn
+          configurations, these are all one time tasks.
+        </p>
+        <p>
+          If you use rvm gemsets and/or bundler (yes, you can use both together as I do
+          myself) then every time you deploy a new version of your application, you will
+          want to ensure that your gems are up to date.
+        </p>
+        <p>
+          This can be accomplished for you automatically during the deployment process.
+          Several steps are taken in order to complete a deployment.
+          Most of these steps occur in a staging location ($stage_path).
+          The deployment extension provides a before and after hook for each step in
+          the deployment process. In order to have actions happen at any of these hook
+          points in the process you create an executable file in config/deploy/.
+        </p>
+        <p>
+          Let us take the example of updating your gems before replacing the current
+          application's codebase so that you are sure the application will not
+          temporarily falter. We create the following executable file in our
+          application's code repository 'config/deploy/before_replace_current':
+        </p>
+        <pre class='code'>#!/bin/bash&#x000A;enter "${stage_path}"&#x000A;command_exists bundle || gem install bundler --no-rdoc --no-ri&#x000A;bundle --without development,test&#x000A;</pre>
+        <p>
+          Once this file with this content is checked into the application code
+          repository, the very next time 'sm deploy' is run as {{appuser}} on the server
+          this file will be run just before the deployment extension replaces the
+          currently deployed code directory.
+        </p>
+        <p>
+          One thing to note is that this file is a shell script! This means that you can
+          run any commands to accomplish whatever it is that is required to happen on
+          the server before the currently running code is replaced.
+        </p>
+        <p>
+          Another step that must happen in order for your website to change it's running
+          codebase is that the application server (unicorn) must be restarted so that
+          it reloads the new codebase. The way to do this with the unicorn extension is:
+        </p>
+        <pre class='code'>appuser$ sm unicorn restart</pre>
+        <p>
+          This is something we want to happen after the current directory has been
+          replaced. So for this we can use the after_replace_current hook! Let's create
+          the file 'config/deploy/after_replace_current' with the following contents:
+        </p>
+        <pre class='code'>#!/bin/bash&#x000A;enter ${release_path} # Not necessary but it makes me feel warm and fuzzy.&#x000A;sm unicorn restart</pre>
+        <p>
+          The unicorn restart will signal the running unicorn process to reload the
+          codebase without dropping requests. If the unicorn herd is not running yet
+          then this will start the unicorn herd, which is equivalent to 'sm unicorn start'
+        </p>
+        <p>
+          I personally use airbrakeapp (was: hoptoadapp) for application runtime error
+          notifications in all of my Ruby applications and I find that it is a most
+          useful product! Thus my applications also have a 'config/deploy/after_deploy'
+          executable hook file which sends a deployment notification to the airbrake
+          application:
+        </p>
+        <pre class='code'>#!/bin/bash&#x000A;enter ${release_path}&#x000A;rake hoptoad:deploy TO="$environment" \&#x000A;  REVISION="$(cat "${release_path}/revision")"</pre>
+        <p>
+          Note that this time the 'enter ${release_path}' IS necessary as the rake
+          command here must be run from within the application's deployed codebase so
+          that it can find the application's Rakefile.
+        </p>
+        <a id='bottom'></a>
+      </div>
+      <div id='docindex'>
+        <div class='headline'>
+          <a style="color: red;" href="/">RVM Documentation Index</a>
+          |
+          <a href="/blog/">RVM Blog</a>
+        </div>
+        <div class='headline'>
+          <label for="docsearch-input">Search:</label>
+          <input id="docsearch-input" type="text" />
+        </div>
+        <div class='column'>
+          <a href="/rvm/">RVM</a>
+          <ul><li><a href="/rvm/about/">About</a></li>
+          <li><a href="/rvm/autolibs/">Autolibs</a></li>
+          <li><a href="/rvm/basics/">Basics</a></li>
+          <li><a href="/rvm/best-practices/">Best Practices</a></li>
+          <li><a href="/rvm/cli/">Cli</a></li>
+          <li><a href="/rvm/configuration/">Configuration</a></li>
+          <li><a href="/rvm/info/">Info</a></li>
+          <li><a href="/rvm/install/">Install</a></li>
+          <li><a href="/rvm/myths/">Myths</a></li>
+          <li><a href="/rvm/offline/">Offline</a></li>
+          <li><a href="/rvm/prerequisites/">Prerequisites</a></li>
+          <li><a href="/rvm/security/">Security</a></li>
+          <li><a href="/rvm/upgrading/">Upgrading</a></li></ul>
+          <a href='/interpreters/'>Interpreters</a>
+          <ul>
+            <li>
+              <a href='/interpreters/ruby/'>MRI/YARV (ruby)</a>
+            </li>
+            <li>
+              <a href='/interpreters/jruby/'>JRuby (jruby)</a>
+            </li>
+            <li>
+              <a href='/interpreters/rbx/'>Rubinius (rbx)</a>
+            </li>
+          </ul>
+          <a href="/rubies/">Rubies</a>
+          <ul><li><a href="/rubies/alias/">Alias</a></li>
+          <li><a href="/rubies/default/">Default</a></li>
+          <li><a href="/rubies/docs/">Docs</a></li>
+          <li><a href="/rubies/info/">Info</a></li>
+          <li><a href="/rubies/installing/">Installing</a></li>
+          <li><a href="/rubies/list/">List</a></li>
+          <li><a href="/rubies/named/">Named</a></li>
+          <li><a href="/rubies/patching/">Patching</a></li>
+          <li><a href="/rubies/removing/">Removing</a></li>
+          <li><a href="/rubies/rubygems/">Rubygems</a></li>
+          <li><a href="/rubies/strings/">Strings</a></li>
+          <li><a href="/rubies/uninstalling/">Uninstalling</a></li>
+          <li><a href="/rubies/upgrading/">Upgrading</a></li></ul>
+        </div>
+        <div class='column'>
+          <a href="/gemsets/">Gemsets</a>
+          <ul><li><a href="/gemsets/basics/">Basics</a></li>
+          <li><a href="/gemsets/clear/">Clear</a></li>
+          <li><a href="/gemsets/copying/">Copying</a></li>
+          <li><a href="/gemsets/creating/">Creating</a></li>
+          <li><a href="/gemsets/deleting/">Deleting</a></li>
+          <li><a href="/gemsets/emptying/">Emptying</a></li>
+          <li><a href="/gemsets/exporting/">Exporting</a></li>
+          <li><a href="/gemsets/global/">Global</a></li>
+          <li><a href="/gemsets/ignoring/">Ignoring</a></li>
+          <li><a href="/gemsets/importing/">Importing</a></li>
+          <li><a href="/gemsets/initial/">Initial</a></li>
+          <li><a href="/gemsets/listing/">Listing</a></li>
+          <li><a href="/gemsets/using/">Using</a></li></ul>
+          <a href='/set/'>Set Actions</a>
+          <ul>
+            <li>
+              <a href='/set/do/'>do</a>
+            </li>
+            <li>
+              <a href='/set/tests/'>tests</a>
+            </li>
+            <li>
+              <a href='/set/benchmark/'>benchmark</a>
+            </li>
+          </ul>
+          <a href="/workflow/">Workflow</a>
+          <ul><li><a href="/workflow/chruby/">Chruby</a></li>
+          <li><a href="/workflow/completion/">Completion</a></li>
+          <li><a href="/workflow/examples/">Examples</a></li>
+          <li><a href="/workflow/hooks/">Hooks</a></li>
+          <li><a href="/workflow/irbrc/">Irbrc</a></li>
+          <li><a href="/workflow/projects/">Projects</a></li>
+          <li><a href="/workflow/prompt/">Prompt</a></li>
+          <li><a href="/workflow/proxy/">Proxy</a></li>
+          <li><a href="/workflow/rvmrc/">Rvmrc</a></li>
+          <li><a href="/workflow/screen/">Screen</a></li>
+          <li><a href="/workflow/scripting/">Scripting</a></li>
+          <li><a href="/workflow/subshells/">Subshells</a></li></ul>
+          <a href="/deployment/">Deployment</a>
+          <ul><li><a href="/deployment/best-practices/">Best Practices</a></li>
+          <li><a href="/deployment/capistrano/">Capistrano</a></li>
+          <li><a href="/deployment/chef/">Chef</a></li>
+          <li><a href="/deployment/cron/">Cron</a></li>
+          <li><a href="/deployment/god/">God</a></li>
+          <li><a href="/deployment/init-d/">Init D</a></li>
+          <li><a href="/deployment/passenger/">Passenger</a></li></ul>
+        </div>
+        <div class='column'>
+          <a href="/integration/">Integration</a>
+          <ul><li><a href="/integration/bundler/">Bundler</a></li>
+          <li><a href="/integration/capistrano/">Capistrano</a></li>
+          <li><a href="/integration/chef/">Chef</a></li>
+          <li><a href="/integration/cron/">Cron</a></li>
+          <li><a href="/integration/culerity/">Culerity</a></li>
+          <li><a href="/integration/databases/">Databases</a></li>
+          <li><a href="/integration/emacs/">Emacs</a></li>
+          <li><a href="/integration/engineyard/">Engineyard</a></li>
+          <li><a href="/integration/fish/">Fish</a></li>
+          <li><a href="/integration/gnome-terminal/">Gnome Terminal</a></li>
+          <li><a href="/integration/god/">God</a></li>
+          <li><a href="/integration/heroku/">Heroku</a></li>
+          <li><a href="/integration/init-d/">Init D</a></li>
+          <li><a href="/integration/jenkins/">Jenkins</a></li>
+          <li><a href="/integration/konsole/">Konsole</a></li>
+          <li><a href="/integration/lxterminal/">Lxterminal</a></li>
+          <li><a href="/integration/macports-before-autolibs/">Macports Before Autolibs</a></li>
+          <li><a href="/integration/macports/">Macports</a></li>
+          <li><a href="/integration/memprof/">Memprof</a></li>
+          <li><a href="/integration/passenger/">Passenger</a></li>
+          <li><a href="/integration/pow/">Pow</a></li>
+          <li><a href="/integration/qtruby/">Qtruby</a></li>
+          <li><a href="/integration/scripting/">Scripting</a></li>
+          <li><a href="/integration/simple-terminal/">Simple Terminal</a></li>
+          <li><a href="/integration/sketchup/">Sketchup</a></li>
+          <li><a href="/integration/sudo/">Sudo</a></li>
+          <li><a href="/integration/teamcity/">Teamcity</a></li>
+          <li><a href="/integration/textmate/">Textmate</a></li>
+          <li><a href="/integration/tk/">Tk</a></li>
+          <li><a href="/integration/ubuntu-on-windows/">Ubuntu On Windows</a></li>
+          <li><a href="/integration/vagrant/">Vagrant</a></li>
+          <li><a href="/integration/vim/">Vim</a></li>
+          <li><a href="/integration/xterm/">Xterm</a></li>
+          <li><a href="/integration/zsh/">Zsh</a></li></ul>
+        </div>
+        <div class='column'>
+          <a href='/packages/'>Packages</a>
+          <a href='/presentations/'>Presentations</a>
+          <ul>
+            <li>
+              <a href='http://www.confreaks.com/videos/3-mwrc2010-managing-ruby-projects-with-rvm'>MWRC 2010</a>
+            </li>
+            <li>
+              <a href='http://confreaks.tv/videos/railsconf2012-rvm-essential-rails-development-tools'>RailsConf 2012</a>
+            </li>
+            <li>
+              <a href='http://confreaks.tv/videos/railsconf2013-developing-rails-apps-in-technical-isolation'>RailsConf 2013</a>
+            </li>
+            <li>
+              <a href='http://thechangelog.com/66/'>Changelog 66 with Wayne</a>
+            </li>
+            <li>
+              <a href='http://www.youtube.com/watch?v=wN-iIC3S1ZM'>RVM 2: Lessons and future</a>
+            </li>
+            <li>
+              <a href='http://www.youtube.com/watch?v=gYNht8H24ZQ'>RVM 2: Python Version Manager</a>
+            </li>
+            <li>
+              <a href='http://thechangelog.com/102/'>Changelog 102 with Michal</a>
+            </li>
+          </ul>
+          <a href='/support/'>Help &amp; Support</a>
+          <ul>
+            <li>
+              <a href='/support/irc/'>Issues tracker</a>
+            </li>
+            <li>
+              <a href='/support/faq/'>FAQ &amp; Notes</a>
+            </li>
+            <li>
+              <a href='/support/troubleshooting/'>Troubleshooting</a>
+            </li>
+            <li>
+              <a href='/support/fixing-broken-ssl-certificates/'>Fixing Broken SSL Certificates</a>
+            </li>
+          </ul>
+          <a href="/qa/">Quality Assurance</a>
+          <ul><li><a href="/qa/software_testing/">Software_testing</a></li></ul>
+          <a href="/development/">Development</a>
+          <ul><li><a href="/development/contributing/">Contributing</a></li>
+          <li><a href="/development/debugging/">Debugging</a></li>
+          <li><a href="/development/github/">Github</a></li>
+          <li><a href="/development/list/">List</a></li></ul>
+          <a href='/credits/'>Credits</a>
+          <ul>
+            <li>
+              <a href='/credits/thanks/'>Contributions</a>
+            </li>
+            <li>
+              <a href='/credits/donations/'>Donations</a>
+            </li>
+            <li>
+              <a href='/credits/funding/'>Funding</a>
+            </li>
+          </ul>
+        </div>
+        <div class='clear'></div>
+      </div>
+    </div>
+    <div id='footer'>
+      <div id='footer-container'>
+        &infin;
+        Copyright
+        &copy; 2009-2011
+        <a href='https://github.com/wayneeseguin'>Wayne E. Seguin</a>
+        &copy; 2011-2017
+        <a href='https://github.com/mpapis'>Michal Papis</a>
+        &copy; 2016-2017
+        <a href='https://github.com/pkuczynski'>Piotr Kuczynski</a>
+        &infin;
+        Built with
+        <a href='http://nanoc.ws'>Nanoc</a>
+        &infin;
+        Cached by
+        <a href='https://www.fastly.com/'>Fastly</a>
+        &infin;
+        Tested by
+        <a href='http://www.travis-ci.org/'>Travis CI</a>
+      </div>
+      <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+      <script>
+        google.load('search', '1', {language : 'en', style : google.loader.themes.SHINY});
+        google.setOnLoadCallback(function() {
+          var customSearchControl = new google.search.CustomSearchControl('012125088244772422662:eplzzxbbjte');
+          customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+          customSearchControl.draw('cse');
+        }, true);
+      </script>
+      <script src="https://www.google.com/jsapi?key=ABQIAAAAlfGITCLCzrcO4cy2viT78RSZcRLSY2B0NYnmYEy-3gaXzTHyQxRduJj7nQ6rEtYNpUjIQpEEosF5XA" type="text/javascript"></script>&#x000A;<script src="/javascripts/site.js" type="text/javascript"></script>
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-24992786-1', 'rvm.io'); // owner unknown :(
+        ga('send', 'pageview');
+        ga('create', 'UA-45354940-1', 'rvm.io', {'name': 'ga_mpapis'}); // owner mpapis@gmail.com
+        ga('ga_mpapis.send', 'pageview');
+      </script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+      <script>
+        docsearch({
+        apiKey: '511953e6f628103639db56a6f0f96977',
+        indexName: 'rvm',
+        inputSelector: '#docsearch-input',
+        debug: false // Set debug to true if you want to inspect the dropdown
+        });
+      </script>
+    </div>
+  </body>
+</html>

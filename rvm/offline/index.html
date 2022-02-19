@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      RVM: Ruby Version Manager -
+      Offline RVM
+    </title>
+    <link href='/css/screen.css' media='screen' rel='stylesheet' type='text/css'>
+    <link href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' rel='stylesheet' type='text/css'>
+    <link href='/css/algolia-docsearch.css' rel='stylesheet' type='text/css'>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <meta content='w2V78a6cwiHD5Gm8yvlTP21xZ1YgVguDdC0JGDEA2d0' name='google-site-verification'>
+    
+  </head>
+  <body>
+    <div id='heaven'></div>
+    <div id='container'>
+      <div id='logo'>
+        <a href='/'>
+          <img alt='RVM Logo' src='/images/logo.png'>
+        </a>
+      </div>
+      <div id='support'>
+        <div class='title'>Support</div>
+        <div class='text'>
+          RVM is maintained by community of volunteers, report issues to
+          <a href='https://github.com/rvm/rvm/issues'>
+            RVM issues tracker.
+          </a>
+          <div class='more'>
+            If you can help or wish to become one of the maintainers - just start helping.
+            You can find more RVM related projects at
+            <a href='https://github.com/rvm'>
+              RVM GitHub organization.
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id='donate'>
+        <div class='title'>Donation</div>
+        <div class='text'>
+          Love RVM? Help us maintain RVM, a donation can help with it.
+          Want to help in other way, want to be a sponsor?
+          <div class='more'>
+            contact:
+            <a href='mailto:mpapis@gmail.com'>
+              Michal Papis
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id='sponsors'>
+        <div class='title'>Sponsors</div>
+        <div class='logo long'>
+          <a href='https://www.fastly.com/'>
+            <img alt='Fastly' height='50' src='/images/fastly_logo-01.png'>
+          </a>
+        </div>
+      </div>
+      <div id='carbon_ads_box'>
+        <div class='title'>Carbon Ads</div>
+        <script async='async' id='_carbonads_js' src='https://cdn.carbonads.com/carbon.js?zoneid=1673&amp;serve=C6AILKT&amp;placement=rvmio' type='text/javascript'></script>
+      </div>
+      <div class='clear'></div>
+      <div id='content'>
+        <a id='top'></a>
+        <h1><a class="anchor" href="#rvm-in-offline-mode" name="rvm-in-offline-mode">&infin;</a>RVM in offline mode</h1>
+        
+        <p>This is only rough description of the process, not all the steps need to work right away, feel free to propose fixes here: <a href="https://github.com/rvm/rvm-site/tree/master/content/rvm/offline.md">rvm offline source</a>.</p>
+        
+        <h2><a class="anchor" href="#installing-rvm-offline" name="installing-rvm-offline">&infin;</a>Installing RVM offline</h2>
+        
+        <ol>
+        <li>Choose the version of RVM you wish to deploy from: https://github.com/rvm/rvm/tags</li>
+        <li>Download the rvm tarball: <code>curl -sSL https://github.com/rvm/rvm/tarball/stable -o rvm-stable.tar.gz</code></li>
+        <li>Create and enter rvm directory: <code>mkdir rvm &amp;&amp; cd rvm</code></li>
+        <li>Unpack it: <code>tar --strip-components=1 -xzf ../rvm-stable.tar.gz</code></li>
+        <li>Install rvm: <code>./install --auto-dotfiles</code>
+        
+        <ul>
+        <li>use --help to get the options</li>
+        <li>sudo password may be required depending on the type of <a href="/rvm/install/">install</a></li>
+        </ul>
+        </li>
+        <li>Load rvm: <code>source ~/.rvm/scripts/rvm</code>
+        
+        <ul>
+        <li>if --path was specified when instaling rvm, use the specified path rather than '~/.rvm'</li>
+        </ul>
+        </li>
+        </ol>
+        
+        
+        <h2><a class="anchor" href="#download-ruby-rubygems-and-yaml" name="download-ruby-rubygems-and-yaml">&infin;</a>Download Ruby, rubygems and yaml</h2>
+        
+        <ol>
+        <li>Download ruby
+        
+        <ul>
+        <li>Find <code>tar.bz2</code> version at: https://ftp.ruby-lang.org/pub/ruby/ (check sub-directories)</li>
+        <li>Download with curl: : <code>curl -sSL https://ftp.ruby-lang.org/pub/ruby/ruby-2.2.0.tar.bz2 -o ruby-2.2.0.tar.bz2</code></li>
+        <li>Must use ruby source archive with .tar.bz2 extension! The versions at
+        https://www.ruby-lang.org/en/downloads/ are <code>tar.gz</code>, change it <code>tar.bz2</code> before downloading.</li>
+        </ul>
+        </li>
+        <li>Download rubygems
+        
+        <ul>
+        <li>Find version at: https://github.com/rubygems/rubygems/tags</li>
+        <li>Download with curl: <code>curl -sSL http://production.cf.rubygems.org/rubygems/rubygems-2.4.6.tgz -o rubygems-2.4.6.tgz</code></li>
+        </ul>
+        </li>
+        <li>Download yaml (required by rvm)
+        
+        <ul>
+        <li>Download from rvm.io with curl: <code>curl -sSL http://pyyaml.org/download/libyaml/yaml-0.1.6.tar.gz -o yaml-0.1.6.tar.gz</code></li>
+        </ul>
+        </li>
+        <li>Save these packages for offline use by storing them in the rvm archive folder <code>$rvm_path/archives/</code> by default
+        
+        <ul>
+        <li>An alternate archive folder can be specified in the <code>.rvmrc</code> file</li>
+        <li>sample usage: <code>echo rvm_archives_path=/path/to/tarballs/ &gt;&gt; ~/.rvmrc</code></li>
+        </ul>
+        </li>
+        </ol>
+        
+        
+        <h2><a class="anchor" href="#install-dependencies" name="install-dependencies">&infin;</a>Install dependencies</h2>
+        
+        <ol>
+        <li>Disable automatic dependencies ("requirements") fetching: <code>rvm autolibs read-fail</code></li>
+        <li>Manually download and install dependencies
+        
+        <ul>
+        <li>Get the list of dependencies: <code>rvm requirements</code></li>
+        <li>Consult your system manual how to manually download and install the required software</li>
+        </ul>
+        </li>
+        </ol>
+        
+        
+        <h2><a class="anchor" href="#installing-ruby" name="installing-ruby">&infin;</a>Installing Ruby</h2>
+        
+        <ol>
+        <li>Clean default gems: <code>echo "" &gt; ~/.rvm/gemsets/default.gems</code></li>
+        <li>Clean global gems: <code>echo "" &gt; ~/.rvm/gemsets/global.gems</code></li>
+        <li>Install Ruby: <code>rvm install 2.2.0 --rubygems 2.4.6</code> (this may require sudo password for autolibs)
+        
+        <ul>
+        <li>Install any other Ruby versions you want similarly</li>
+        </ul>
+        </li>
+        <li>Set default Ruby version: <code>rvm use 2.2.0 --default</code></li>
+        </ol>
+        
+        
+        <h2><a class="anchor" href="#installing-gems" name="installing-gems">&infin;</a>Installing gems</h2>
+        
+        <p>There are multiple ways to install gems, you could download the gem files, but the best way seems to be Bundler:
+        http://bundler.io/bundle_package.html</p>
+        
+        <p>Example installing <code>rails</code> gem:</p>
+        
+        <h3><a class="anchor" href="#online" name="online">&infin;</a>Online</h3>
+        
+        <ol>
+        <li>Create a (fake) project directory: <code>mkdir gems; cd gems</code></li>
+        <li>Install bundler: <code>gem install bundler</code></li>
+        <li>Create <code>Gemfile</code>: <code>bundle init</code></li>
+        <li>Add <code>rails</code> to it: <code>echo "gem 'rails'" &gt;&gt; Gemfile</code></li>
+        <li>Install all gems: <code>bundle install</code></li>
+        <li>Get gem files: <code>bundle package</code></li>
+        <li>Package project: <code>tar czf gems.tgz .</code></li>
+        <li>Download bundler from https://rubygems.org/gems/bundler the <strong>Download</strong> link</li>
+        </ol>
+        
+        
+        <h3><a class="anchor" href="#offline" name="offline">&infin;</a>Offline</h3>
+        
+        <ol>
+        <li>Create a (fake) project directory: <code>mkdir gems; cd gems</code></li>
+        <li>Unpack gems: <code>tar xzf gems.tgz</code></li>
+        <li>Install bundler: <code>gem install bundler-1.8.3.gem</code></li>
+        <li>Install gems: <code>bundle install --local</code></li>
+        </ol>
+        <a id='bottom'></a>
+      </div>
+      <div id='docindex'>
+        <div class='headline'>
+          <a style="color: red;" href="/">RVM Documentation Index</a>
+          |
+          <a href="/blog/">RVM Blog</a>
+        </div>
+        <div class='headline'>
+          <label for="docsearch-input">Search:</label>
+          <input id="docsearch-input" type="text" />
+        </div>
+        <div class='column'>
+          <a href="/rvm/">RVM</a>
+          <ul><li><a href="/rvm/about/">About</a></li>
+          <li><a href="/rvm/autolibs/">Autolibs</a></li>
+          <li><a href="/rvm/basics/">Basics</a></li>
+          <li><a href="/rvm/best-practices/">Best Practices</a></li>
+          <li><a href="/rvm/cli/">Cli</a></li>
+          <li><a href="/rvm/configuration/">Configuration</a></li>
+          <li><a href="/rvm/info/">Info</a></li>
+          <li><a href="/rvm/install/">Install</a></li>
+          <li><a href="/rvm/myths/">Myths</a></li>
+          <li><a href="/rvm/offline/">Offline</a></li>
+          <li><a href="/rvm/prerequisites/">Prerequisites</a></li>
+          <li><a href="/rvm/security/">Security</a></li>
+          <li><a href="/rvm/upgrading/">Upgrading</a></li></ul>
+          <a href='/interpreters/'>Interpreters</a>
+          <ul>
+            <li>
+              <a href='/interpreters/ruby/'>MRI/YARV (ruby)</a>
+            </li>
+            <li>
+              <a href='/interpreters/jruby/'>JRuby (jruby)</a>
+            </li>
+            <li>
+              <a href='/interpreters/rbx/'>Rubinius (rbx)</a>
+            </li>
+          </ul>
+          <a href="/rubies/">Rubies</a>
+          <ul><li><a href="/rubies/alias/">Alias</a></li>
+          <li><a href="/rubies/default/">Default</a></li>
+          <li><a href="/rubies/docs/">Docs</a></li>
+          <li><a href="/rubies/info/">Info</a></li>
+          <li><a href="/rubies/installing/">Installing</a></li>
+          <li><a href="/rubies/list/">List</a></li>
+          <li><a href="/rubies/named/">Named</a></li>
+          <li><a href="/rubies/patching/">Patching</a></li>
+          <li><a href="/rubies/removing/">Removing</a></li>
+          <li><a href="/rubies/rubygems/">Rubygems</a></li>
+          <li><a href="/rubies/strings/">Strings</a></li>
+          <li><a href="/rubies/uninstalling/">Uninstalling</a></li>
+          <li><a href="/rubies/upgrading/">Upgrading</a></li></ul>
+        </div>
+        <div class='column'>
+          <a href="/gemsets/">Gemsets</a>
+          <ul><li><a href="/gemsets/basics/">Basics</a></li>
+          <li><a href="/gemsets/clear/">Clear</a></li>
+          <li><a href="/gemsets/copying/">Copying</a></li>
+          <li><a href="/gemsets/creating/">Creating</a></li>
+          <li><a href="/gemsets/deleting/">Deleting</a></li>
+          <li><a href="/gemsets/emptying/">Emptying</a></li>
+          <li><a href="/gemsets/exporting/">Exporting</a></li>
+          <li><a href="/gemsets/global/">Global</a></li>
+          <li><a href="/gemsets/ignoring/">Ignoring</a></li>
+          <li><a href="/gemsets/importing/">Importing</a></li>
+          <li><a href="/gemsets/initial/">Initial</a></li>
+          <li><a href="/gemsets/listing/">Listing</a></li>
+          <li><a href="/gemsets/using/">Using</a></li></ul>
+          <a href='/set/'>Set Actions</a>
+          <ul>
+            <li>
+              <a href='/set/do/'>do</a>
+            </li>
+            <li>
+              <a href='/set/tests/'>tests</a>
+            </li>
+            <li>
+              <a href='/set/benchmark/'>benchmark</a>
+            </li>
+          </ul>
+          <a href="/workflow/">Workflow</a>
+          <ul><li><a href="/workflow/chruby/">Chruby</a></li>
+          <li><a href="/workflow/completion/">Completion</a></li>
+          <li><a href="/workflow/examples/">Examples</a></li>
+          <li><a href="/workflow/hooks/">Hooks</a></li>
+          <li><a href="/workflow/irbrc/">Irbrc</a></li>
+          <li><a href="/workflow/projects/">Projects</a></li>
+          <li><a href="/workflow/prompt/">Prompt</a></li>
+          <li><a href="/workflow/proxy/">Proxy</a></li>
+          <li><a href="/workflow/rvmrc/">Rvmrc</a></li>
+          <li><a href="/workflow/screen/">Screen</a></li>
+          <li><a href="/workflow/scripting/">Scripting</a></li>
+          <li><a href="/workflow/subshells/">Subshells</a></li></ul>
+          <a href="/deployment/">Deployment</a>
+          <ul><li><a href="/deployment/best-practices/">Best Practices</a></li>
+          <li><a href="/deployment/capistrano/">Capistrano</a></li>
+          <li><a href="/deployment/chef/">Chef</a></li>
+          <li><a href="/deployment/cron/">Cron</a></li>
+          <li><a href="/deployment/god/">God</a></li>
+          <li><a href="/deployment/init-d/">Init D</a></li>
+          <li><a href="/deployment/passenger/">Passenger</a></li></ul>
+        </div>
+        <div class='column'>
+          <a href="/integration/">Integration</a>
+          <ul><li><a href="/integration/bundler/">Bundler</a></li>
+          <li><a href="/integration/capistrano/">Capistrano</a></li>
+          <li><a href="/integration/chef/">Chef</a></li>
+          <li><a href="/integration/cron/">Cron</a></li>
+          <li><a href="/integration/culerity/">Culerity</a></li>
+          <li><a href="/integration/databases/">Databases</a></li>
+          <li><a href="/integration/emacs/">Emacs</a></li>
+          <li><a href="/integration/engineyard/">Engineyard</a></li>
+          <li><a href="/integration/fish/">Fish</a></li>
+          <li><a href="/integration/gnome-terminal/">Gnome Terminal</a></li>
+          <li><a href="/integration/god/">God</a></li>
+          <li><a href="/integration/heroku/">Heroku</a></li>
+          <li><a href="/integration/init-d/">Init D</a></li>
+          <li><a href="/integration/jenkins/">Jenkins</a></li>
+          <li><a href="/integration/konsole/">Konsole</a></li>
+          <li><a href="/integration/lxterminal/">Lxterminal</a></li>
+          <li><a href="/integration/macports-before-autolibs/">Macports Before Autolibs</a></li>
+          <li><a href="/integration/macports/">Macports</a></li>
+          <li><a href="/integration/memprof/">Memprof</a></li>
+          <li><a href="/integration/passenger/">Passenger</a></li>
+          <li><a href="/integration/pow/">Pow</a></li>
+          <li><a href="/integration/qtruby/">Qtruby</a></li>
+          <li><a href="/integration/scripting/">Scripting</a></li>
+          <li><a href="/integration/simple-terminal/">Simple Terminal</a></li>
+          <li><a href="/integration/sketchup/">Sketchup</a></li>
+          <li><a href="/integration/sudo/">Sudo</a></li>
+          <li><a href="/integration/teamcity/">Teamcity</a></li>
+          <li><a href="/integration/textmate/">Textmate</a></li>
+          <li><a href="/integration/tk/">Tk</a></li>
+          <li><a href="/integration/ubuntu-on-windows/">Ubuntu On Windows</a></li>
+          <li><a href="/integration/vagrant/">Vagrant</a></li>
+          <li><a href="/integration/vim/">Vim</a></li>
+          <li><a href="/integration/xterm/">Xterm</a></li>
+          <li><a href="/integration/zsh/">Zsh</a></li></ul>
+        </div>
+        <div class='column'>
+          <a href='/packages/'>Packages</a>
+          <a href='/presentations/'>Presentations</a>
+          <ul>
+            <li>
+              <a href='http://www.confreaks.com/videos/3-mwrc2010-managing-ruby-projects-with-rvm'>MWRC 2010</a>
+            </li>
+            <li>
+              <a href='http://confreaks.tv/videos/railsconf2012-rvm-essential-rails-development-tools'>RailsConf 2012</a>
+            </li>
+            <li>
+              <a href='http://confreaks.tv/videos/railsconf2013-developing-rails-apps-in-technical-isolation'>RailsConf 2013</a>
+            </li>
+            <li>
+              <a href='http://thechangelog.com/66/'>Changelog 66 with Wayne</a>
+            </li>
+            <li>
+              <a href='http://www.youtube.com/watch?v=wN-iIC3S1ZM'>RVM 2: Lessons and future</a>
+            </li>
+            <li>
+              <a href='http://www.youtube.com/watch?v=gYNht8H24ZQ'>RVM 2: Python Version Manager</a>
+            </li>
+            <li>
+              <a href='http://thechangelog.com/102/'>Changelog 102 with Michal</a>
+            </li>
+          </ul>
+          <a href='/support/'>Help &amp; Support</a>
+          <ul>
+            <li>
+              <a href='/support/irc/'>Issues tracker</a>
+            </li>
+            <li>
+              <a href='/support/faq/'>FAQ &amp; Notes</a>
+            </li>
+            <li>
+              <a href='/support/troubleshooting/'>Troubleshooting</a>
+            </li>
+            <li>
+              <a href='/support/fixing-broken-ssl-certificates/'>Fixing Broken SSL Certificates</a>
+            </li>
+          </ul>
+          <a href="/qa/">Quality Assurance</a>
+          <ul><li><a href="/qa/software_testing/">Software_testing</a></li></ul>
+          <a href="/development/">Development</a>
+          <ul><li><a href="/development/contributing/">Contributing</a></li>
+          <li><a href="/development/debugging/">Debugging</a></li>
+          <li><a href="/development/github/">Github</a></li>
+          <li><a href="/development/list/">List</a></li></ul>
+          <a href='/credits/'>Credits</a>
+          <ul>
+            <li>
+              <a href='/credits/thanks/'>Contributions</a>
+            </li>
+            <li>
+              <a href='/credits/donations/'>Donations</a>
+            </li>
+            <li>
+              <a href='/credits/funding/'>Funding</a>
+            </li>
+          </ul>
+        </div>
+        <div class='clear'></div>
+      </div>
+    </div>
+    <div id='footer'>
+      <div id='footer-container'>
+        &infin;
+        Copyright
+        &copy; 2009-2011
+        <a href='https://github.com/wayneeseguin'>Wayne E. Seguin</a>
+        &copy; 2011-2017
+        <a href='https://github.com/mpapis'>Michal Papis</a>
+        &copy; 2016-2017
+        <a href='https://github.com/pkuczynski'>Piotr Kuczynski</a>
+        &infin;
+        Built with
+        <a href='http://nanoc.ws'>Nanoc</a>
+        &infin;
+        Cached by
+        <a href='https://www.fastly.com/'>Fastly</a>
+        &infin;
+        Tested by
+        <a href='http://www.travis-ci.org/'>Travis CI</a>
+      </div>
+      <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+      <script>
+        google.load('search', '1', {language : 'en', style : google.loader.themes.SHINY});
+        google.setOnLoadCallback(function() {
+          var customSearchControl = new google.search.CustomSearchControl('012125088244772422662:eplzzxbbjte');
+          customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+          customSearchControl.draw('cse');
+        }, true);
+      </script>
+      <script src="https://www.google.com/jsapi?key=ABQIAAAAlfGITCLCzrcO4cy2viT78RSZcRLSY2B0NYnmYEy-3gaXzTHyQxRduJj7nQ6rEtYNpUjIQpEEosF5XA" type="text/javascript"></script>&#x000A;<script src="/javascripts/site.js" type="text/javascript"></script>
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-24992786-1', 'rvm.io'); // owner unknown :(
+        ga('send', 'pageview');
+        ga('create', 'UA-45354940-1', 'rvm.io', {'name': 'ga_mpapis'}); // owner mpapis@gmail.com
+        ga('ga_mpapis.send', 'pageview');
+      </script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+      <script>
+        docsearch({
+        apiKey: '511953e6f628103639db56a6f0f96977',
+        indexName: 'rvm',
+        inputSelector: '#docsearch-input',
+        debug: false // Set debug to true if you want to inspect the dropdown
+        });
+      </script>
+    </div>
+  </body>
+</html>

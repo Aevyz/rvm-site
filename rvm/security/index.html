@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      RVM: Ruby Version Manager -
+      
+    </title>
+    <link href='/css/screen.css' media='screen' rel='stylesheet' type='text/css'>
+    <link href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' rel='stylesheet' type='text/css'>
+    <link href='/css/algolia-docsearch.css' rel='stylesheet' type='text/css'>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <meta content='w2V78a6cwiHD5Gm8yvlTP21xZ1YgVguDdC0JGDEA2d0' name='google-site-verification'>
+    
+  </head>
+  <body>
+    <div id='heaven'></div>
+    <div id='container'>
+      <div id='logo'>
+        <a href='/'>
+          <img alt='RVM Logo' src='/images/logo.png'>
+        </a>
+      </div>
+      <div id='support'>
+        <div class='title'>Support</div>
+        <div class='text'>
+          RVM is maintained by community of volunteers, report issues to
+          <a href='https://github.com/rvm/rvm/issues'>
+            RVM issues tracker.
+          </a>
+          <div class='more'>
+            If you can help or wish to become one of the maintainers - just start helping.
+            You can find more RVM related projects at
+            <a href='https://github.com/rvm'>
+              RVM GitHub organization.
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id='donate'>
+        <div class='title'>Donation</div>
+        <div class='text'>
+          Love RVM? Help us maintain RVM, a donation can help with it.
+          Want to help in other way, want to be a sponsor?
+          <div class='more'>
+            contact:
+            <a href='mailto:mpapis@gmail.com'>
+              Michal Papis
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id='sponsors'>
+        <div class='title'>Sponsors</div>
+        <div class='logo long'>
+          <a href='https://www.fastly.com/'>
+            <img alt='Fastly' height='50' src='/images/fastly_logo-01.png'>
+          </a>
+        </div>
+      </div>
+      <div id='carbon_ads_box'>
+        <div class='title'>Carbon Ads</div>
+        <script async='async' id='_carbonads_js' src='https://cdn.carbonads.com/carbon.js?zoneid=1673&amp;serve=C6AILKT&amp;placement=rvmio' type='text/javascript'></script>
+      </div>
+      <div class='clear'></div>
+      <div id='content'>
+        <a id='top'></a>
+        <h1><a class="anchor" href="#security" name="security">&infin;</a>Security</h1>
+        
+        <p>At RVM we treat security very serious and cryptographically sign (since version <code>1.26.0</code>) all releases and the <code>rvm-installer</code> script to ensure it comes from a genuine source.</p>
+        
+        <h2><a class="anchor" href="#gpg" name="gpg">&infin;</a>GPG</h2>
+        
+        <p>We use GPG for signing. Both <code>gpg</code> and <code>gpg2</code> should be fine.</p>
+        
+        <p>Sometimes <code>gpg</code> has problems downloading keys from remote server, it might be better to work with <code>gpg2</code> if it's available for your system. However it has been reported that <code>gpg2</code> in version 2.1.17 is also affected by such issue. We recommend you to downgrade or upgrade it to a newer version.</p>
+        
+        <h2><a class="anchor" href="#install-our-keys" name="install-our-keys">&infin;</a>Install our keys</h2>
+        
+        <p>Make sure to only trust the keys of people you trust - if you trust to
+        run our code - trust our keys. Here are the keys from our maintainers:</p>
+        
+        <pre class="code" title="triple click to select command">409B6B1796C275462A1703113804BB82D39DC0E3 # mpapis&#x000A;7D2BAF1CF37B13E2069D6956105BD0E739499BDB # pkuczynski</pre>
+        
+        <p>As a first step, before attempting RVM install, you should install <code>gpg2</code> and import those keys:</p>
+        
+        <pre class="code" title="triple click to select command">gpg --keyserver hkp://keys.openpgp.org --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB</pre>
+        
+        <p>If you encounter problem with the key server above, try a different one. Some alternatives are presented below:</p>
+        
+        <ul>
+        <li>hkp://pgp.mit.edu</li>
+        <li>hkp://keyserver.pgp.com</li>
+        <li>hkp://keyserver.ubuntu.com</li>
+        </ul>
+        
+        
+        <h3><a class="anchor" href="#firewall-issues" name="firewall-issues">&infin;</a>Firewall issues</h3>
+        
+        <p>In case importing gpg keys hangs forever, it might be that's a firewall issue. If you are behind a firewall, make sure you open outgoing port 11371 (TCP).</p>
+        
+        <h3><a class="anchor" href="#ipv6-issues" name="ipv6-issues">&infin;</a>IPv6 issues</h3>
+        
+        <p>It is known issue that if your host does not have IPv6 enabled (often happening in docker containers) some key servers might fail to connect. You can forbid gpg's internal <code>dirmngr</code> from using IPv6 by add the following line to <code>~/.gnupg/dirmngr.conf</code>:</p>
+        
+        <pre class="code" title="triple click to select command">disable-ipv6</pre>
+        
+        <p>Make sure no existing <code>dirmngr</code> processes are still running (and kill them if they are), and then try <code>gpg --recv-keys</code> command again as specified originally, and it should work.</p>
+        
+        <p>Note that the risk here is that if you really do need IPv6 later at some point, you may forget about this setting, but for most people this is unlikely.</p>
+        
+        <h3><a class="anchor" href="#alternatives" name="alternatives">&infin;</a>Alternatives</h3>
+        
+        <p>Alternatively you might want to import keys directly from our web server, although this is a less secure way:</p>
+        
+        <pre class="code" title="triple click to select command">curl -sSL https://rvm.io/mpapis.asc | gpg --import -&#x000A;curl -sSL https://rvm.io/pkuczynski.asc | gpg --import -</pre>
+        
+        <h3><a class="anchor" href="#keybase" name="keybase">&infin;</a>Keybase</h3>
+        
+        <p>Identity of our keys can be confirmed at <a href="https://keybase.io">keybase.io</a>:</p>
+        
+        <ul>
+        <li><a href="https://keybase.io/mpapis">mpapis</a></li>
+        <li><a href="https://keybase.io/piotrkuczynski">pkuczynski</a></li>
+        </ul>
+        
+        
+        <h2><a class="anchor" href="#trust-our-keys" name="trust-our-keys">&infin;</a>Trust our keys</h2>
+        
+        <pre class="code" title="triple click to select command">echo 409B6B1796C275462A1703113804BB82D39DC0E3:6: | gpg2 --import-ownertrust # mpapis@gmail.com&#x000A;echo 7D2BAF1CF37B13E2069D6956105BD0E739499BDB:6: | gpg2 --import-ownertrust # piotr.kuczynski@gmail.com</pre>
+        
+        <h2><a class="anchor" href="#run-verified-installation" name="run-verified-installation">&infin;</a>Run verified installation</h2>
+        
+        <p>We usually recommend everywhere to run installation using following command:</p>
+        
+        <pre class="code" title="triple click to select command">\curl -sSL https://get.rvm.io | bash -s stable</pre>
+        
+        <p>This should be pretty secure, but in case you want to ensure the installer comes from a valid source, you can run manually verified installation:</p>
+        
+        <pre class="code" title="triple click to select command">\curl -sSL https://raw.githubusercontent.com/rvm/rvm/stable/binscripts/rvm-installer     -o rvm-installer &amp;&amp;&#x000A;\curl -sSL https://raw.githubusercontent.com/rvm/rvm/stable/binscripts/rvm-installer.asc -o rvm-installer.asc &amp;&amp;&#x000A;\gpg2 --verify rvm-installer.asc rvm-installer &amp;&amp;&#x000A;\bash rvm-installer</pre>
+        
+        <p>Verification procedure is automatic for updates and it will fail to install new version with invalid signature.</p>
+        
+        <h2><a class="anchor" href="#periodically-refresh-keys" name="periodically-refresh-keys">&infin;</a>Periodically refresh keys</h2>
+        
+        <p>It is a good practice to periodically refresh keys status to ensure  none of them got revoked. You can also add it to cron.</p>
+        
+        <pre class="code" title="triple click to select command">    gpg2 --refresh-keys</pre>
+        <a id='bottom'></a>
+      </div>
+      <div id='docindex'>
+        <div class='headline'>
+          <a style="color: red;" href="/">RVM Documentation Index</a>
+          |
+          <a href="/blog/">RVM Blog</a>
+        </div>
+        <div class='headline'>
+          <label for="docsearch-input">Search:</label>
+          <input id="docsearch-input" type="text" />
+        </div>
+        <div class='column'>
+          <a href="/rvm/">RVM</a>
+          <ul><li><a href="/rvm/about/">About</a></li>
+          <li><a href="/rvm/autolibs/">Autolibs</a></li>
+          <li><a href="/rvm/basics/">Basics</a></li>
+          <li><a href="/rvm/best-practices/">Best Practices</a></li>
+          <li><a href="/rvm/cli/">Cli</a></li>
+          <li><a href="/rvm/configuration/">Configuration</a></li>
+          <li><a href="/rvm/info/">Info</a></li>
+          <li><a href="/rvm/install/">Install</a></li>
+          <li><a href="/rvm/myths/">Myths</a></li>
+          <li><a href="/rvm/offline/">Offline</a></li>
+          <li><a href="/rvm/prerequisites/">Prerequisites</a></li>
+          <li><a href="/rvm/security/">Security</a></li>
+          <li><a href="/rvm/upgrading/">Upgrading</a></li></ul>
+          <a href='/interpreters/'>Interpreters</a>
+          <ul>
+            <li>
+              <a href='/interpreters/ruby/'>MRI/YARV (ruby)</a>
+            </li>
+            <li>
+              <a href='/interpreters/jruby/'>JRuby (jruby)</a>
+            </li>
+            <li>
+              <a href='/interpreters/rbx/'>Rubinius (rbx)</a>
+            </li>
+          </ul>
+          <a href="/rubies/">Rubies</a>
+          <ul><li><a href="/rubies/alias/">Alias</a></li>
+          <li><a href="/rubies/default/">Default</a></li>
+          <li><a href="/rubies/docs/">Docs</a></li>
+          <li><a href="/rubies/info/">Info</a></li>
+          <li><a href="/rubies/installing/">Installing</a></li>
+          <li><a href="/rubies/list/">List</a></li>
+          <li><a href="/rubies/named/">Named</a></li>
+          <li><a href="/rubies/patching/">Patching</a></li>
+          <li><a href="/rubies/removing/">Removing</a></li>
+          <li><a href="/rubies/rubygems/">Rubygems</a></li>
+          <li><a href="/rubies/strings/">Strings</a></li>
+          <li><a href="/rubies/uninstalling/">Uninstalling</a></li>
+          <li><a href="/rubies/upgrading/">Upgrading</a></li></ul>
+        </div>
+        <div class='column'>
+          <a href="/gemsets/">Gemsets</a>
+          <ul><li><a href="/gemsets/basics/">Basics</a></li>
+          <li><a href="/gemsets/clear/">Clear</a></li>
+          <li><a href="/gemsets/copying/">Copying</a></li>
+          <li><a href="/gemsets/creating/">Creating</a></li>
+          <li><a href="/gemsets/deleting/">Deleting</a></li>
+          <li><a href="/gemsets/emptying/">Emptying</a></li>
+          <li><a href="/gemsets/exporting/">Exporting</a></li>
+          <li><a href="/gemsets/global/">Global</a></li>
+          <li><a href="/gemsets/ignoring/">Ignoring</a></li>
+          <li><a href="/gemsets/importing/">Importing</a></li>
+          <li><a href="/gemsets/initial/">Initial</a></li>
+          <li><a href="/gemsets/listing/">Listing</a></li>
+          <li><a href="/gemsets/using/">Using</a></li></ul>
+          <a href='/set/'>Set Actions</a>
+          <ul>
+            <li>
+              <a href='/set/do/'>do</a>
+            </li>
+            <li>
+              <a href='/set/tests/'>tests</a>
+            </li>
+            <li>
+              <a href='/set/benchmark/'>benchmark</a>
+            </li>
+          </ul>
+          <a href="/workflow/">Workflow</a>
+          <ul><li><a href="/workflow/chruby/">Chruby</a></li>
+          <li><a href="/workflow/completion/">Completion</a></li>
+          <li><a href="/workflow/examples/">Examples</a></li>
+          <li><a href="/workflow/hooks/">Hooks</a></li>
+          <li><a href="/workflow/irbrc/">Irbrc</a></li>
+          <li><a href="/workflow/projects/">Projects</a></li>
+          <li><a href="/workflow/prompt/">Prompt</a></li>
+          <li><a href="/workflow/proxy/">Proxy</a></li>
+          <li><a href="/workflow/rvmrc/">Rvmrc</a></li>
+          <li><a href="/workflow/screen/">Screen</a></li>
+          <li><a href="/workflow/scripting/">Scripting</a></li>
+          <li><a href="/workflow/subshells/">Subshells</a></li></ul>
+          <a href="/deployment/">Deployment</a>
+          <ul><li><a href="/deployment/best-practices/">Best Practices</a></li>
+          <li><a href="/deployment/capistrano/">Capistrano</a></li>
+          <li><a href="/deployment/chef/">Chef</a></li>
+          <li><a href="/deployment/cron/">Cron</a></li>
+          <li><a href="/deployment/god/">God</a></li>
+          <li><a href="/deployment/init-d/">Init D</a></li>
+          <li><a href="/deployment/passenger/">Passenger</a></li></ul>
+        </div>
+        <div class='column'>
+          <a href="/integration/">Integration</a>
+          <ul><li><a href="/integration/bundler/">Bundler</a></li>
+          <li><a href="/integration/capistrano/">Capistrano</a></li>
+          <li><a href="/integration/chef/">Chef</a></li>
+          <li><a href="/integration/cron/">Cron</a></li>
+          <li><a href="/integration/culerity/">Culerity</a></li>
+          <li><a href="/integration/databases/">Databases</a></li>
+          <li><a href="/integration/emacs/">Emacs</a></li>
+          <li><a href="/integration/engineyard/">Engineyard</a></li>
+          <li><a href="/integration/fish/">Fish</a></li>
+          <li><a href="/integration/gnome-terminal/">Gnome Terminal</a></li>
+          <li><a href="/integration/god/">God</a></li>
+          <li><a href="/integration/heroku/">Heroku</a></li>
+          <li><a href="/integration/init-d/">Init D</a></li>
+          <li><a href="/integration/jenkins/">Jenkins</a></li>
+          <li><a href="/integration/konsole/">Konsole</a></li>
+          <li><a href="/integration/lxterminal/">Lxterminal</a></li>
+          <li><a href="/integration/macports-before-autolibs/">Macports Before Autolibs</a></li>
+          <li><a href="/integration/macports/">Macports</a></li>
+          <li><a href="/integration/memprof/">Memprof</a></li>
+          <li><a href="/integration/passenger/">Passenger</a></li>
+          <li><a href="/integration/pow/">Pow</a></li>
+          <li><a href="/integration/qtruby/">Qtruby</a></li>
+          <li><a href="/integration/scripting/">Scripting</a></li>
+          <li><a href="/integration/simple-terminal/">Simple Terminal</a></li>
+          <li><a href="/integration/sketchup/">Sketchup</a></li>
+          <li><a href="/integration/sudo/">Sudo</a></li>
+          <li><a href="/integration/teamcity/">Teamcity</a></li>
+          <li><a href="/integration/textmate/">Textmate</a></li>
+          <li><a href="/integration/tk/">Tk</a></li>
+          <li><a href="/integration/ubuntu-on-windows/">Ubuntu On Windows</a></li>
+          <li><a href="/integration/vagrant/">Vagrant</a></li>
+          <li><a href="/integration/vim/">Vim</a></li>
+          <li><a href="/integration/xterm/">Xterm</a></li>
+          <li><a href="/integration/zsh/">Zsh</a></li></ul>
+        </div>
+        <div class='column'>
+          <a href='/packages/'>Packages</a>
+          <a href='/presentations/'>Presentations</a>
+          <ul>
+            <li>
+              <a href='http://www.confreaks.com/videos/3-mwrc2010-managing-ruby-projects-with-rvm'>MWRC 2010</a>
+            </li>
+            <li>
+              <a href='http://confreaks.tv/videos/railsconf2012-rvm-essential-rails-development-tools'>RailsConf 2012</a>
+            </li>
+            <li>
+              <a href='http://confreaks.tv/videos/railsconf2013-developing-rails-apps-in-technical-isolation'>RailsConf 2013</a>
+            </li>
+            <li>
+              <a href='http://thechangelog.com/66/'>Changelog 66 with Wayne</a>
+            </li>
+            <li>
+              <a href='http://www.youtube.com/watch?v=wN-iIC3S1ZM'>RVM 2: Lessons and future</a>
+            </li>
+            <li>
+              <a href='http://www.youtube.com/watch?v=gYNht8H24ZQ'>RVM 2: Python Version Manager</a>
+            </li>
+            <li>
+              <a href='http://thechangelog.com/102/'>Changelog 102 with Michal</a>
+            </li>
+          </ul>
+          <a href='/support/'>Help &amp; Support</a>
+          <ul>
+            <li>
+              <a href='/support/irc/'>Issues tracker</a>
+            </li>
+            <li>
+              <a href='/support/faq/'>FAQ &amp; Notes</a>
+            </li>
+            <li>
+              <a href='/support/troubleshooting/'>Troubleshooting</a>
+            </li>
+            <li>
+              <a href='/support/fixing-broken-ssl-certificates/'>Fixing Broken SSL Certificates</a>
+            </li>
+          </ul>
+          <a href="/qa/">Quality Assurance</a>
+          <ul><li><a href="/qa/software_testing/">Software_testing</a></li></ul>
+          <a href="/development/">Development</a>
+          <ul><li><a href="/development/contributing/">Contributing</a></li>
+          <li><a href="/development/debugging/">Debugging</a></li>
+          <li><a href="/development/github/">Github</a></li>
+          <li><a href="/development/list/">List</a></li></ul>
+          <a href='/credits/'>Credits</a>
+          <ul>
+            <li>
+              <a href='/credits/thanks/'>Contributions</a>
+            </li>
+            <li>
+              <a href='/credits/donations/'>Donations</a>
+            </li>
+            <li>
+              <a href='/credits/funding/'>Funding</a>
+            </li>
+          </ul>
+        </div>
+        <div class='clear'></div>
+      </div>
+    </div>
+    <div id='footer'>
+      <div id='footer-container'>
+        &infin;
+        Copyright
+        &copy; 2009-2011
+        <a href='https://github.com/wayneeseguin'>Wayne E. Seguin</a>
+        &copy; 2011-2017
+        <a href='https://github.com/mpapis'>Michal Papis</a>
+        &copy; 2016-2017
+        <a href='https://github.com/pkuczynski'>Piotr Kuczynski</a>
+        &infin;
+        Built with
+        <a href='http://nanoc.ws'>Nanoc</a>
+        &infin;
+        Cached by
+        <a href='https://www.fastly.com/'>Fastly</a>
+        &infin;
+        Tested by
+        <a href='http://www.travis-ci.org/'>Travis CI</a>
+      </div>
+      <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+      <script>
+        google.load('search', '1', {language : 'en', style : google.loader.themes.SHINY});
+        google.setOnLoadCallback(function() {
+          var customSearchControl = new google.search.CustomSearchControl('012125088244772422662:eplzzxbbjte');
+          customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+          customSearchControl.draw('cse');
+        }, true);
+      </script>
+      <script src="https://www.google.com/jsapi?key=ABQIAAAAlfGITCLCzrcO4cy2viT78RSZcRLSY2B0NYnmYEy-3gaXzTHyQxRduJj7nQ6rEtYNpUjIQpEEosF5XA" type="text/javascript"></script>&#x000A;<script src="/javascripts/site.js" type="text/javascript"></script>
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-24992786-1', 'rvm.io'); // owner unknown :(
+        ga('send', 'pageview');
+        ga('create', 'UA-45354940-1', 'rvm.io', {'name': 'ga_mpapis'}); // owner mpapis@gmail.com
+        ga('ga_mpapis.send', 'pageview');
+      </script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+      <script>
+        docsearch({
+        apiKey: '511953e6f628103639db56a6f0f96977',
+        indexName: 'rvm',
+        inputSelector: '#docsearch-input',
+        debug: false // Set debug to true if you want to inspect the dropdown
+        });
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://rvm.io/</id>
+  <title>RVM blog tag rvm2</title>
+  <updated>2015-02-15T19:00:00Z</updated>
+  <link rel="alternate" href="https://rvm.io/"/>
+  <link rel="self" href="https://rvm.io/tags/rvm2/feed.xml"/>
+  <author>
+    <name>Michal Papis</name>
+    <uri>https://rvm.io</uri>
+  </author>
+  <entry>
+    <id>tag:rvm.io,2015-02-15:/blog/2015/02/maintainers-needed-for-rvm1/</id>
+    <title type="html">Maintainers needed for RVM 1</title>
+    <published>2015-02-15T19:00:00Z</published>
+    <updated>2015-02-15T19:00:00Z</updated>
+    <link rel="alternate" href="https://rvm.io/blog/2015/02/maintainers-needed-for-rvm1/"/>
+    <content type="html">&lt;h1&gt;Maintainers needed for RVM 1&lt;/h1&gt;
+
+&lt;p&gt;I have started changes in my life, you can read more here:
+&lt;a href="http://niczsoft.com/2015/02/changes-in-my-open-source-life/"&gt;Changes in my open source life (and RVM 2)&lt;/a&gt;.
+This leads to multiple open source projects that will need help,
+I'm still doing minimal work on them, but it will not be enough to keep
+them running for longer time. So I need help in maintaining this projects.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;p&gt;&lt;strong&gt;I'm looking for people willing to help with handling tickets, building
+binaries, supporting the community, if you are interested please mail me
+at &lt;a href="mailto:mpapis@gmail.com"&gt;mpapis@gmail.com&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2&gt;RVM 1 projects&lt;/h2&gt;
+
+&lt;p&gt;Here are all projects related to RVM 1:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm"&gt;RVM 1&lt;/a&gt; - the core a shell project that requires attention in fixing compatibility for new ruby releases, new operating systems, fixing bugs.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm-capistrano"&gt;rvm-capistrano&lt;/a&gt; - RVM 1 + Capistrano 2 integration, mostly bug fixing&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm1-capistrano3"&gt;rvm1-capistrano3&lt;/a&gt; - RVM 1 + Capistrano 3 integration, mostly bug fixing&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm-site"&gt;rvm-site&lt;/a&gt; - https://rvm.io - updating docs, getting into the layout discussions, writing blog posts for version releases&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm-binary"&gt;rvm-binary&lt;/a&gt; - building of CRuby binaries - this uses &lt;a href="https://github.com/jedi4ever/veewee"&gt;veewee&lt;/a&gt; - which also requires maintainer / contributors&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm-binary-osx"&gt;rvm-binary-osx&lt;/a&gt; - building of binaries for OSX - this usually just works but might require tweaking for new Ruby / OSX versions&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Please spread the word, if you know someone interested in open source
+with a little time to spare just let them know about &lt;a href="https://github.com/rvm/rvm"&gt;RVM 1&lt;/a&gt;.&lt;/p&gt;
+</content>
+  </entry>
+</feed>

@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://rvm.io/</id>
+  <title>RVM blog author pkuczynski</title>
+  <updated>2021-01-15T19:55:00Z</updated>
+  <link rel="alternate" href="https://rvm.io/"/>
+  <link rel="self" href="https://rvm.io/authors/pkuczynski/feed.xml"/>
+  <author>
+    <name>Piotr Kuczynski</name>
+    <uri>https://rvm.io</uri>
+  </author>
+  <entry>
+    <id>tag:rvm.io,2021-01-15:/blog/2021/01/rvm-1-29-12/</id>
+    <title type="html">RVM 1.29.12 released</title>
+    <published>2021-01-15T19:55:00Z</published>
+    <updated>2021-01-15T19:55:00Z</updated>
+    <link rel="alternate" href="https://rvm.io/blog/2021/01/rvm-1-29-12/"/>
+    <content type="html">&lt;p&gt;RVM 1.29.12 released with few bug fixes.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;h2&gt;&lt;a href="https://github.com/rvm/rvm/releases/tag/1.29.12"&gt;1.29.12&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;15 January 2021 - &lt;a href="https://github.com/rvm/rvm/compare/1.29.11...1.29.12"&gt;Full Changelog&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;New features&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Added railsexpress patches for Ruby 3.0.0 &lt;a href="https://github.com/rvm/rvm/pull/5026"&gt;#5026&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Bug fixes&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Requirement &lt;code&gt;glibc-headers&lt;/code&gt; obsolete on Fedora 33 &lt;a href="https://github.com/rvm/rvm/pull/5023"&gt;#5023&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix unknown command wrappers with Rubygems &gt;= 3.2 &lt;a href="https://github.com/rvm/rvm/pull/5027"&gt;#5027&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix errors in compilation+installation of Ruby 3 with Rubygems &gt;= 3.2 &lt;a href="https://github.com/rvm/rvm/pull/5030"&gt;#5030&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Binaries&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ubuntu
+
+&lt;ul&gt;
+&lt;li&gt;Ubuntu 20.04 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 3.0.0 &lt;a href="https://github.com/rvm/rvm/issues/5031"&gt;#5031&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Recompiled 2.4.10, 2.5.8, 2.6.6, 2.7.1, 2.7.2 binaries for Ubuntu 20.04.1 &lt;a href="https://github.com/rvm/rvm/pull/5032"&gt;#5032&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
+  <entry>
+    <id>tag:rvm.io,2020-12-29:/blog/2020/12/rvm-1-29-11/</id>
+    <title type="html">RVM 1.29.11 released</title>
+    <published>2020-12-29T14:30:00Z</published>
+    <updated>2020-12-29T14:30:00Z</updated>
+    <link rel="alternate" href="https://rvm.io/blog/2020/12/rvm-1-29-11/"/>
+    <content type="html">&lt;p&gt;RVM 1.29.11 released with few features and bug fixes.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;h2&gt;&lt;a href="https://github.com/rvm/rvm/releases/tag/1.29.11"&gt;1.29.11&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;29 December 2020 - &lt;a href="https://github.com/rvm/rvm/compare/1.29.10...1.29.11"&gt;Full Changelog&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;New features&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Added railsexpress patches for Ruby 2.7.2 &lt;a href="https://github.com/rvm/rvm/pull/4990"&gt;#4990&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Added railsexpress patches for Ruby 2.5.8, 2.6.6 and 2.7.1 &lt;a href="https://github.com/rvm/rvm/pull/4900"&gt;#4900&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add ruby-3 to the list of available binary builds &lt;a href="https://github.com/rvm/rvm/pull/4984"&gt;#4984&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Recognize &lt;code&gt;3*&lt;/code&gt; as CRuby version number &lt;a href="https://github.com/rvm/rvm/pull/4987"&gt;#4987&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Alias &lt;code&gt;rvm gemset remove&lt;/code&gt; as &lt;code&gt;rvm gemset delete&lt;/code&gt; &lt;a href="https://github.com/rvm/rvm/pull/4976"&gt;#4976&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Alias &lt;code&gt;rvm gemset move&lt;/code&gt; as &lt;code&gt;rvm gemset rename&lt;/code&gt; &lt;a href="https://github.com/rvm/rvm/pull/4976"&gt;#4976&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Alias &lt;code&gt;rvm delete&lt;/code&gt; as &lt;code&gt;rvm remove&lt;/code&gt; &lt;a href="https://github.com/rvm/rvm/pull/4976"&gt;#4976&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Bug fixes&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use libssl-1.0 to install Ruby 1.8 on Debian 9 &lt;a href="https://github.com/rvm/rvm/pull/4920"&gt;#4920&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Use libssl-1.0 to install Ree 1.8 on Ubuntu &lt;a href="https://github.com/rvm/rvm/pull/4920"&gt;#4996&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix broken mergeable config &lt;a href="https://github.com/rvm/rvm/pull/5001"&gt;#5001&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Update brew list command to remove deprecation warning &lt;a href="https://github.com/rvm/rvm/pull/4995"&gt;#4995&lt;/a&gt; &lt;a href="https://github.com/rvm/rvm/pull/5022"&gt;#5022&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;New interpreters&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add support for TruffleRuby 20.1.0, 20.2.0, 20.3.0&lt;/li&gt;
+&lt;li&gt;Add support for Ruby 2.4.10, 2.5.8, 2.6.6, 2.7.1 &lt;a href="https://github.com/rvm/rvm/pull/4899"&gt;#4899&lt;/a&gt;, 2.7.2 &lt;a href="https://github.com/rvm/rvm/pull/4988"&gt;#4988&lt;/a&gt;, 3.0.0-preview1 &lt;a href="https://github.com/rvm/rvm/pull/4983"&gt;#4983&lt;/a&gt;, 3.0.0-preview2&lt;a href="https://github.com/rvm/rvm/pull/5009"&gt;#5009&lt;/a&gt;, 3.0.0-rc1&lt;a href="https://github.com/rvm/rvm/pull/5015"&gt;#5015&lt;/a&gt;, and 3.0.0&lt;a href="https://github.com/rvm/rvm/pull/5016"&gt;#5016&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add support for mruby 2.1.1-rc &lt;a href="https://github.com/rvm/rvm/pull/4909"&gt;#4909&lt;/a&gt;, 2.1.1-rc2 and 2.1.1 &lt;a href="https://github.com/rvm/rvm/pull/4948"&gt;#4948&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add support for TruffleRuby 19.0.2, 19.1.1, 19.2.1, 19.3.0.2 &lt;a href="https://github.com/rvm/rvm/pull/4910"&gt;#4910&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add support for Rubinius 4.13-4.20 and 5.0 &lt;a href="https://github.com/rvm/rvm/pull/4947"&gt;#4947&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add support for JRuby 9.2.12.0 &lt;a href="https://github.com/rvm/rvm/pull/4960"&gt;#4960&lt;/a&gt;, 9.2.13.0 &lt;a href="https://github.com/rvm/rvm/pull/4971"&gt;#4971&lt;/a&gt; and 9.2.14.0 &lt;a href="https://github.com/rvm/rvm/pull/5013"&gt;#5013&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Binaries&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ubuntu
+
+&lt;ul&gt;
+&lt;li&gt;Ubuntu 20.04 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 2.4.10, 2.5.8, 2.6.6, 2.7.1 &lt;a href="https://github.com/rvm/rvm/issues/4921"&gt;#4921&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.1.0-2.1.10, 2.2.0-2.2.10, 2.3.0-2.3.8, 2.4.0-2.4.9, 2.5.0-2.5.8, 2.6.0-2.6.5, 2.7.0 &lt;a href="https://github.com/rvm/rvm/issues/4921"&gt;#4921&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 3.0.0-preview1 &lt;a href="https://github.com/rvm/rvm/pull/4985"&gt;#4985&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.7.2 &lt;a href="https://github.com/rvm/rvm/pull/4989"&gt;#4989&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Ubuntu 19.04 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 2.4.0-2.4.10, 2.5.0-2.5.8, 2.6.0-2.6.6, 2.7.0, 2.7.1 &lt;a href="https://github.com/rvm/rvm/issues/4935"&gt;#4935&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 3.0.0-preview1 &lt;a href="https://github.com/rvm/rvm/pull/4985"&gt;#4985&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.7.2 &lt;a href="https://github.com/rvm/rvm/pull/4989"&gt;#4989&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Ubuntu 18.04 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 2.4.10, 2.5.8, 2.6.6, 2.7.1 &lt;a href="https://github.com/rvm/rvm/issues/4904"&gt;#4904&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.4.8 &lt;a href="https://github.com/rvm/rvm/issues/4916"&gt;#4916&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.1.0-2.1.10, 2.2.0-2.2.9, 2.3.0-2.3.6, 2.4.0-2.4.3 &lt;a href="https://github.com/rvm/rvm/issues/4916"&gt;#4916&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.5.0 &lt;a href="https://github.com/rvm/rvm/issues/4931"&gt;#4931&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 3.0.0-preview1 &lt;a href="https://github.com/rvm/rvm/pull/4985"&gt;#4985&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.7.2 &lt;a href="https://github.com/rvm/rvm/pull/4989"&gt;#4989&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Ubuntu 16.04 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 2.1.0-2.1.4, 2.1.6-2.1.8, 2.1.10, 2.2.0-2.2.4, 2.3.8, 2.4.5-2.4.10, 2.5.2-2.5.8, 2.6.0-2.6.6, 2.7.0-2.7.1 &lt;a href="https://github.com/rvm/rvm/issues/4932"&gt;#4932&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 3.0.0-preview1 &lt;a href="https://github.com/rvm/rvm/pull/4985"&gt;#4985&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.7.2 &lt;a href="https://github.com/rvm/rvm/pull/4989"&gt;#4989&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Ubuntu 14.04 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 2.1.0-2.1.1, 2.1.4, 2.1.6-2.1.10, 2.2.2-2.2.10, 2.3.0-2.3.8, 2.4.0-2.4.10, 2.5.0-2.5.8, 2.6.0-2.6.6, 2.7.0-2.7.1 &lt;a href="https://github.com/rvm/rvm/issues/4933"&gt;#4933&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 3.0.0-preview1 &lt;a href="https://github.com/rvm/rvm/pull/4985"&gt;#4985&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.7.2 &lt;a href="https://github.com/rvm/rvm/pull/4989"&gt;#4989&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Ubuntu 12.04 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 2.4.0-2.4.10, 2.5.0-2.5.8, 2.6.0-2.6.6, 2.7.0, 2.7.1 &lt;a href="https://github.com/rvm/rvm/issues/4935"&gt;#4935&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Debian
+
+&lt;ul&gt;
+&lt;li&gt;Debian 10 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 2.4.0-2.4.10, 2.5.0-2.5.8, 2.6.0-2.6.6, 2.7.0, 2.7.1 &lt;a href="https://github.com/rvm/rvm/issues/4935"&gt;#4935&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 3.0.0-preview1 &lt;a href="https://github.com/rvm/rvm/pull/4985"&gt;#4985&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.7.2 &lt;a href="https://github.com/rvm/rvm/pull/4989"&gt;#4989&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Debian 9 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 2.4.0-2.4.10, 2.5.0-2.5.8, 2.6.0-2.6.6, 2.7.0, 2.7.1 &lt;a href="https://github.com/rvm/rvm/issues/4935"&gt;#4935&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 3.0.0-preview1 &lt;a href="https://github.com/rvm/rvm/pull/4985"&gt;#4985&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.7.2 &lt;a href="https://github.com/rvm/rvm/pull/4989"&gt;#4989&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Debian 8 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 2.4.0-2.4.10, 2.5.0-2.5.8, 2.6.0-2.6.6, 2.7.0, 2.7.1 &lt;a href="https://github.com/rvm/rvm/issues/4935"&gt;#4935&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 3.0.0-preview1 &lt;a href="https://github.com/rvm/rvm/pull/4985"&gt;#4985&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.7.2 &lt;a href="https://github.com/rvm/rvm/pull/4989"&gt;#4989&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;CentOS
+
+&lt;ul&gt;
+&lt;li&gt;CentOS 6 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 2.4.0-2.4.10, 2.5.0-2.5.8, 2.6.0-2.6.6, 2.7.0, 2.7.1 &lt;a href="https://github.com/rvm/rvm/issues/4935"&gt;#4935&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.7.2 &lt;a href="https://github.com/rvm/rvm/pull/4989"&gt;#4989&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;CentOS 7 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 2.4.0-2.4.10, 2.5.0-2.5.8, 2.6.0-2.6.6, 2.7.0, 2.7.1 &lt;a href="https://github.com/rvm/rvm/issues/4935"&gt;#4935&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 3.0.0-preview1 &lt;a href="https://github.com/rvm/rvm/pull/4985"&gt;#4985&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.7.2 &lt;a href="https://github.com/rvm/rvm/pull/4989"&gt;#4989&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;CentOS 8 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 2.4.0-2.4.10, 2.5.0-2.5.8, 2.6.0-2.6.6, 2.7.0, 2.7.1 &lt;a href="https://github.com/rvm/rvm/issues/4936"&gt;#4936&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 3.0.0-preview1 &lt;a href="https://github.com/rvm/rvm/pull/4985"&gt;#4985&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.7.2 &lt;a href="https://github.com/rvm/rvm/pull/4989"&gt;#4989&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Amazon Linux
+
+&lt;ul&gt;
+&lt;li&gt;Amazon Linux 2018.03 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 2.4.0-2.4.10, 2.5.0-2.5.8, 2.6.0-2.6.6, 2.7.0, 2.7.1 &lt;a href="https://github.com/rvm/rvm/issues/4935"&gt;#4935&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 3.0.0-preview1 &lt;a href="https://github.com/rvm/rvm/pull/4985"&gt;#4985&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.7.2 &lt;a href="https://github.com/rvm/rvm/pull/4989"&gt;#4989&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Amazon Linux 2 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 2.4.0-2.4.10, 2.5.0-2.5.8, 2.6.0-2.6.6, 2.7.0, 2.7.1 &lt;a href="https://github.com/rvm/rvm/issues/4935"&gt;#4935&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 3.0.0-preview1 &lt;a href="https://github.com/rvm/rvm/pull/4985"&gt;#4985&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.7.2 &lt;a href="https://github.com/rvm/rvm/pull/4989"&gt;#4989&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Oracle Linux 7 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 2.4.0-2.4.10, 2.5.0-2.5.8, 2.6.0-2.6.6, 2.7.0, 2.7.1 &lt;a href="https://github.com/rvm/rvm/issues/4935"&gt;#4935&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 3.0.0-preview1 &lt;a href="https://github.com/rvm/rvm/pull/4985"&gt;#4985&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.7.2 &lt;a href="https://github.com/rvm/rvm/pull/4989"&gt;#4989&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
+  <entry>
+    <id>tag:rvm.io,2020-03-25:/blog/2020/03/rvm-1-29-10/</id>
+    <title type="html">RVM 1.29.10 released</title>
+    <published>2020-03-25T23:00:00Z</published>
+    <updated>2020-03-25T23:00:00Z</updated>
+    <link rel="alternate" href="https://rvm.io/blog/2020/03/rvm-1-29-10/"/>
+    <content type="html">&lt;p&gt;RVM 1.29.10 released with few features and bug fixes.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;h2&gt;&lt;a href="https://github.com/rvm/rvm/releases/tag/1.29.10"&gt;1.29.10&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;25 March 2020 - &lt;a href="https://github.com/rvm/rvm/compare/1.29.9...1.29.10"&gt;Full Changelog&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;New features&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Improve JRuby install time &lt;a href="https://github.com/rvm/rvm/pull/4807"&gt;#4807&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add Termux support &lt;a href="https://github.com/rvm/rvm/pull/4749"&gt;#4749&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add support for &lt;code&gt;truffleruby-head&lt;/code&gt; &lt;a href="https://github.com/rvm/rvm/pull/4871"&gt;#4871&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;New interpreters&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add support for TruffleRuby 20.0.0&lt;/li&gt;
+&lt;li&gt;Add support for TruffleRuby 19.3.1&lt;/li&gt;
+&lt;li&gt;Add support for TruffleRuby 19.3.0&lt;/li&gt;
+&lt;li&gt;Add support for Rubinius 4.4 and 4.5 &lt;a href="https://github.com/rvm/rvm/pull/4735"&gt;#4735&lt;/a&gt;, 4.6 &lt;a href="https://github.com/rvm/rvm/pull/4779"&gt;#4779&lt;/a&gt;, 4.7 &lt;a href="https://github.com/rvm/rvm/pull/4821"&gt;#4821&lt;/a&gt;, 4.8, 4.9 &lt;a href="https://github.com/rvm/rvm/pull/4842"&gt;#4842&lt;/a&gt;, 4.10 &lt;a href="https://github.com/rvm/rvm/pull/4843"&gt;#4843&lt;/a&gt;, 4.11 and 4.12 &lt;a href="https://github.com/rvm/rvm/pull/4846"&gt;#4846&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add support for JRuby 9.2.8.0 &lt;a href="https://github.com/rvm/rvm/pull/4756"&gt;#4756&lt;/a&gt;, 9.2.9.0 &lt;a href="https://github.com/rvm/rvm/pull/4812"&gt;#4812&lt;/a&gt;, 9.2.10.0 &lt;a href="https://github.com/rvm/rvm/pull/4877"&gt;#4877&lt;/a&gt;, 9.2.11.0 &lt;a href="https://github.com/rvm/rvm/pull/4881"&gt;#4881&lt;/a&gt;, 9.2.11.1 &lt;a href="https://github.com/rvm/rvm/pull/4891"&gt;#4891&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add support for TruffleRuby 19.2.0 &lt;a href="https://github.com/rvm/rvm/pull/4761"&gt;#4761&lt;/a&gt;, 19.2.0.1 &lt;a href="https://github.com/rvm/rvm/pull/4784"&gt;#4784&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add support for Ruby 2.4.7, 2.5.6 &lt;a href="https://github.com/rvm/rvm/pull/4767"&gt;#4767&lt;/a&gt;, 2.6.4 &lt;a href="https://github.com/rvm/rvm/pull/4768"&gt;#4768&lt;/a&gt;, 2.4.8, 2.5.7, 2.6.5 &lt;a href="https://github.com/rvm/rvm/pull/4793"&gt;#4793&lt;/a&gt;, 2.4.9 &lt;a href="https://github.com/rvm/rvm/pull/4796"&gt;#4796&lt;/a&gt;, 2.7.0-preview2 &lt;a href="https://github.com/rvm/rvm/pull/4805"&gt;#4805&lt;/a&gt;, 2.7.0-preview3 &lt;a href="https://github.com/rvm/rvm/pull/4817"&gt;#4817&lt;/a&gt;, 2.7.0-rc1 &lt;a href="https://github.com/rvm/rvm/pull/4831"&gt;#4831&lt;/a&gt;, 2.7.0-rc2 &lt;a href="https://github.com/rvm/rvm/pull/4834"&gt;#4834&lt;/a&gt;, and 2.7.0 &lt;a href="https://github.com/rvm/rvm/pull/4837"&gt;#4837&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add support for mruby 2.1.0 &lt;a href="https://github.com/rvm/rvm/pull/4816"&gt;#4816&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add support for rubygems 3.0.5, 3.0.6 &lt;a href="https://github.com/rvm/rvm/pull/4828"&gt;#4828&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Bug fixes&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fix installer fetching RVM tags from Bitbucket &lt;a href="https://github.com/rvm/rvm/pull/4730"&gt;#4730&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Prevent downloading of null RVM versions in installer &lt;a href="https://github.com/rvm/rvm/pull/4731"&gt;#4731&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;RVM package fails to configure on fresh Ubuntu 18.04 server install &lt;a href="https://github.com/rvm/rvm/pull/4742"&gt;#4742&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ignore aliases when using &lt;code&gt;ls&lt;/code&gt; command &lt;a href="https://github.com/rvm/rvm/pull/4743"&gt;#4743&lt;/a&gt; &lt;a href="https://github.com/rvm/rvm/pull/4744"&gt;#4744&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Export more shell functions which cause the subshell to choke &lt;a href="https://github.com/rvm/rvm/pull/4745"&gt;#4745&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Adds a check and returns if __rvm_remove_from_path is called with "/*" &lt;a href="https://github.com/rvm/rvm/issues/4759"&gt;#4759&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Do not install &lt;code&gt;rubygems-bundler&lt;/code&gt; by default on TruffleRuby to make &lt;code&gt;ruby -S bundle&lt;/code&gt; work &lt;a href="https://github.com/rvm/rvm/pull/4766"&gt;#4766&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fixes checksums for Ruby 2.6.4 &lt;a href="https://github.com/rvm/rvm/pull/4769"&gt;#4769&lt;/a&gt;, 2.4.7 and 2.5.6 &lt;a href="https://github.com/rvm/rvm/pull/4771"&gt;#4771&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Update TruffleRuby dependencies &lt;a href="https://github.com/rvm/rvm/pull/4815"&gt;#4815&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Use ruby.git master instead of trunk &lt;a href="https://github.com/rvm/rvm/pull/4840"&gt;#4840&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix RVM version check when using a version newer than the latest release &lt;a href="https://github.com/rvm/rvm/pull/4872"&gt;#4872&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Changes&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Installer now reports which URL(s) have failed to fetch version information and when version fetching has completely failed &lt;a href="https://github.com/rvm/rvm/pull/4731"&gt;#4731&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Added railsexpress patches for Ruby 2.6.3 &lt;a href="https://github.com/rvm/rvm/pull/4747"&gt;#4747&lt;/a&gt;, 2.6.6, 2.5.6 and 2.4.6 &lt;a href="https://github.com/rvm/rvm/pull/4772"&gt;#4772&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix string corruption bug on railsexpress ruby 2.6.4 &lt;a href="https://github.com/rvm/rvm/pull/4778"&gt;#4778&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix string corruption bug by default for ruby 2.6.4 &lt;a href="https://github.com/rvm/rvm/pull/4780"&gt;#4780&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Added railsexpress patches for Ruby 2.6.5, 2.5.7, 2.4.9 &lt;a href="https://github.com/rvm/rvm/pull/4799"&gt;#4799&lt;/a&gt; and 2.7.0, 2.7-head &lt;a href="https://github.com/rvm/rvm/pull/4839"&gt;#4839&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Install Opal globally  &lt;a href="https://github.com/rvm/rvm/pull/4844"&gt;#4844&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Binaries:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ubuntu 18.04 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 2.4.7, 2.5.6, 2.6.4 &lt;a href="https://github.com/rvm/rvm/issues/4788"&gt;#4788&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.4.9, 2.5.7, 2.6.5 &lt;a href="https://github.com/rvm/rvm/issues/4795"&gt;#4795&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.7.0 &lt;a href="https://github.com/rvm/rvm/issues/4856"&gt;#4856&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
+  <entry>
+    <id>tag:rvm.io,2019-07-10:/blog/2019/07/rvm-1-29-9/</id>
+    <title type="html">RVM 1.29.9 released</title>
+    <published>2019-07-10T19:30:00Z</published>
+    <updated>2019-07-10T19:30:00Z</updated>
+    <link rel="alternate" href="https://rvm.io/blog/2019/07/rvm-1-29-9/"/>
+    <content type="html">&lt;p&gt;RVM 1.29.9 released with few features and bug fixes.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;h2&gt;&lt;a href="https://github.com/rvm/rvm/releases/tag/1.29.9"&gt;1.29.9&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;10 July 2019 - &lt;a href="https://github.com/rvm/rvm/compare/1.29.8...1.29.9"&gt;Full Changelog&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;New features&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use remote .sha512 and .md5 if available (Rubinius) &lt;a href="https://github.com/rvm/rvm/pull/4650"&gt;#4650&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;New interpreters&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add support for TruffleRuby 19.1.0.&lt;/li&gt;
+&lt;li&gt;Add support for TruffleRuby 19.0.0 &lt;a href="https://github.com/rvm/rvm/pull/4689"&gt;#4689&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add support for Rubinius 4.1 &lt;a href="https://github.com/rvm/rvm/pull/4706"&gt;#4706&lt;/a&gt;, 4.2 &lt;a href="https://github.com/rvm/rvm/pull/4714"&gt;#4714&lt;/a&gt;, 4.3 &lt;a href="https://github.com/rvm/rvm/pull/4727"&gt;#4727&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add support for Ruby 2.7.0 Preview 1 &lt;a href="https://github.com/rvm/rvm/pull/4709"&gt;#4709&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add support for Rubygems 2.7.9, 2.7.10, 3.0.3, 3.0.4 &lt;a href="https://github.com/rvm/rvm/pull/4718"&gt;#4718&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Bug fixes&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fix rvm version validation per project &lt;a href="https://github.com/rvm/rvm/pull/4692"&gt;#4692&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix endless loop on macOS when listing remotes &lt;a href="https://github.com/rvm/rvm/pull/4703"&gt;#4703&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Filter redundant/incompatible rvm_gem_options &lt;a href="https://github.com/rvm/rvm/pull/4705"&gt;#4705&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Remove rvm_gems_path as part of __rvm_remove_rvm_from_path &lt;a href="https://github.com/rvm/rvm/pull/4712"&gt;#4712&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix checksum check condition to not try url if already found in config files &lt;a href="https://github.com/rvm/rvm/pull/4707"&gt;#4707&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix checksum check to only try url checksums for Rubinius &lt;a href="https://github.com/rvm/rvm/pull/4717"&gt;#4717&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix &lt;code&gt;sed: illegal option -- r&lt;/code&gt; error on macOS when changing to any ruby directory &lt;a href="https://github.com/rvm/rvm/pull/4711"&gt;#4711&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Don't ignore &lt;code&gt;curl&lt;/code&gt; error on repo tags fetch &lt;a href="https://github.com/rvm/rvm/pull/4722"&gt;#4722&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Use newer llvm on Mint 19.1+ &lt;a href="https://github.com/rvm/rvm/pull/4642"&gt;#4642&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Preserve the environment setting in rvmrc and .rvmrc in multi or mixed mode &lt;a href="https://github.com/rvm/rvm/pull/4612"&gt;#4612&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Changes&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;TruffleRuby is now always considered a "source Ruby" instead of both a source
+and binary Ruby to improve reliability and avoiding code duplication &lt;a href="https://github.com/rvm/rvm/pull/4708"&gt;#4708&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
+  <entry>
+    <id>tag:rvm.io,2019-05-08:/blog/2019/05/rvm-1-29-8/</id>
+    <title type="html">RVM 1.29.8 released</title>
+    <published>2019-05-08T19:30:00Z</published>
+    <updated>2019-05-08T19:30:00Z</updated>
+    <link rel="alternate" href="https://rvm.io/blog/2019/05/rvm-1-29-8/"/>
+    <content type="html">&lt;p&gt;RVM 1.29.8 released with few features and bug fixes.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;h2&gt;&lt;a href="https://github.com/rvm/rvm/releases/tag/1.29.8"&gt;1.29.8&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;8 May 2019 - &lt;a href="https://github.com/rvm/rvm/compare/1.29.7...1.29.8"&gt;Full Changelog&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;New features&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Upgrade RubyGems to version 3.0.2&lt;/li&gt;
+&lt;li&gt;RailsExpress patches for 2.6.1 &lt;a href="https://github.com/rvm/rvm/pull/4603"&gt;#4603&lt;/a&gt;, 2.5.4 and 2.6.2 &lt;a href="https://github.com/rvm/rvm/pull/4637"&gt;#4637&lt;/a&gt;, 2.5.5 &lt;a href="https://github.com/rvm/rvm/pull/4646"&gt;#4646&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add script to automatically register a new TruffleRuby release in RVM &lt;a href="https://github.com/rvm/rvm/pull/4576"&gt;#4576&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add .rvmrc equivalents to install help &lt;a href="https://github.com/rvm/rvm/pull/4652"&gt;#4652&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Copy config.log for debugging if configure fails &lt;a href="https://github.com/rvm/rvm/pull/4651"&gt;#4651&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;New interpreters&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add support for TruffleRuby
+
+&lt;ul&gt;
+&lt;li&gt;1.0.0-rc(11,12,13,14,15,16) &lt;a href="https://github.com/rvm/rvm/pull/4575"&gt;#4575&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Add support for Ruby
+
+&lt;ul&gt;
+&lt;li&gt;2.6.1 &lt;a href="https://github.com/rvm/rvm/pull/4597"&gt;#4597&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;2.6.2 and 2.5.4 &lt;a href="https://github.com/rvm/rvm/pull/4636"&gt;#4636&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;2.6.3 &lt;a href="https://github.com/rvm/rvm/pull/4668"&gt;#4668&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;2.5.5 &lt;a href="https://github.com/rvm/rvm/pull/4640"&gt;#4640&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;2.4.6 &lt;a href="https://github.com/rvm/rvm/pull/4657"&gt;#4657&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Add support for JRuby
+
+&lt;ul&gt;
+&lt;li&gt;9.2.6.0 &lt;a href="https://github.com/rvm/rvm/pull/4614"&gt;#4614&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;9.2.7.0 &lt;a href="https://github.com/rvm/rvm/pull/4664"&gt;#4664&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Add support for Rubinius
+
+&lt;ul&gt;
+&lt;li&gt;3.107 &lt;a href="https://github.com/rvm/rvm/pull/4649"&gt;#4649&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;4.0 &lt;a href="https://github.com/rvm/rvm/pull/4688"&gt;#4688&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Add support for mruby 2.0.1 &lt;a href="https://github.com/rvm/rvm/pull/4667"&gt;#4667&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Bug fixes&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add system ruby as dependency for CentOS &lt;a href="https://github.com/rvm/rvm/pull/4567"&gt;#4567&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Improve detection of Amazon Linux 2 &lt;a href="https://github.com/rvm/rvm/pull/4568"&gt;#4568&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix macOS openssl requirement gathering with Homebrew &lt;a href="https://github.com/rvm/rvm/pull/4583"&gt;#4583&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Don't spoil environment with '&lt;em&gt;system&lt;/em&gt;*' variables &lt;a href="https://github.com/rvm/rvm/pull/4584"&gt;#4584&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add missing zlib dependency for macOS &lt;a href="https://github.com/rvm/rvm/pull/4587"&gt;#4587&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Install libssl1.0-dev for version 1.8 of Ruby on Ubuntu linux &lt;a href="https://github.com/rvm/rvm/pull/4586"&gt;#4586&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Require os-specific functions during install only when they exist &lt;a href="https://github.com/rvm/rvm/pull/4589"&gt;#4589&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix loading rvm script with set -e &lt;a href="https://github.com/rvm/rvm/pull/4606"&gt;#4606&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix installing Homebrew in a custom location &lt;a href="https://github.com/rvm/rvm/pull/4620"&gt;#4620&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Update rbx dependencies for macOS &lt;a href="https://github.com/rvm/rvm/pull/4643"&gt;#4643&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix version selected for TruffleRuby binary install &lt;a href="https://github.com/rvm/rvm/pull/4662"&gt;#4662&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Remove hardcoded number of jobs in installer &lt;a href="https://github.com/rvm/rvm/pull/4674"&gt;#4674&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Updated obsoleted package openssl-devel to libssl-devel cygwin requirements &lt;a href="https://github.com/rvm/rvm/pull/4685"&gt;#4685&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4&gt;Binaries:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ubuntu 18.04 x64 binaries
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 2.2.10, 2.3.8, 2.4.5, 2.5.2, 2.5.3, 2.6.0 &lt;a href="https://github.com/rvm/rvm/issues/4595"&gt;#4595&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.6.1 &lt;a href="https://github.com/rvm/rvm/issues/4601"&gt;#4601&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.5.4, 2.5.5, 2.6.2 &lt;a href="https://github.com/rvm/rvm/issues/4647"&gt;#4647&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ruby 2.4.6 and 2.6.3 &lt;a href="https://github.com/rvm/rvm/issues/4686"&gt;#4686&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
+</feed>

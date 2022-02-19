@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://rvm.io/</id>
+  <title>RVM blog author havenwood</title>
+  <updated>2016-03-28T05:00:00Z</updated>
+  <link rel="alternate" href="https://rvm.io/"/>
+  <link rel="self" href="https://rvm.io/authors/havenwood/feed.xml"/>
+  <author>
+    <name>Shannon Skipper</name>
+    <uri>https://rvm.io</uri>
+  </author>
+  <entry>
+    <id>tag:rvm.io,2016-03-27:/blog/2016/03/rvm-1-27-0/</id>
+    <title type="html">RVM 1.27.0 released</title>
+    <published>2016-03-28T05:00:00Z</published>
+    <updated>2016-03-28T05:00:00Z</updated>
+    <link rel="alternate" href="https://rvm.io/blog/2016/03/rvm-1-27-0/"/>
+    <content type="html">&lt;p&gt;RVM 1.27.0 released with new rubies and binaries, fixes and a new code of conduct.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;h2&gt;1.27.0&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3364"&gt;RVM#3364 Add some missing ${}s to install scripts&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3373"&gt;RVM#3373 Add fix_installing_bundled_gems patch for Ruby 2.2.2&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3374"&gt;RVM#3374 Backport CVE-2015-1833 to Ruby 1.9.3-p484+&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3379"&gt;RVM#3379 Introduced a Code of Conduct adapted from the &lt;a href="http://contributor-covenant.org"&gt;Contributor Covenant&lt;/a&gt;&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3391"&gt;RVM#3391 Update to the latest gem-empty version&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3396"&gt;RVM#3396 Automatically set the login shell option for gnome-terminal&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3402"&gt;RVM#3402 Add forcing 3.5 version of both clang and llvm in Archlinux&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3445"&gt;RVM#3445 Add railsexpress heap dump support and backported fixes for 2.2.2&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3452"&gt;RVM#3452 Update to new cygwin package names for mingw64-gcc&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3459"&gt;RVM#3459 Fix Solaris arch detection on multi-arch systems&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3468"&gt;RVM#3468 Switch to container-based TravisCI builds&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3481"&gt;RVM#3481 Fix a parser regression bug in railsexpress 2.2.2&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3484"&gt;RVM#3484 Add detection for Oracle Linux&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3488"&gt;RVM#3488 Add support for Devuan&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3491"&gt;RVM#3491 Support multiple NTP daemons for Arch Linux&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3502"&gt;RVM#3502 Use JRuby's mvnw wrapper to build JRuby 9k+&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3506"&gt;RVM#3506 Fix the JDK package name on FreeBSD&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3536"&gt;RVM#3536 Add float_warnings patchsets for ruby 2.1.[67] and 2.2.[0123]&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3550"&gt;RVM#3550 Detect an absence of grep&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3569"&gt;RVM#3569 Add asdf version manager to list of alternative version managers&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3570"&gt;RVM#3570 Include llvm-dev package as a pre-req when installing rbx-head&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3587"&gt;RVM#3587 Update Fink dependency to automake1.14 since 1.13 is no longer available&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3615"&gt;RVM#3615 Select an appropriate dependency fallback version for installation&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3619"&gt;RVM#3619 Remove requirement to build against OpenSSL 0.9.8 on OS X using Homebrew&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3627"&gt;RVM#3627 Fix bug with bash sessions on OSX 10.11+&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3628"&gt;RVM#3628 Support ~/.bash_sessions_disable&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3635"&gt;RVM#3635 Verify GPG signature during Travis CI build&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3642"&gt;RVM#3642 Patch for absence of SSLv3&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3647"&gt;RVM#3647 Reorder PROMPT_COMMAND hook to prevent error on Mac OS&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;new railsexpress patches&lt;/li&gt;
+&lt;li&gt;new OS X CRuby binaries for ruby-2.0.0-p645, ruby-2.0.0-p647, ruby-2.1.6, ruby-2.1.7, ruby-2.2.2, ruby-2.2.3&lt;/li&gt;
+&lt;li&gt;new Rubies: many versions of rbx, mruby-1.2.0, jruby-1.7.20, jruby-1.7.21, jruby-1.7.22, jruby-1.7.23, jruby-1.7.24, jruby-9.0.0.0, jruby-9.0.1.0, jruby-9.0.3.0, jruby-9.0.4.0, jruby-9.0.5.0, ruby-2.0.0-p645, ruby-2.0.0-p647, ruby-2.0.0-p648, ruby-2.1.6, ruby-2.1.7, ruby-2.1.8, ruby-2.2.2, ruby-2.2.3, ruby-2.2.4 and ruby-2.3.0.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;here're all the changes:
+&lt;a href="https://github.com/rvm/rvm/compare/1.26.11...1.27.0"&gt;https://github.com/rvm/rvm/compare/1.26.11...1.27.0&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <id>tag:rvm.io,2015-03-31:/blog/2015/03/rvm-1-26-11/</id>
+    <title type="html">RVM 1.26.11 released</title>
+    <published>2015-03-31T17:00:00Z</published>
+    <updated>2015-03-31T17:00:00Z</updated>
+    <link rel="alternate" href="https://rvm.io/blog/2015/03/rvm-1-26-11/"/>
+    <content type="html">&lt;p&gt;RVM 1.26.11 released with new rubies, new binaries available by CDN and fixes.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+
+&lt;h2&gt;1.26.11&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3295"&gt;RVM#3295 Update supported MRI versions in help &amp;amp; man&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3305"&gt;RVM#3305 Use the right libdb on SLES 12&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3306"&gt;RVM#3306 Ignore ~/.rvmrc and /etc/rvmrc when --path is specified&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3307"&gt;RVM#3307 Better support rbx under FreeBSD 10&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3308"&gt;RVM#3308 Add libedit-dev requirement for Ubuntu&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3313"&gt;RVM#3313 Machine readable requirements&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3338"&gt;RVM#3338 Use the CDN for binaries. Related to rvm/rvm-site-setup#1&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3340"&gt;RVM#3340 Fix trap behavior&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3341"&gt;RVM#3341 Railsexpress patches for ruby 2.2.1&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3350"&gt;RVM#3350 Bump GCC version from 4.8 to 4.9 for OS X 10.10+&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3355"&gt;RVM#3355 Add fix_installing_bundled_gems.patch for Ruby 2.2.1&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3260"&gt;RVM#3260 Add llvm-dev to rbx requirements&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="https://github.com/rvm/rvm/issues/3362"&gt;RVM#3362 Add -lz to ruby build flags&lt;/li&gt;&lt;/a&gt;
+&lt;li&gt;introduce --list-all-packages and --list-missing-packages&lt;/li&gt;
+&lt;li&gt;do not force users to use bundler&lt;/li&gt;
+&lt;li&gt;new ruby binaries for ruby-2.0.0-p643, ruby-2.2.0, ruby-2.2.1 and additional versions on various platforms&lt;/li&gt;
+&lt;li&gt;new rubies: rbx-1.4.3, ruby-2.0.0-p643, ruby-2.2.1&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;here're all the changes:
+&lt;a href="https://github.com/rvm/rvm/compare/1.26.10...1.26.11"&gt;https://github.com/rvm/rvm/compare/1.26.10...1.26.11&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+</feed>
