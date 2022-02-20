@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <id>https://aevyz.github.io/rvm-site/</id>
+  <id>https://rvm.io/</id>
   <title>RVM blog tag releases</title>
   <updated>2021-01-15T19:55:00Z</updated>
-  <link rel="alternate" href="https://aevyz.github.io/rvm-site/"/>
-  <link rel="self" href="https://aevyz.github.io/rvm-site/tags/releases/feed.xml"/>
+  <link rel="alternate" href="https://rvm.io/"/>
+  <link rel="self" href="https://rvm.io/tags/releases/feed.xml"/>
   <author>
     <name>Michal Papis</name>
     <uri>https://rvm.io</uri>
   </author>
   <entry>
-    <id>tag:aevyz.github.io,2021-01-15:/rvm-site/blog/2021/01/rvm-1-29-12/</id>
+    <id>tag:rvm.io,2021-01-15:/blog/2021/01/rvm-1-29-12/</id>
     <title type="html">RVM 1.29.12 released</title>
     <published>2021-01-15T19:55:00Z</published>
     <updated>2021-01-15T19:55:00Z</updated>
-    <link rel="alternate" href="https://aevyz.github.io/rvm-site/blog/2021/01/rvm-1-29-12/"/>
+    <link rel="alternate" href="https://rvm.io/blog/2021/01/rvm-1-29-12/"/>
     <content type="html">&lt;p&gt;RVM 1.29.12 released with few bug fixes.&lt;/p&gt;
 
 &lt;!-- more --&gt;
@@ -60,11 +60,11 @@
 </content>
   </entry>
   <entry>
-    <id>tag:aevyz.github.io,2020-12-29:/rvm-site/blog/2020/12/rvm-1-29-11/</id>
+    <id>tag:rvm.io,2020-12-29:/blog/2020/12/rvm-1-29-11/</id>
     <title type="html">RVM 1.29.11 released</title>
     <published>2020-12-29T14:30:00Z</published>
     <updated>2020-12-29T14:30:00Z</updated>
-    <link rel="alternate" href="https://aevyz.github.io/rvm-site/blog/2020/12/rvm-1-29-11/"/>
+    <link rel="alternate" href="https://rvm.io/blog/2020/12/rvm-1-29-11/"/>
     <content type="html">&lt;p&gt;RVM 1.29.11 released with few features and bug fixes.&lt;/p&gt;
 
 &lt;!-- more --&gt;
@@ -258,11 +258,11 @@
 </content>
   </entry>
   <entry>
-    <id>tag:aevyz.github.io,2020-03-25:/rvm-site/blog/2020/03/rvm-1-29-10/</id>
+    <id>tag:rvm.io,2020-03-25:/blog/2020/03/rvm-1-29-10/</id>
     <title type="html">RVM 1.29.10 released</title>
     <published>2020-03-25T23:00:00Z</published>
     <updated>2020-03-25T23:00:00Z</updated>
-    <link rel="alternate" href="https://aevyz.github.io/rvm-site/blog/2020/03/rvm-1-29-10/"/>
+    <link rel="alternate" href="https://rvm.io/blog/2020/03/rvm-1-29-10/"/>
     <content type="html">&lt;p&gt;RVM 1.29.10 released with few features and bug fixes.&lt;/p&gt;
 
 &lt;!-- more --&gt;
@@ -341,11 +341,11 @@
 </content>
   </entry>
   <entry>
-    <id>tag:aevyz.github.io,2019-07-10:/rvm-site/blog/2019/07/rvm-1-29-9/</id>
+    <id>tag:rvm.io,2019-07-10:/blog/2019/07/rvm-1-29-9/</id>
     <title type="html">RVM 1.29.9 released</title>
     <published>2019-07-10T19:30:00Z</published>
     <updated>2019-07-10T19:30:00Z</updated>
-    <link rel="alternate" href="https://aevyz.github.io/rvm-site/blog/2019/07/rvm-1-29-9/"/>
+    <link rel="alternate" href="https://rvm.io/blog/2019/07/rvm-1-29-9/"/>
     <content type="html">&lt;p&gt;RVM 1.29.9 released with few features and bug fixes.&lt;/p&gt;
 
 &lt;!-- more --&gt;
@@ -399,11 +399,11 @@ and binary Ruby to improve reliability and avoiding code duplication &lt;a href=
 </content>
   </entry>
   <entry>
-    <id>tag:aevyz.github.io,2019-05-08:/rvm-site/blog/2019/05/rvm-1-29-8/</id>
+    <id>tag:rvm.io,2019-05-08:/blog/2019/05/rvm-1-29-8/</id>
     <title type="html">RVM 1.29.8 released</title>
     <published>2019-05-08T19:30:00Z</published>
     <updated>2019-05-08T19:30:00Z</updated>
-    <link rel="alternate" href="https://aevyz.github.io/rvm-site/blog/2019/05/rvm-1-29-8/"/>
+    <link rel="alternate" href="https://rvm.io/blog/2019/05/rvm-1-29-8/"/>
     <content type="html">&lt;p&gt;RVM 1.29.8 released with few features and bug fixes.&lt;/p&gt;
 
 &lt;!-- more --&gt;
