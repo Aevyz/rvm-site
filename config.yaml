@@ -1,7 +1,8 @@
 ---
+
 output_dir: public
 data_sources:
 - type: filesystem_unified
   items_root: /
   layouts_root: /
-base_url: https://aevyz.github.io/rvm-site
+base_url: https://rvm.io
